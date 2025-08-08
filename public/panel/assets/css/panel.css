@@ -1,0 +1,16 @@
+table.dataTable.table-bordered > thead > tr > th,
+table.dataTable.table-bordered > tbody > tr > td {
+    border-right: 1px solid #dee2e6 !important;
+    border-left: 1px solid #dee2e6 !important;
+}
+
+table.dataTable.table-bordered > tbody > tr {
+    border-top: 1px solid #dee2e6 !important;
+}
+
+/* FixedColumns için de çizgileri sabitle */
+.dtfc-fixed-left,
+.dtfc-fixed-right {
+    background-color: #fff;
+    border-right: 1px solid #dee2e6;
+}

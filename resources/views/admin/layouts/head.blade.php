@@ -48,4 +48,9 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 
     <script src="/panel/assets/js/config.js"></script>
+    <link  href="/panel/assets/css/cropper.min.css" rel="stylesheet">
+    <link  href="/panel/assets/css/panel.css" rel="stylesheet">
+    <link rel="stylesheet" href="/panel/assets/vendor/libs/notyf/notyf.css" />
+    <link rel="stylesheet" href="/panel/assets/vendor/libs/sweetalert2/sweetalert2.css" />
+    @stack('css')
 </head>

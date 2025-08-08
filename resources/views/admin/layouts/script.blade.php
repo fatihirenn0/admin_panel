@@ -23,7 +23,14 @@
 <!-- Vendors JS -->
 
 <!-- Main JS -->
-
+<script src="/panel/assets/vendor/libs/notyf/notyf.js"></script>
+<script src="/panel/assets/js/ui-toasts.js"></script>
 <script src="/panel/assets/js/main.js"></script>
-
-<!-- Page JS -->
+<script src="/panel/assets/js/cropper.min.js"></script>
+<script src="/panel/assets/vendor/libs/sweetalert2/sweetalert2.js"></script>
+<script src="/panel/assets/js/panel.js"></script>
+<script>
+    window.laravelSuccessMessage = @json(session('success'));
+    window.laravelErrorMessage = @json(session('error'));
+</script>
+@stack('js')

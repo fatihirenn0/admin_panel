@@ -18,7 +18,7 @@
                     href="javascript:void(0);"
                     data-bs-toggle="dropdown">
                     <i class="icon-base ti tabler-sun icon-md theme-icon-active"></i>
-                    <span class="d-none ms-2" id="nav-theme-text">Toggle theme</span>
+                    <span class="d-none ms-2" id="nav-theme-text">{{ __('Temayı Değiştir') }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="nav-theme-text">
                     <li>
@@ -27,7 +27,7 @@
                             class="dropdown-item align-items-center active"
                             data-bs-theme-value="light"
                             aria-pressed="false">
-                            <span><i class="icon-base ti tabler-sun icon-md me-3" data-icon="sun"></i>Light</span>
+                            <span><i class="icon-base ti tabler-sun icon-md me-3" data-icon="sun"></i>{{__('Aydınlık')}}</span>
                         </button>
                     </li>
                     <li>
@@ -37,7 +37,7 @@
                             data-bs-theme-value="dark"
                             aria-pressed="true">
                         <span
-                        ><i class="icon-base ti tabler-moon-stars icon-md me-3" data-icon="moon-stars"></i>Dark</span
+                        ><i class="icon-base ti tabler-moon-stars icon-md me-3" data-icon="moon-stars"></i>{{__('Karanlık')}}</span
                         >
                         </button>
                     </li>
@@ -51,14 +51,17 @@
                         ><i
                                 class="icon-base ti tabler-device-desktop-analytics icon-md me-3"
                                 data-icon="device-desktop-analytics"></i
-                            >System</span
+                            >{{ __('Cihaz Tercihi') }}</span
                         >
                         </button>
                     </li>
                 </ul>
             </div>
-        </div>
 
+        </div>
+        <div class="mx-3">
+            <a href="{{ route('admin.index') }}">Ana Sayfa</a> > <a>@yield('title')</a>
+        </div>
         <ul class="navbar-nav flex-row align-items-center ms-md-auto">
             <!-- User -->
             <li class="nav-item navbar-dropdown dropdown-user dropdown">

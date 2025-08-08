@@ -45,16 +45,28 @@
     <ul class="menu-inner py-1">
         <!-- Page -->
         <li class="menu-item active">
-            <a href="index.html" class="menu-link">
+            <a href="{{ route('admin.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-smart-home"></i>
-                <div data-i18n="Page 1">Page 1</div>
+                <div data-i18n="{{ __('Ana Sayfa') }}">{{ __('Ana Sayfa') }}</div>
             </a>
         </li>
         <li class="menu-item">
-            <a href="page-2.html" class="menu-link">
-                <i class="menu-icon icon-base ti tabler-app-window"></i>
-                <div data-i18n="Page 2">Page 2</div>
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-book"></i>
+                <div data-i18n="Academy">{{ __('Blog Kategori') }}</div>
             </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.blog-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Blog Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.blog-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Blog Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
         </li>
     </ul>
 </aside>
