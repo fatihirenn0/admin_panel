@@ -78,7 +78,8 @@
                                                 'name'=>"image[{$locale->locale}]",
                                                 'cropWidth' => 1200,
                                                 'cropHeight' => 800,
-                                                'value' => '/storage/'.$blogCategory->getTranslation('image',$locale->locale)
+                                                'value' => '/storage/'.$blogCategory->getTranslation('image',$locale->locale),
+                                                'loopIndex' => $loop->index
                                             ])
                                         </div>
                                     </div>

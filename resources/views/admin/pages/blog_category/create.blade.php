@@ -73,7 +73,8 @@
                                                 'title'=>__('Kapak Resmi') . " ({$locale->language})",
                                                 'name'=>"image[{$locale->locale}]",
                                                 'cropWidth' => 1200,
-                                                'cropHeight' => 800
+                                                'cropHeight' => 800,
+                                                'loopIndex' => $loop->index
                                             ])
                                         </div>
                                     </div>

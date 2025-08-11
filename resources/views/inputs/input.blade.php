@@ -7,13 +7,13 @@
     <input
         type="{{ $type ?? 'text' }}"
         class="form-control {{ $class ?? '' }} @if(!empty($oldKey)) @error($oldKey) is-invalid @enderror @endif"
-        id="{{ $id ?? $name ?? '' }}"
+        id="{{ $id ?? '' }}"
         name="{{ $name ?? '' }}"
         placeholder="{{ $placeholder ?? '' }}"
         value="{{ old($oldKey, $value ?? '') }}"
         {{ isset($required) && $required === true ? 'required' : '' }}
     >
-    <label for="{{ $id ?? $name ?? '' }}">{{ $title ?? '' }}</label>
+    <label for="{{ $id ?? '' }}">{{ $title ?? '' }}</label>
     @if(!empty($oldKey))
         @error($oldKey)
         <div class="invalid-feedback">{{ $message }}</div>

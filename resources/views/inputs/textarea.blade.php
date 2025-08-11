@@ -10,6 +10,7 @@
               name="{{ $name ?? '' }}"
               placeholder="{{ $placeholder ?? '' }}"
           {{ isset($required) && $required === true ? 'required' : '' }}
+        rows="{{ $rows ?? '' }}"
     >{!! old($oldKey, $value ?? '') !!}</textarea>
 
     @if(!empty($oldKey))

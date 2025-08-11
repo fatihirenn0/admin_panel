@@ -20,3 +20,34 @@
         @enderror
     @endif
 </div>
+
+
+@if($loopIndex == 0)
+    @push('css')
+        <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />
+    @endpush
+    @push('js')
+        <script src="/panel/assets/js/dropify.min.js"></script>
+        <script>
+            $('.dropify').dropify({
+                messages: {
+                    'default': '{{__('Dosya Sürükle veya Tıkla')}}',
+                    'replace': '{{ __('Dosya Sürükle veya Tıkla') }}',
+                    'remove':  '{{ __('Kaldır') }}',
+                    'error':   '{{ __('Bir Hata Ortaya Çıktı') }}'
+                }
+            }).on('dropify.afterClear', function(event, element) {
+                // Mevcut resim varsa deleted_images[] olarak ekle
+                var deletedImagePath = $(this).data('default-file').replace('/storage/','');
+                if (deletedImagePath) {
+                    $('<input>').attr({
+                        type: 'hidden',
+                        name: 'deleted_images[]',
+                        value: deletedImagePath
+                    }).appendTo('form');
+                }
+            });
+
+        </script>
+    @endpush
+@endif

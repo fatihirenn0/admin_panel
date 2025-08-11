@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\BlogCategory\AnnouncementStoreRequest;
+use App\Http\Requests\BlogCategory\AnnouncementUpdateRequest;
 use App\Http\Requests\BlogCategory\BlogCategoryStoreRequest;
 use App\Http\Requests\BlogCategory\BlogCategoryUpdateRequest;
 use App\Models\BlogCategory;
@@ -33,7 +35,7 @@ class BlogCategoryController extends Controller
         // 🔢 Sıralama
         $orderColumnIndex = $request->input('order.0.column');
         $orderDirection = $request->input('order.0.dir', 'asc');
-        $orderColumnName = $request->input("columns.$orderColumnIndex.data", 'name');
+        $orderColumnName = $request->input("columns.$orderColumnIndex.data", 'id');
 
         $query->orderBy($orderColumnName, $orderDirection);
 
@@ -52,6 +54,7 @@ class BlogCategoryController extends Controller
             $deleteUrl = route('admin.blog-categories.destroy', $item->id);
 
             return [
+                'id' => $item->id,
                 'image' => !empty($item->image) ? '<img src="/storage/' . $item->image . '" height="60"/>' : __('Eklenmedi'),
                 'name' => $item->name,
                 'rank' => $item->rank ?? '',

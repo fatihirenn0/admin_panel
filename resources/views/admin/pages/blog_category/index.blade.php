@@ -15,6 +15,7 @@
                 <table class="datatables-ajax table table-bordered">
                     <thead>
                     <tr>
+                        <th>{{ __('ID') }}</th>
                         <th>{{ __('Görsel') }}</th>
                         <th>{{ __('Blog Kategori Adı') }}</th>
                         <th>{{ __('Gösterim Sırası') }}</th>
@@ -41,6 +42,7 @@
                 dataSrc: 'data'
             },
             columns: [
+                { data: 'id', orderable: true, searchable: true },
                 { data: 'image', orderable: false, searchable: false },
                 { data: 'name', orderable: true, searchable: true },
                 { data: 'rank', orderable: true, searchable: false },
@@ -89,7 +91,7 @@
                     sortDescending: ": {{ __('azalan sütun sıralamasını aktifleştir') }}"
                 }
             },
-            scrollY: 300,
+
             scrollX: true,
             scrollCollapse: true,
             fixedColumns: {

@@ -68,6 +68,42 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-file-text"></i>
+                <div data-i18n="Academy">{{ __('Blog') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.blogs.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Blog Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.blogs.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Blog Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-bell"></i>
+                <div data-i18n="Academy">{{ __('Duyuru') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.announcements.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Duyuru Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.announcements.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Duyuru Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
     </ul>
 </aside>
 
