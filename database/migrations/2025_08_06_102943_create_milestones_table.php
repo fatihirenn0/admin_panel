@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->unsignedInteger('rank')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -140,15 +140,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-function checkBeforeDelete(id){
+function checkBeforeDelete(id,hasMore){
     const form = document.querySelector('.delete-item-form[data-id="' + id + '"]');
 
     Swal.fire({
         title: 'Emin misiniz?',
-        text: "Bu işlem geri alınamaz!",
+        text: "Geri dönüşüm kutusuna taşınacaktır!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: 'Evet, Sil!',
+        confirmButtonText: 'Evet!',
         cancelButtonText: 'İptal',
         customClass: {
             confirmButton: 'btn btn-primary',
@@ -157,7 +157,27 @@ function checkBeforeDelete(id){
         buttonsStyling: false
     }).then(function (result) {
         if (result.isConfirmed) {
-            form.submit();
+            if (hasMore){
+                Swal.fire({
+                    title: 'Bağlı alt elemanlar var',
+                    text: "Bu elemanlar ile birlikte çöp kutusuna taşınacaktır. Emin misiniz?",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Evet!',
+                    cancelButtonText: 'İptal',
+                    customClass: {
+                        confirmButton: 'btn btn-primary',
+                        cancelButton: 'btn btn-label-secondary'
+                    },
+                    buttonsStyling: false
+                }).then(function (result) {
+                    if (result.isConfirmed) {
+                        form.submit();
+                    }
+                });
+            }else{
+                form.submit();
+            }
         }
     });
 }

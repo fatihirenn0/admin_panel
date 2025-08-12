@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
 class Blog extends Model
 {
-    use HasTranslations;
+    use HasTranslations, SoftDeletes;
 
     public array $translatable = ['name','slug','description','image','tags','meta_description','meta_keywords'];
 

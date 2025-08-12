@@ -104,7 +104,303 @@
                 </li>
             </ul>
         </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-library"></i>
+                <div data-i18n="Academy">{{ __('Katalog Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.catalog-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Katalog Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.catalog-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Katalog Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-message-2-question "></i>
+                <div data-i18n="Academy">{{ __('Soru Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.faq-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Soru Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.faq-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Soru Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-help-hexagon"></i>
+                <div data-i18n="Academy">{{ __('Soru Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.faqs.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Soru Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.faqs.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Soru Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-news"></i>
+                <div data-i18n="Academy">{{ __('Haber Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.news-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Haber Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.news-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Haber Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-photo"></i>
+                <div data-i18n="Academy">{{ __('Fotoğraf Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.photo-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Fotoğraf Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.photo-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Fotoğraf Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-camera"></i>
+                <div data-i18n="Academy">{{ __('Fotoğraf Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.photos.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Fotoğraf Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.photos.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Fotoğraf Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-video"></i>
+                <div data-i18n="Academy">{{ __('Video Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.video-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Video Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.video-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Video Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-package"></i>
+                <div data-i18n="Academy">{{ __('Ürün Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.product-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Ürün Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.product-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Ürün Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-file-text"></i>
+                <div data-i18n="Academy">{{ __('Proje Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.project-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Proje Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.project-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Proje Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-briefcase"></i>
+                <div data-i18n="Academy">{{ __('Hizmet Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.service-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Hizmet Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.service-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Hizmet Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-users"></i>
+                <div data-i18n="Academy">{{ __('Ekip Kategori') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.team-categories.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Ekip Kategori Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.team-categories.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Ekip Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-address-book"></i>
+                <div data-i18n="Academy">{{ __('İletişim Kişileri') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.contact-people.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('İletişim Kişiler Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.contact-people.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('İletişim Kişi Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-folders"></i>
+                <div data-i18n="Academy">{{ __('Dosya Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.files.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Dosya Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.files.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Dosya Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-message"></i>
+                <div data-i18n="Academy">{{ __('Müşteri Yorumları') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.customer-comments.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Müşteri Yorum Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.customer-comments.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Müşteri Yorum Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-calendar-time"></i>
+                <div data-i18n="Academy">{{ __('Tarihçe Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.milestones.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Tarihçe Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.milestones.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Tarihçe Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('admin.applications.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-calendar-check"></i>
+                <div data-i18n="Academy">{{ __('Başvurular') }}</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('admin.contact-messages.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-message"></i>
+                <div data-i18n="Academy">{{ __('İletişim Mesajları') }}</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('admin.newsletters.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-mail"></i>
+                <div data-i18n="Academy">{{ __('Bülten') }}</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('admin.locales.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-language-hiragana"></i>
+                <div data-i18n="Academy">{{ __('Dil Düzenle') }}</div>
+            </a>
+        </li>
+
     </ul>
+
 </aside>
 
 <div class="menu-mobile-toggler d-xl-none rounded-1">
