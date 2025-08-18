@@ -34,6 +34,11 @@ Route::prefix('admin')->as('admin.')->group(function () {
         'newsletters' => \App\Http\Controllers\Admin\NewsletterController::class,
         'milestones' => \App\Http\Controllers\Admin\MilestoneController::class,
         'photos' => \App\Http\Controllers\Admin\PhotoController::class,
+        'catalogs' => \App\Http\Controllers\Admin\CatalogController::class,
+        'videos' => \App\Http\Controllers\Admin\VideoController::class,
+        'teams' => \App\Http\Controllers\Admin\TeamController::class,
+        'references' => \App\Http\Controllers\Admin\ReferenceController::class,
+        'settings' => \App\Http\Controllers\Admin\SettingController::class,
     ]);
 
     Route::prefix('ajax')->as('ajax.')->group(function () {
@@ -59,5 +64,10 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::post('newsletters', [\App\Http\Controllers\Admin\NewsletterController::class, 'ajax'])->name('newsletters');
         Route::post('milestones', [\App\Http\Controllers\Admin\MilestoneController::class, 'ajax'])->name('milestones');
         Route::post('photos', [\App\Http\Controllers\Admin\PhotoController::class, 'ajax'])->name('photos');
+        Route::post('catalogs', [\App\Http\Controllers\Admin\CatalogController::class, 'ajax'])->name('catalogs');
+        Route::post('videos', [\App\Http\Controllers\Admin\VideoController::class, 'ajax'])->name('videos');
+        Route::post('teams', [\App\Http\Controllers\Admin\TeamController::class, 'ajax'])->name('teams');
+        Route::post('references', [\App\Http\Controllers\Admin\ReferenceController::class, 'ajax'])->name('references');
+        Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'ajax'])->name('settings');
     });
 });

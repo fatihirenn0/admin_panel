@@ -1,5 +1,5 @@
 @extends('admin.pages.build')
-@section('title',__('Blog Kategori Ekle'))
+@section('title',__('Blog Ekle'))
 @push('css')
 
 @endpush

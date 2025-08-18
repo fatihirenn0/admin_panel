@@ -1,5 +1,5 @@
 @extends('admin.pages.build')
-@section('title',__('Fotoğraflar'))
+@section('title',__('Referanslar'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="/panel/assets/vendor/libs/datatables-fixedcolumns-bs5/fixedcolumns.bootstrap5.css" />
@@ -9,16 +9,15 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <h5 class="card-header pb-0 text-end">
-                <a href="{{ route('admin.photos.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+                <a href="{{ route('admin.references.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
             </h5>
             <div class="card-datatable text-nowrap">
                 <table class="datatables-ajax table table-bordered">
                     <thead>
                     <tr>
                         <th>{{ __('ID') }}</th>
+                        <th>{{ __('Referans Adı') }}</th>
                         <th>{{ __('Görsel') }}</th>
-                        <th>{{ __('Kategori') }}</th>
-                        <th>{{ __('Fotoğraf Adı') }}</th>
                         <th>{{ __('Gösterim Sırası') }}</th>
                         <th>{{ __('İşlemler') }}</th>
                     </tr>
@@ -35,7 +34,7 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: '{{ route('admin.ajax.photos') }}',
+                url: '{{ route('admin.ajax.references') }}',
                 type: 'POST', // 🔸 POST olarak ayarlandı
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}' // 🔸 CSRF token ekleniyor
@@ -44,9 +43,8 @@
             },
             columns: [
                 { data: 'id', orderable: true, searchable: true },
-                { data: 'image', orderable: false, searchable: false },
-                { data: 'photo_category_id', orderable: false, searchable: true },
                 { data: 'name', orderable: true, searchable: true },
+                { data: 'image', orderable: false, searchable: false },
                 { data: 'rank', orderable: true, searchable: false },
                 { data: 'actions', orderable: false, searchable: false },
             ],

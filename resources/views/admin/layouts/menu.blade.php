@@ -124,6 +124,24 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-file-text"></i>
+                <div data-i18n="Academy">{{ __('Katalog Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.catalogs.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Katalog Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.catalogs.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Katalog Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-message-2-question "></i>
                 <div data-i18n="Academy">{{ __('Soru Kategori') }}</div>
             </a>
@@ -214,7 +232,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-video"></i>
+                <i class="menu-icon icon-base ti tabler-device-tv-old"></i>
                 <div data-i18n="Academy">{{ __('Video Kategori') }}</div>
             </a>
             <ul class="menu-sub">
@@ -226,6 +244,24 @@
                 <li class="menu-item">
                     <a href="{{ route('admin.video-categories.create') }}" class="menu-link">
                         <div data-i18n="My Course">{{ __('Video Kategori Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-video"></i>
+                <div data-i18n="Academy">{{ __('Video Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.videos.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Video Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.videos.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Video Ekle') }}</div>
                     </a>
                 </li>
             </ul>
@@ -304,6 +340,24 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-user-plus"></i>
+                <div data-i18n="Academy">{{ __('Ekip Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.teams.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Ekip Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.teams.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Ekip Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-address-book"></i>
                 <div data-i18n="Academy">{{ __('İletişim Kişileri') }}</div>
             </a>
@@ -375,6 +429,24 @@
             </ul>
         </li>
         <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-mood-check"></i>
+                <div data-i18n="Academy">{{ __('Referans Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.references.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Referans Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.references.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Referans Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
             <a href="{{ route('admin.applications.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-calendar-check"></i>
                 <div data-i18n="Academy">{{ __('Başvurular') }}</div>
@@ -398,7 +470,12 @@
                 <div data-i18n="Academy">{{ __('Dil Düzenle') }}</div>
             </a>
         </li>
-
+        <li class="menu-item">
+            <a href="{{ route('admin.settings.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-settings"></i>
+                <div data-i18n="Academy">{{ __('Ayarlar') }}</div>
+            </a>
+        </li>
     </ul>
 
 </aside>
