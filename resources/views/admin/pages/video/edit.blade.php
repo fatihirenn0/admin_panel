@@ -18,7 +18,8 @@
                                             'options' =>['' => 'Kategori Seçilmedi'] + $videoCategories->pluck('name', 'id')->toArray() ,
                                             'title' => __('Kategoriler'),
                                             'name' => 'video_category_id',
-                                            'loopIndex' => 0
+                                            'loopIndex' => 0,
+                                            'selected' => $videoVideoCategories
                                         ])
                                     </div>
                                 @include('inputs.input',[
@@ -37,7 +38,7 @@
                                 </div>
                             <div class="col-md-12 mt-2">
                                 @include('inputs.file',[
-                                    'title'=>__('Resim'),
+                                    'title'=>__('Video'),
                                     'name' =>'video_url',
                                     'value' => '/storage/'.$video->video_url,
                                     'loopIndex' => 0

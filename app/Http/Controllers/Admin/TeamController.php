@@ -3,9 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Team\TeamStoreRequest;
+use App\Http\Requests\Team\TeamUpdateRequest;
 use App\Http\Requests\TeamCategory\TeamCategoryStoreRequest;
 use App\Models\Locale;
 use App\Models\Team;
+use App\Models\TeamCategory;
+use App\Models\TeamTeamCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -89,35 +93,22 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.team.create');
+        $teamCategories = TeamCategory::all();
+        return view('admin.pages.team.create',compact('teamCategories'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TeamCategoryStoreRequest $request): \Illuminate\Http\RedirectResponse
+    public function store(TeamStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
         $validated = $request->validated();
 
         $locales = Locale::all();
-        $slugs = [];
         $images = [];
 
         foreach ($locales as $locale) {
             $code = $locale->locale;
-
-            // Slug üretimi
-            $baseSlug = Str::slug($request->name[$code]);
-            $slug = $baseSlug;
-            $counter = 1;
-
-            // Aynı slug varsa benzersiz hale getir
-            while (DB::table('teams')->where("slug->{$code}", $slug)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
-                $counter++;
-            }
-
-            $slugs[$code] = $slug;
 
             // Resim yüklemesi
             if ($request->hasFile("image.$code")) {
@@ -126,11 +117,20 @@ class TeamController extends Controller
         }
 
         // JSON encode yerine array cast ile doğrudan array olarak kaydediyoruz
-        $validated['slug'] = $slugs;
+        $validated['slug'] = Str::slug($request->name);
         $validated['image'] = $images;
         $validated['team_category_id'] = (int) $request->input('team_category_id');
 
-        Team::create($validated);
+        $team = Team::create($validated);
+
+        if($request->team_category_id){
+            foreach ($request->team_category_id as $teamCategoryId){
+                $teamTeamCategory = new TeamTeamCategory();
+                $teamTeamCategory->team_id = $team->id;
+                $teamTeamCategory->team_category_id = $teamCategoryId;
+                $teamTeamCategory->save();
+            }
+        }
         return redirect()->back()->with('success', __('Başarıyla Eklendi'));
     }
 
@@ -147,35 +147,27 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        return view('admin.pages.team.edit', compact('team'));
+        $teamCategories = TeamCategory::all();
+        $teamTeamCategories = TeamTeamCategory::where('team_id',$team->id)->pluck('team_category_id')->toArray();
+        return view('admin.pages.team.edit', compact(
+            'team',
+            'teamCategories',
+            'teamTeamCategories'
+        ));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Team $team)
+    public function update(TeamUpdateRequest $request, Team $team)
     {
         $validated = $request->validated();
 
         $locales = Locale::all();
-        $slugs = [];
         $images = [];
 
         foreach ($locales as $locale) {
             $code = $locale->locale;
-
-            // Slug üretimi
-            $baseSlug = Str::slug($request->name[$code]);
-            $slug = $baseSlug;
-            $counter = 1;
-
-            // Aynı slug varsa benzersiz hale getir
-            while (DB::table('teams')->where("slug->{$code}", $slug)->exists()) {
-                $slug = $baseSlug . '-' . $counter;
-                $counter++;
-            }
-
-            $slugs[$code] = $slug;
 
             // Resim yüklemesi
             if ($request->hasFile("image.$code")) {
@@ -184,11 +176,21 @@ class TeamController extends Controller
         }
 
         // JSON encode yerine array cast ile doğrudan array olarak kaydediyoruz
-        $validated['slug'] = $slugs;
+        $validated['slug'] = Str::slug($request->name);
         $validated['image'] = $images;
         $validated['team_category_id'] = (int) $request->input('team_category_id');
 
         $team->update($validated);
+
+        TeamTeamCategory::where('team_id',$team->id)->delete();
+        if($request->team_categories){
+            foreach ($request->team_categories as $teamCategoryId){
+                $teamTeamCategory = new TeamTeamCategory();
+                $teamTeamCategory->team_id = $team->id;
+                $teamTeamCategory->team_category_id = $teamCategoryId;
+                $teamTeamCategory->save();
+            }
+        }
         return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
 
 

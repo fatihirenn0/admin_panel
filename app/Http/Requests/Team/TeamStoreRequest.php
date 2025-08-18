@@ -27,12 +27,12 @@ class TeamStoreRequest extends FormRequest
         // Dil ayarlarını config'den veya helper'dan çekebilirsiniz
         $locales = Locale::all();
 
+        $rules["name"] = ['required', 'string', 'max:255'];
+        $rules["email"] = ['nullable', 'email', 'string', 'max:255'];
+        $rules["telephone"] = ['nullable', 'string'];
+
         foreach ($locales as $index => $locale) {
-            $first = array_key_first((array)$locales) == $index;
-            $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
             $rules["job.$locale->locale"] = ['nullable', 'string'];
-            $rules["email.$locale->locale"] = ['nullable', 'string'];
-            $rules["telephone.$locale->locale"] = ['nullable', 'string'];
             $rules["description.$locale->locale"] = ['nullable', 'string'];
             $rules["education.$locale->locale"] = ['nullable', 'string'];
             $rules["work_experience.$locale->locale"] = ['nullable', 'string'];
@@ -57,14 +57,14 @@ class TeamStoreRequest extends FormRequest
         $locales = Locale::all();
 
         $attributes = [];
+        $attributes["name"] = "Ekip Adı";
+        $attributes["email"] = "E-Posta Adresi";
+        $attributes["telephone"] = "Telefon";
         foreach ($locales as $locale) {
             $code = $locale->locale;
             $lang = $locale->language;
 
-            $attributes["name.$code"] = "Ekip Adı ($lang)";
             $attributes["job.$code"] = "Meslek ($lang)";
-            $attributes["email.$code"] = "E-Posta Adresi ($lang)";
-            $attributes["telefon.$code"] = "Telefon ($lang)";
             $attributes["description.$code"] = "Açıklama ($lang)";
             $attributes["education.$code"] = "Eğitim ($lang)";
             $attributes["work_experience.$code"] = "Tecrübe ($lang)";

@@ -8,6 +8,7 @@
            @if(!empty($oldKey)) @error($oldKey) is-invalid @enderror @endif {{ isset($cropWidth) ? 'crop-image' : '' }}"
            data-cropWidth="{{ $cropWidth ?? '' }}" data-cropHeight="{{ $cropHeight ?? '' }}"
            type="file"
+           data-height="{{ $dataHeight ?? 170 }}"
            id="{{ $id ?? '' }}"
            data-default-file="{{ $value ?? '' }}"
            name="{{ $name ?? '' }}"
@@ -31,8 +32,8 @@
         <script>
             $('.dropify').dropify({
                 messages: {
-                    'default': '{{__('Dosya Sürükle veya Tıkla')}}',
-                    'replace': '{{ __('Dosya Sürükle veya Tıkla') }}',
+                    'default': '{{__('Görsel yüklemek için tıklayınız')}}',
+                    'replace': '{{ __('Görsel yüklemek için tıklayınız') }}',
                     'remove':  '{{ __('Kaldır') }}',
                     'error':   '{{ __('Bir Hata Ortaya Çıktı') }}'
                 }
@@ -44,7 +45,7 @@
                         type: 'hidden',
                         name: 'deleted_images[]',
                         value: deletedImagePath
-                    }).appendTo('form');
+                    }).appendTo('#mainForm');
                 }
             });
 

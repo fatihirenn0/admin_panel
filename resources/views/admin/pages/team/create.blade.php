@@ -41,36 +41,48 @@
                                 @foreach($locales as $locale)
                                     <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="navs-locale-{{ $locale->locale }}" role="tabpanel">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                @include('inputs.input',[
-                                                    'title'=>__('Ad-Soyad') . " ({$locale->language})",
-                                                    'name'=>"name[{$locale->locale}]",
-                                                    'required' => (bool)$loop->first,
-                                                ])
-                                            </div>
+                                            @if($loop->first)
+                                                <div class="col-md-12">
+                                                    @include('inputs.select',[
+                                                        'options' => array_merge([''=>'Lütfen Seçiniz'],$teamCategories->pluck('name','id')->toArray()),
+                                                        'title' => __('Kategoriler'),
+                                                        'multiple' => true,
+                                                        'name' => 'team_categories[]',
+                                                        'loopIndex' => $loop->index
+                                                    ])
+                                                </div>
+                                                <div class="col-md-12">
+                                                    @include('inputs.input',[
+                                                        'title'=>__('Ad-Soyad'),
+                                                        'name'=>"name",
+                                                        'required' => true,
+                                                    ])
+                                                </div>
+                                            @endif
+
                                             <div class="col-md-12 mt-2">
                                                 @include('inputs.input',[
                                                     'title'=>__('Meslek') . " ({$locale->language})",
                                                     'name'=>"job[{$locale->locale}]",
-                                                    'loopIndex' => $loop->index,
-                                                    'id' => 'name_'.$locale->locale
+                                                    'loopIndex' => $loop->index
                                                 ])
                                             </div>
-                                            <div class="col-md-12 mt-2">
-                                                @include('inputs.input',[
-                                                    'title'=>__('E-Posta') . " ({$locale->language})",
-                                                    'name'=>"email[{$locale->locale}]",
-                                                    'type' => 'email',
-                                                    'loopIndex' => $loop->index,
-                                                    'id' => 'name_'.$locale->locale
-                                                ])
-                                            </div>
+                                            @if($loop->first)
+                                                <div class="col-md-12 mt-2">
+                                                    @include('inputs.input',[
+                                                        'title'=>__('E-Posta') . " ({$locale->language})",
+                                                        'name'=>"email",
+                                                        'type' => 'email',
+                                                        'loopIndex' => $loop->index
+                                                    ])
+                                                </div>
+                                            @endif
                                             <div class="col-md-12 mt-2">
                                                 @include('inputs.editor',[
                                                     'title'=>__('Açıklama') . " ({$locale->language})",
                                                     'name'=>"description[{$locale->locale}]",
                                                     'loopIndex' => $loop->index,
-                                                    'id' => 'name_'.$locale->locale
+                                                    'id' => 'description_'.$locale->locale
                                                 ])
                                             </div>
                                             <div class="col-md-12 mt-2">
@@ -78,7 +90,6 @@
                                                     'title'=>__('Eğitim') . " ({$locale->language})",
                                                     'name'=>"education[{$locale->locale}]",
                                                     'loopIndex' => $loop->index,
-                                                    'id' => 'name_'.$locale->locale
                                                 ])
                                             </div>
                                             <div class="col-md-12 mt-2">
@@ -86,7 +97,6 @@
                                                     'title'=>__('Tecrübe') . " ({$locale->language})",
                                                     'name'=>"work_experience[{$locale->locale}]",
                                                     'loopIndex' => $loop->index,
-                                                    'id' => 'name_'.$locale->locale
                                                 ])
                                             </div>
                                             @if($loop->first)
@@ -136,55 +146,57 @@
                                                 'loopIndex' => $loop->index
                                             ])
                                         </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Facebook') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"facebook[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Twitter') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"twitter[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('İnstagram') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"instagram[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Linkedin') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"linkedin[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Tiktok') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"tiktok[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Youtube') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"youtube[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Github') . " ({$locale->language})",
-                                                'type' => 'url',
-                                                'name'=>"github[{$locale->locale}]",
-                                            ])
-                                        </div>
+                                        @if($loop->first)
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Facebook'),
+                                                    'type' => 'url',
+                                                    'name'=>"facebook",
+                                                ])
+                                            </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Twitter'),
+                                                    'type' => 'url',
+                                                    'name'=>"twitter",
+                                                ])
+                                            </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('İnstagram'),
+                                                    'type' => 'url',
+                                                    'name'=>"instagram",
+                                                ])
+                                            </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Linkedin'),
+                                                    'type' => 'url',
+                                                    'name'=>"linkedin",
+                                                ])
+                                            </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Tiktok'),
+                                                    'type' => 'url',
+                                                    'name'=>"tiktok",
+                                                ])
+                                            </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Youtube'),
+                                                    'type' => 'url',
+                                                    'name'=>"youtube",
+                                                ])
+                                            </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Github'),
+                                                    'type' => 'url',
+                                                    'name'=>"github",
+                                                ])
+                                            </div>
+                                        @endif
                                         <div class="col-md-12 mt-2">
                                             @include('inputs.textarea',[
                                                 'title'=>__('Meta Anahtar Kelimeler') . " ({$locale->language})",

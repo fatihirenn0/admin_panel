@@ -3,9 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Team extends Model
 {
+    use HasTranslations;
+
+    public $translatable = ['job','description','education','work_experience','image','meta_description','meta_keywords'];
+
     protected $fillable = [
         'name',
         'slug',
@@ -28,23 +33,12 @@ class Team extends Model
         'meta_keywords',
     ];
     protected $casts = [
-    'name' => 'array',
-    'slug' => 'array',
-    'job' => 'array',
-    'email' => 'array',
-    'telephone' => 'array',
-    'image' => 'array',
-    'description' => 'array',
-    'education' => 'array',
-    'work_experience' => 'array',
-    'facebook' => 'array',
-    'twitter' => 'array',
-    'linkedin' => 'array',
-    'instagram' => 'array',
-    'tiktok' => 'array',
-    'youtube' => 'array',
-    'github' => 'array',
-    'meta_keywords' => 'array',
-    'meta_description' => 'array',
-];
+        'job' => 'array',
+        'description' => 'array',
+        'education' => 'array',
+        'work_experience' => 'array',
+        'image' => 'array',
+        'meta_description' => 'array',
+        'meta_keywords' => 'array'
+    ];
 }

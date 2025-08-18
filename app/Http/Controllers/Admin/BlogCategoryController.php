@@ -224,7 +224,7 @@ class BlogCategoryController extends Controller
 
         $blogIds = BlogBlogCategory::where('blog_category_id',$blogCategory->id)->pluck('blog_id')->toArray();
         if (isset($request->type)){
-            if ($request->type == "recycle"){
+            if ($request->type == "recycle"){ //geri al
                 Blog::whereIn('id',$blogIds)
                     ->where('deleted_at','>=',$blogCategory->deleted_at->subMinute())
                     ->where('deleted_at','<=',$blogCategory->deleted_at->addMinute())
@@ -233,38 +233,38 @@ class BlogCategoryController extends Controller
                 $blogCategory->restore();
 
                 return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
-            }else{
+            }else{// tamamen sil
                 $blogs = Blog::whereIn('id',$blogIds)
                     ->withTrashed()
                     ->get();
-                BlogBlogCategory::where('blog_category_id',$blogCategory->id)->delete();
+                BlogBlogCategory::where('blog_category_id',$blogCategory->id)->delete(); //bağlı ilişkileri sil
                 $locales = Locale::all();
                 foreach ($blogs as $blog) {
                     foreach ($locales as $locale) {
                         $imagePath = $blog->getTranslation('image', $locale->locale);
 
                         if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
-                            Storage::disk('public2')->delete($imagePath);
+                            Storage::disk('public2')->delete($imagePath);// bağlı elemanların kapak resimlerini sunucudan sil
                         }
                     }
                     $blogImages = BlogImage::where('blog_id',$blog->id)->get();
                     foreach ($blogImages as $blogImage) {
                         if (Storage::disk('public2')->exists($blogImage->image_url)) {
-                            Storage::disk('public2')->delete($blogImage->image_url);
+                            Storage::disk('public2')->delete($blogImage->image_url);// bağlı elemanların ek resimlerini sunucudan sil
                         }
-                        $blogImage->delete();
+                        $blogImage->delete();// bağlı elemanların ek resimlerini veritabanından sil
                     }
-                    $blog->forceDelete();
+                    $blog->forceDelete();// bağlı elemanı veritabanından sil
                 }
                 foreach ($locales as $locale) {
                     $imagePath = $blogCategory->getTranslation('image', $locale->locale);
                     if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
-                        Storage::disk('public2')->delete($imagePath);
+                        Storage::disk('public2')->delete($imagePath); // kapak resimmini sunucudan sil
                     }
                 }
 
 
-                $blogCategory->forceDelete();
+                $blogCategory->forceDelete(); // modeli sil
 
                 return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
             }

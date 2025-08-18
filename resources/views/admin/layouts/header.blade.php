@@ -60,7 +60,11 @@
 
         </div>
         <div class="mx-3">
-            <a href="{{ route('admin.index') }}">Ana Sayfa</a> > <a>@yield('title')</a>
+            <a href="{{ route('admin.index') }}">Ana Sayfa</a>
+            @if(\Illuminate\Support\Facades\View::hasSection('parent_menu'))
+                > <a href="{{ \Illuminate\Support\Facades\View::yieldContent('parent_menu_link') }}">{{ \Illuminate\Support\Facades\View::yieldContent('parent_menu') }}</a>
+            @endif >
+            <a>@yield('title')</a>
         </div>
         <ul class="navbar-nav flex-row align-items-center ms-md-auto">
             <!-- User -->

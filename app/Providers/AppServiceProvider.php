@@ -20,7 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $locales = Locale::all();
+        $locales = Locale::all() ?? [];
 
         view()->share('locales', $locales);
     }

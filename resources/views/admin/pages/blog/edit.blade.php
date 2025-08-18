@@ -1,5 +1,7 @@
 @extends('admin.pages.build')
-@section('title',__('Blog Düzenle'))
+@section('parent_menu', __('Bloglar'))
+@section('parent_menu_link', route('admin.blogs.index'))
+@section('title', __('Blog Düzenle'))
 @push('css')
 
 @endpush
@@ -118,6 +120,47 @@
                                             ])
                                         </div>
                                         <div class="col-md-12 mt-2">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                <tr>
+                                                    <td>Görsel</td>
+                                                    <td>Gösterim Sırası</td>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @for($i = 0;$i < 10;$i++)
+                                                    @php $blogImage = $blogImages->where('locale_id',$locale->id)->skip($i)->take(1)->first() @endphp
+                                                    <tr class="{{ $blogImage ? '' : 'd-none' }} images-{{ $locale->locale }}">
+                                                        <td>
+                                                            @include('inputs.file',[
+                                                               'title'=>__('Ek Görsel') . " ({$locale->language})",
+                                                               'name'=>"images[{$locale->id}][{$i}]",
+                                                               'cropWidth' => 1200,
+                                                               'cropHeight' => 800,
+                                                               'loopIndex' => $i + 1,
+                                                               'dataHeight' => 100,
+                                                               'value' => '/storage/'.$blogImage?->image_url
+                                                           ])
+                                                            @if($blogImage)
+                                                                <input type="hidden" name="old_image_ids[{{ $locale->id }}][{{ $i }}]" value="{{ $blogImage->id }}">
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            <input type="number" class="form-control-sm form-control" min="0" name="image_ranks[{{ $locale->id }}][{{ $i }}]" value="{{ $blogImage ? $blogImage->rank : $i+1 }}">
+                                                        </td>
+                                                    </tr>
+                                                @endfor
+                                                </tbody>
+                                                <tfoot>
+                                                <tr>
+                                                    <td colspan="2">
+                                                        <button type="button" class="btn btn-sm btn-primary add-image-{{ $locale->locale }}" data-locale="{{ $locale->locale }}">Resim Ekle</button>
+                                                    </td>
+                                                </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                        <div class="col-md-12 mt-2">
                                             @include('inputs.textarea',[
                                                 'title'=>__('Etiketler') . " ({$locale->language})",
                                                 'name'=>"tags[{$locale->locale}]",
@@ -149,6 +192,24 @@
     </div>
 @endsection
 @push('js')
-
+    <script>
+        @foreach($locales as $locale)
+        $('.add-image-{{ $locale->locale }}').on('click',function (){
+            let newImage = $('.images-{{ $locale->locale }}.d-none');
+            if (newImage.length){
+                newImage[0].classList.remove('d-none');
+            }else{
+                window.notyf.open({
+                    type: 'error',
+                    message: `{{ __('En fazla 10 adet resim eklenebilir.') }}`,
+                    duration: 3000,
+                    dismissible: true,
+                    ripple: true,
+                    position: { x: 'top', y: 'right' }
+                });
+            }
+        });
+        @endforeach
+    </script>
 
 @endpush

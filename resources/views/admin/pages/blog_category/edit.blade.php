@@ -1,5 +1,7 @@
 @extends('admin.pages.build')
 @section('title',__('Blog Kategori Düzenle'))
+@section('parent_menu', __('Blog Kategoriler'))
+@section('parent_menu_link', route('admin.blog-categories.index'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />
 @endpush

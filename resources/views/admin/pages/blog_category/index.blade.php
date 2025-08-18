@@ -46,7 +46,6 @@
                         trashed:{{ $_GET['trashed'] }}
                     },
                 @endif
-
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}' // 🔸 CSRF token ekleniyor
                 },

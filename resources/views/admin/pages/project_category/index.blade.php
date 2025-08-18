@@ -8,7 +8,12 @@
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header pb-0 text-end">
+            <h5 class="card-header pb-0 d-flex justify-content-between">
+                @if(isset($_GET['trashed']))
+                    <a href="{{ route('admin.project-categories.index') }}" class="btn btn-info"><i class="menu-icon icon-base ti tabler-arrow-left"></i>{{ __('Proje Kategorileri') }}</a>
+                @else
+                    <a href="{{ route('admin.project-categories.index', ['trashed'=>true]) }}" class="btn btn-danger"><i class="menu-icon icon-base ti tabler-recycle"></i>{{ __('Geri Dönüşüm') }} </a>
+                @endif
                 <a href="{{ route('admin.project-categories.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
             </h5>
             <div class="card-datatable text-nowrap">
@@ -39,6 +44,11 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}' // 🔸 CSRF token ekleniyor
                 },
+                @if(isset($_GET['trashed']))
+                data: {
+                    trashed:{{ $_GET['trashed'] }}
+                },
+                @endif
                 dataSrc: 'data'
             },
             columns: [

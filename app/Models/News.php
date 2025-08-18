@@ -8,5 +8,23 @@ use Spatie\Translatable\HasTranslations;
 
 class News extends Model
 {
-    //
+    use HasTranslations, SoftDeletes;
+
+    public array $translatable = ['name','slug','description','image','tags','meta_description','meta_keywords'];
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'image',
+        'tags',
+        'rank',
+        'meta_description',
+        'meta_keywords',
+        'created_at',
+        'updated_at',
+        'deleted_at'
+    ];
+
+    protected $casts = ['name','slug','description','image','tags','meta_description','meta_keywords'];
 }

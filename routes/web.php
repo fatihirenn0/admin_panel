@@ -26,9 +26,9 @@ Route::prefix('admin')->as('admin.')->group(function () {
         'team-categories' => \App\Http\Controllers\Admin\TeamCategoryController::class,
         'video-categories' => \App\Http\Controllers\Admin\VideoCategoryController::class,
         'files' => \App\Http\Controllers\Admin\FileController::class,
-        'blog-categories' => \App\Http\Controllers\Admin\BlogCategoryController::class,
         'announcements' => \App\Http\Controllers\Admin\AnnouncementController::class,
         'blogs' => \App\Http\Controllers\Admin\BlogController::class,
+        'news' => \App\Http\Controllers\Admin\NewsController::class,
         'customer-comments' => \App\Http\Controllers\Admin\CustomerCommentController::class,
         'locales' => \App\Http\Controllers\Admin\LocaleController::class,
         'newsletters' => \App\Http\Controllers\Admin\NewsletterController::class,
@@ -39,6 +39,9 @@ Route::prefix('admin')->as('admin.')->group(function () {
         'teams' => \App\Http\Controllers\Admin\TeamController::class,
         'references' => \App\Http\Controllers\Admin\ReferenceController::class,
         'settings' => \App\Http\Controllers\Admin\SettingController::class,
+        'pages' => \App\Http\Controllers\Admin\PageController::class,
+        'projects' => \App\Http\Controllers\Admin\ProjectController::class,
+        'role-groups' => \App\Http\Controllers\Admin\RoleGroupController::class,
     ]);
 
     Route::prefix('ajax')->as('ajax.')->group(function () {
@@ -59,6 +62,8 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::post('/files' , [\App\Http\Controllers\Admin\FileController::class, 'ajax'])->name('files');
         Route::post('/announcements', [\App\Http\Controllers\Admin\AnnouncementController::class, 'ajax'])->name('announcements');
         Route::post('/blogs', [\App\Http\Controllers\Admin\BlogController::class, 'ajax'])->name('blogs');
+        Route::post('/news', [\App\Http\Controllers\Admin\NewsController::class, 'ajax'])->name('news');
+        Route::post('/pages', [\App\Http\Controllers\Admin\PageController::class, 'ajax'])->name('pages');
         Route::post('customer-comments', [\App\Http\Controllers\Admin\CustomerCommentController::class, 'ajax'])->name('customer-comments');
         Route::post('locales', [\App\Http\Controllers\Admin\LocaleController::class, 'ajax'])->name('locales');
         Route::post('newsletters', [\App\Http\Controllers\Admin\NewsletterController::class, 'ajax'])->name('newsletters');
@@ -69,5 +74,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::post('teams', [\App\Http\Controllers\Admin\TeamController::class, 'ajax'])->name('teams');
         Route::post('references', [\App\Http\Controllers\Admin\ReferenceController::class, 'ajax'])->name('references');
         Route::post('settings', [\App\Http\Controllers\Admin\SettingController::class, 'ajax'])->name('settings');
+        Route::post('projects', [\App\Http\Controllers\Admin\ProjectController::class, 'ajax'])->name('projects');
+        Route::post('role-groups', [\App\Http\Controllers\Admin\RoleGroupController::class, 'ajax'])->name('role-groups');
     });
 });

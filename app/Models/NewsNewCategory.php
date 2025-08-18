@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class NewsNewCategory extends Model
 {
-    //
+    protected $table = 'news_news_categories';
+
+    public $timestamps = false;
 }

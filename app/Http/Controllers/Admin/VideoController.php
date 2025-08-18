@@ -7,6 +7,7 @@ use App\Http\Requests\Video\VideoStoreRequest;
 use App\Http\Requests\Video\VideoUpdateRequest;
 use App\Models\Video;
 use App\Models\VideoCategory;
+use App\Models\VideoVideoCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -108,7 +109,12 @@ class VideoController extends Controller
     public function edit(Video $video)
     {
         $videoCategories = VideoCategory::all();
-        return view('admin.pages.video.edit' , compact('video','videoCategories'));
+        $videoVideoCategories = VideoVideoCategory::where('video_id',$video->id)->pluck('video_category_id')->toArray();
+        return view('admin.pages.video.edit' , compact(
+            'video',
+            'videoCategories',
+            'videoVideoCategories'
+        ));
     }
 
     /**
@@ -129,14 +135,19 @@ class VideoController extends Controller
             unset($validated['video_url']);
         }
 
-        // Kategori id'yi açıkça ayarla (boşsa null)
-        $video->video_category_id = (int) $request->input('video_category_id') ?: null;
-
         // Mass assignment ile kalan alanları (title dahil) doldur
         $video->fill($validated);
 
         // Tüm değişiklikleri kalıcı yap
         $video->save();
+
+        VideoVideoCategory::where('video_id',$video)->delete();
+        if ($request->video_category_id){
+            $videoVideoCategory = new VideoVideoCategory();
+            $videoVideoCategory->video_id = $video->id;
+            $videoVideoCategory->video_category_id = $request->video_category_id;
+            $videoVideoCategory->save();
+        }
 
         return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
     }
