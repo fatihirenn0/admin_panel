@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Fotoğraf Kategorileri'))
+@section('parent_menu_link', route('admin.photo-categories.index'))
 @section('title',__('Fotoğraf Kategori Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

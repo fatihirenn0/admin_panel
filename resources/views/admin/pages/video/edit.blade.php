@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Videolar'))
+@section('parent_menu_link', route('admin.videos.index'))
 @section('title',__('Video Görüntüle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

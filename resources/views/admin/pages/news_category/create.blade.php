@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Haber Kategorileri'))
+@section('parent_menu_link', route('admin.news-categories.index'))
 @section('title',__('Haber Kategori Ekle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

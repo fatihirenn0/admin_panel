@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Duyurular'))
+@section('parent_menu_link', route('admin.announcements.index'))
 @section('title',__('Duyuru Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

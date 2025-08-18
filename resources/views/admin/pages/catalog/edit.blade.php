@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Kataloglar'))
+@section('parent_menu_link', route('admin.catalogs.index'))
 @section('title',__('Katalog Düzenle'))
 @push('css')
 

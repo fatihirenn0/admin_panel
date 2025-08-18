@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Müşteri Yorumları'))
+@section('parent_menu_link', route('admin.customer-comments.index'))
 @section('title',__('Müşteri Yorum Ekle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

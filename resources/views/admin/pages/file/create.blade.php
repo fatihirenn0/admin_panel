@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Dosyalar'))
+@section('parent_menu_link', route('admin.files.index'))
 @section('title',__('Dosya Ekle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

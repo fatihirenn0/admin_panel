@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Tarihçe'))
+@section('parent_menu_link', route('admin.milestones.index'))
 @section('title',__('Tarihçe Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

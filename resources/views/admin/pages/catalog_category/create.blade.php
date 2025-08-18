@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Katalog Kategorileri'))
+@section('parent_menu_link', route('admin.catalog-categories.index'))
 @section('title',__('Katalog Kategori Ekle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

@@ -1,5 +1,7 @@
 @extends('admin.pages.build')
-@section('title',__('Başvuru Görüntüler'))
+@section('parent_menu', __('Başvurular'))
+@section('parent_menu_link', route('admin.applications.index'))
+@section('title',__('Başvuru Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />
 @endpush

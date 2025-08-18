@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Ekipler'))
+@section('parent_menu_link', route('admin.teams.index'))
 @section('title',__('Ekip Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

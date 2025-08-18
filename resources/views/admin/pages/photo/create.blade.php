@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Fotoğraflar'))
+@section('parent_menu_link', route('admin.photos.index'))
 @section('title',__('Fotoğraf Ekle'))
 @push('css')
 

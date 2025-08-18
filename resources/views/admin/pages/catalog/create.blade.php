@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Katalgolar'))
+@section('parent_menu_link', route('admin.catalogs.index'))
 @section('title',__('Katalog Ekle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Diller'))
+@section('parent_menu_link', route('admin.locales.index'))
 @section('title',__('Dil Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

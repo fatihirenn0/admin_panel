@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Sık Sorulan Sorular'))
+@section('parent_menu_link', route('admin.faqs.index'))
 @section('title',__('Soru Düzenle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

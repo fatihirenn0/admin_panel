@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('Referanslar'))
+@section('parent_menu_link', route('admin.references.index'))
 @section('title',__('Referans Ekle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

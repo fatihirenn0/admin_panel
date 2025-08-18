@@ -1,4 +1,6 @@
 @extends('admin.pages.build')
+@section('parent_menu', __('İletişim Mesajları'))
+@section('parent_menu_link', route('admin.contact-messages.index'))
 @section('title',__('İletişim Mesaj Görüntüle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />
