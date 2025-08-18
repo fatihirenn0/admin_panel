@@ -10,6 +10,7 @@ use App\Models\Locale;
 use App\Models\Team;
 use App\Models\TeamCategory;
 use App\Models\TeamTeamCategory;
+use App\Services\ImageService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -28,6 +29,9 @@ class TeamController extends Controller
     public function ajax(Request $request)
     {
         $query = Team::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
@@ -52,9 +56,10 @@ class TeamController extends Controller
 
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
-        $data = $items->map(function ($item){
+        $data = $items->map(function ($item) use($request){
             $editUrl = route('admin.teams.edit', $item->id);
             $deleteUrl = route('admin.teams.destroy', $item->id);
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
             return [
                 'id' => $item->id,
@@ -65,17 +70,26 @@ class TeamController extends Controller
                 'image' => !empty($item->image) ? '<img src="/storage/' . $item->image . '" height="60"/>' : __('Eklenmedi'),
                 'education' => $item->education,
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-        ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
 
@@ -123,8 +137,8 @@ class TeamController extends Controller
 
         $team = Team::create($validated);
 
-        if($request->team_category_id){
-            foreach ($request->team_category_id as $teamCategoryId){
+        if($request->team_categories){
+            foreach ($request->team_categories as $teamCategoryId){
                 $teamTeamCategory = new TeamTeamCategory();
                 $teamTeamCategory->team_id = $team->id;
                 $teamTeamCategory->team_category_id = $teamCategoryId;
@@ -170,15 +184,13 @@ class TeamController extends Controller
             $code = $locale->locale;
 
             // Resim yüklemesi
-            if ($request->hasFile("image.$code")) {
-                $images[$code] = $request->file("image.$code")->store('team', 'public2');
-            }
+            $imageService = new ImageService();
+            $images[$code] = $imageService->save($code,$request,Str::slug($request->name).'-'.$code,'team','image',$team->getTranslation('image',$code));
         }
 
         // JSON encode yerine array cast ile doğrudan array olarak kaydediyoruz
         $validated['slug'] = Str::slug($request->name);
         $validated['image'] = $images;
-        $validated['team_category_id'] = (int) $request->input('team_category_id');
 
         $team->update($validated);
 
@@ -199,8 +211,34 @@ class TeamController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Team $team)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                Team::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                TeamTeamCategory::where('team_id',$id)->delete(); //Kategori ilişkilerini sil
+                $locales = Locale::all();
+                $team = Team::where('id',$id)->withTrashed()->first();
+                foreach ($locales as $locale) {
+                    $imagePath = $team->getTranslation('image', $locale->locale);
+
+                    if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                        Storage::disk('public2')->delete($imagePath);// kapak resmini sil
+                    }
+                }
+                $team->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Team::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

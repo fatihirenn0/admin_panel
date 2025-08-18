@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
@@ -30,7 +31,30 @@ class SettingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $settings = Setting::all()->keyBy('key');
+
+        foreach ($request->except('_token') as $key => $value) {
+            if (!isset($settings[$key])) {
+                $setting = new Setting();
+                $setting->key = $key;
+            }else{
+                $setting = $settings[$key];
+            }
+            if ($request->hasFile($key)) {
+                // önce eski dosya varsa sil
+                if (!empty($settings[$key]?->value) && Storage::disk('public2')->exists($settings[$key]->value)) {
+                    Storage::disk('public2')->delete($settings[$key]->value);
+                }
+
+                $setting->value = $request->file($key)->store('settings', 'public2');
+            } else {
+                $setting->value = $value;
+            }
+
+            $setting->save();
+        }
+
+        return redirect()->route('admin.settings.index');
     }
 
     /**

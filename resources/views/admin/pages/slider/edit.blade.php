@@ -1,14 +1,14 @@
 @extends('admin.pages.build')
-@section('parent_menu', __('Kataloglar'))
-@section('parent_menu_link', route('admin.catalogs.index'))
-@section('title',__('Katalog Ekle'))
+@section('parent_menu', __('Sliderlar'))
+@section('parent_menu_link', route('admin.sliders.index'))
+@section('title',__('Slider Düzenle'))
 @push('css')
-    <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />
+
 @endpush
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
-        <form id="mainForm" method="post" action="{{ route('admin.catalogs.store') }}" enctype="multipart/form-data">
-            @csrf
+        <form id="mainForm" method="post" action="{{ route('admin.sliders.update',$slider) }}" enctype="multipart/form-data">
+            @csrf @method('put')
             <div class="row g-6">
                 <div class="col-xxl-7 col-xl-6 col-sm-12">
                     <div class="nav-align-top nav-tabs-shadow">
@@ -41,38 +41,48 @@
                             @foreach($locales as $locale)
                                 <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="navs-locale-{{ $locale->locale }}" role="tabpanel">
                                     <div class="row">
-                                        @if($loop->first)
-                                            <div class="col-md-12">
-                                                @include('inputs.select',[
-                                                    'options' =>['' => 'Kategori Seçilmedi'] + $catalogCategories->pluck('name', 'id')->toArray() ,
-                                                    'title' => __('Kategoriler'),
-                                                    'name' => 'catalog_category_id',
-                                                    'loopIndex' => $loop->index
-                                                ])
-                                            </div>
-                                        @endif
-                                        <div class="col-md-12">
+                                        <div class="col-md-12 mt-3">
                                             @include('inputs.input',[
-                                                'title'=>__('Katalog Adı') . " ({$locale->language})",
-                                                'name'=>"name[{$locale->locale}]",
-                                                'required' => (bool)$loop->first,
-                                                'loopIndex' => $loop->index
+                                                'title'=>__('Slider Başlık') . " ({$locale->language})",
+                                                'name'=>"title[{$locale->locale}]",
+                                                'value' => $slider->getTranslation('title',$locale->locale)
                                             ])
                                         </div>
-                                            <div class="col-md-12 mt-2">
-                                                @include('inputs.editor',[
-                                                    'title'=>__('Katalog Açıklaması') . " ({$locale->language})",
-                                                    'name'=>"description[{$locale->locale}]",
-                                                    'loopIndex' => $loop->index,
-                                                    'id' => 'name_'.$locale->locale
-                                                ])
-                                            </div>
+                                        <div class="col-md-12 mt-3">
+                                            @include('inputs.textarea',[
+                                                'title'=>__('Slider Metin') . " ({$locale->language})",
+                                                'name'=>"text[{$locale->locale}]",
+                                                              'value' => $slider->getTranslation('text',$locale->locale)
+                                            ])
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            @include('inputs.textarea',[
+                                                'title'=>__('Slider Alt Metin') . " ({$locale->language})",
+                                                'name'=>"sub_text[{$locale->locale}]",
+                                                              'value' => $slider->getTranslation('sub_text',$locale->locale)
+                                            ])
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            @include('inputs.input',[
+                                                'title'=>__('Slider Buton Başlık') . " ({$locale->language})",
+                                                'name'=>"link_text[{$locale->locale}]",
+                                                              'value' => $slider->getTranslation('link_text',$locale->locale)
+                                            ])
+                                        </div>
+                                        <div class="col-md-12 mt-3">
+                                            @include('inputs.input',[
+                                                'title'=>__('Slider Buton Link') . " ({$locale->language})",
+                                                'name'=>"link[{$locale->locale}]",
+                                                              'value' => $slider->getTranslation('link',$locale->locale)
+                                            ])
+                                        </div>
                                         @if($loop->first)
                                             <div class="col-md-12 mt-2">
                                                 @include('inputs.input',[
                                                     'title'=>__('Gösterim Sırası'),
                                                     'type'=>'number',
-                                                    'name'=>'rank'
+                                                    'name'=>'rank',
+                                                                  'value' => $slider->rank
                                                 ])
                                             </div>
                                         @endif
@@ -107,30 +117,12 @@
                                     <div class="row">
                                         <div class="col-md-12 mt-2">
                                             @include('inputs.file',[
-                                                'title'=>__('Kapak Resmi') . " ({$locale->language})",
-                                                'name'=>"cover[{$locale->locale}]",
+                                                'title'=>__('Görsel/Video') . " ({$locale->language})",
+                                                'name'=>"file_url[{$locale->locale}]",
                                                 'cropWidth' => 1200,
                                                 'cropHeight' => 800,
-                                                'loopIndex' => 0
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.file',[
-                                                'title'=>__('Dosya') . " ({$locale->language})",
-                                                'name'=>"file[{$locale->locale}]",
-                                                'loopIndex' => 0
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Meta Anahtar Kelimeler') . " ({$locale->language})",
-                                                'name'=>"meta_keywords[{$locale->locale}]",
-                                            ])
-                                        </div>
-                                        <div class="col-md-12 mt-2">
-                                            @include('inputs.textarea',[
-                                                'title'=>__('Meta Açıklamalar') . " ({$locale->language})",
-                                                'name'=>"meta_description[{$locale->locale}]"
+                                                'loopIndex' => $loop->index,
+                                              'value' => '/storage/'.$slider->getTranslation('file_url',$locale->locale)
                                             ])
                                         </div>
                                     </div>
@@ -144,16 +136,23 @@
     </div>
 @endsection
 @push('js')
-    <script src="/panel/assets/js/dropify.min.js"></script>
     <script>
-        $('.dropify').dropify({
-            messages: {
-                'default': '{{__('Dosya Sürükle veya Tıkla')}}',
-                'replace': '{{ __('Dosya Sürükle veya Tıkla') }}',
-                'remove':  '{{ __('Kaldır') }}',
-                'error':   '{{ __('Bir Hata Ortaya Çıktı') }}'
+        @foreach($locales as $locale)
+        $('.add-image-{{ $locale->locale }}').on('click',function (){
+            let newImage = $('.images-{{ $locale->locale }}.d-none');
+            if (newImage.length){
+                newImage[0].classList.remove('d-none');
+            }else{
+                window.notyf.open({
+                    type: 'error',
+                    message: `{{ __('En fazla 10 adet resim eklenebilir.') }}`,
+                    duration: 3000,
+                    dismissible: true,
+                    ripple: true,
+                    position: { x: 'top', y: 'right' }
+                });
             }
         });
+        @endforeach
     </script>
-
 @endpush

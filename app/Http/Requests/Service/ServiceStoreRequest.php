@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\CatalogCategory;
+namespace App\Http\Requests\Service;
 
 use App\Models\Locale;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CatalogCategoryStoreRequest extends FormRequest
+class ServiceStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,19 @@ class CatalogCategoryStoreRequest extends FormRequest
     {
         $rules = [];
 
-        // Dil ayarlarını config'den veya helper'dan çekebilirsiniz
         $locales = Locale::all();
 
-        $rules['catalog_category_id'] = ['nullable', 'exists:catalog_categories,id'];
+        $rules['service_categories'] = ['nullable'];
+        $rules['service_categories.*'] = ['exists:service_categories,id'];
         foreach ($locales as $index => $locale) {
             $first = array_key_first((array)$locales) == $index;
             $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
+            $rules["short_description.$locale->locale"] = ['nullable', 'string'];
+            $rules["long_description.$locale->locale"] = ['nullable', 'string'];
             $rules["meta_keywords.$locale->locale"] = ['nullable', 'string'];
             $rules["meta_description.$locale->locale"] = ['nullable', 'string'];
             $rules["image.$locale->locale"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'];
+            $rules["cover.$locale->locale"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'];
         }
 
         $rules['rank'] = ['nullable', 'integer', 'min:0'];
@@ -46,17 +49,20 @@ class CatalogCategoryStoreRequest extends FormRequest
         $locales = Locale::all();
 
         $attributes = [];
-        $attributes['catalog_category_id'] = 'Katalog Kategori';
         foreach ($locales as $locale) {
             $code = $locale->locale;
             $lang = $locale->language;
 
-            $attributes["name.$code"] = "Katalog Kategori Adı ($lang)";
+            $attributes["name.$code"] = "Hizmet Adı ($lang)";
+            $attributes["short_description.$code"] = "Hizmet Kısa Açıklaması ($lang)";
+            $attributes["long_description.$code"] = "Hizmet Tam Açıklaması ($lang)";
             $attributes["meta_keywords.$code"] = "Meta Anahtar Kelimeler ($lang)";
             $attributes["meta_description.$code"] = "Meta Açıklama ($lang)";
-            $attributes["image.$code"] = "Kapak Resmi ($lang)";
+            $attributes["image.$code"] = "Alt Resim ($lang)";
+            $attributes["cover.$code"] = "Kapak Resmi ($lang)";
         }
 
+        $attributes['service_categories'] = 'Hizmet Kategori';
         $attributes['rank'] = 'Gösterim Sırası';
 
         return $attributes;

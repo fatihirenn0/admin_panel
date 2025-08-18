@@ -42,10 +42,22 @@
                             @foreach($locales as $locale)
                                 <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="navs-locale-{{ $locale->locale }}" role="tabpanel">
                                     <div class="row">
+                                        @if($loop->first)
+                                            <div class="col-md-12">
+                                                @include('inputs.select',[
+                                                    'options' => [''=>'Lütfen Seçiniz'] + $faqCategories->pluck('name','id')->toArray(),
+                                                    'title' => __('Kategoriler'),
+                                                    'multiple' => true,
+                                                    'name' => 'faq_categories[]',
+                                                    'loopIndex' => $loop->index,
+                                                    'selected' => $faqCategoryIds
+                                                ])
+                                            </div>
+                                        @endif
                                         <div class="col-md-12">
                                             @include('inputs.input',[
                                                 'title'=>__('Soru') . " ({$locale->language})",
-                                                'question'=>"question[{$locale->locale}]",
+                                                'name'=>"question[{$locale->locale}]",
                                                 'required' => (bool)$loop->first,
                                                 'value' => $faq->getTranslation('question',$locale->locale)
                                             ])
@@ -53,7 +65,7 @@
                                         <div class="col-md-12 mt-2">
                                             @include('inputs.input',[
                                                 'title'=>__('Soru') . " ({$locale->language})",
-                                                'answer'=>"answer[{$locale->locale}]",
+                                                'name'=>"answer[{$locale->locale}]",
                                                 'required' => (bool)$loop->first,
                                                 'value' => $faq->getTranslation('answer',$locale->locale)
                                             ])

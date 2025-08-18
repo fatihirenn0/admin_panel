@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class FaqFaqCategory extends Model
 {
-    //
+    public $timestamps = false;
 }

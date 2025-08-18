@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('catalogs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('catalog_category_id');
+            $table->unsignedBigInteger('catalog_category_id')->nullable();
             $table->text('name')->nullable();
             $table->text('slug')->nullable();
             $table->text('cover')->nullable();

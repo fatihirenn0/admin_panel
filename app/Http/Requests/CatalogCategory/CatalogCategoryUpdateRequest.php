@@ -17,7 +17,7 @@ class CatalogCategoryUpdateRequest extends FormRequest
         $rules = [];
 
         $locales = Locale::all();
-
+        $rules['catalog_category_id'] = ['nullable', 'exists:catalog_categories,id'];
         foreach ($locales as $index => $locale) {
             $first = array_key_first((array)$locales) == $index;
             $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
@@ -36,6 +36,7 @@ class CatalogCategoryUpdateRequest extends FormRequest
         $locales = Locale::all();
 
         $attributes = [];
+        $attributes['catalog_category_id'] = 'Katalog Kategori';
         foreach ($locales as $locale) {
             $code = $locale->locale;
             $lang = $locale->language;

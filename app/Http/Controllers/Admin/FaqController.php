@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Faq\FaqStoreRequest;
 use App\Http\Requests\Faq\FaqUpdateRequest;
 use App\Models\Faq;
+use App\Models\FaqCategory;
+use App\Models\FaqFaqCategory;
 use Illuminate\Http\Request;
 
 class FaqController extends Controller
@@ -79,7 +81,8 @@ class FaqController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.faq.create');
+        $faqCategories = FaqCategory::all();
+        return view('admin.pages.faq.create',compact('faqCategories'));
     }
 
     /**
@@ -89,7 +92,16 @@ class FaqController extends Controller
     {
         $validated = $request->validated();
 
-        Faq::create($validated);
+        $faq = Faq::create($validated);
+
+        if ($request->faq_categories){
+            foreach ($request->faq_categories as $faqCategory){
+                $faqFaqCategory = new FaqFaqCategory();
+                $faqFaqCategory->faq_id = $faq->id;
+                $faqFaqCategory->faq_category_id = $faqCategory;
+                $faqFaqCategory->save();
+            }
+        }
 
         return redirect()->back()->with('success', __('Başarıyla Eklendi'));
     }
@@ -107,7 +119,13 @@ class FaqController extends Controller
      */
     public function edit(Faq $faq)
     {
-        return view('admin.pages.faq.edit', compact('faq'));
+        $faqCategories = FaqCategory::all();
+        $faqCategoryIds = FaqFaqCategory::where('faq_id',$faq->id)->pluck('faq_category_id')->toArray();
+        return view('admin.pages.faq.edit', compact(
+            'faq',
+            'faqCategories',
+            'faqCategoryIds'
+        ));
     }
 
     /**
@@ -116,8 +134,17 @@ class FaqController extends Controller
     public function update(FaqUpdateRequest $request, Faq $faq)
     {
         $validated = $request->validated();
-
         $faq->update($validated);
+
+        FaqFaqCategory::where('faq_id',$faq->id)->delete();
+        if ($request->faq_categories){
+            foreach ($request->faq_categories as $faqCategory){
+                $faqFaqCategory = new FaqFaqCategory();
+                $faqFaqCategory->faq_id = $faq->id;
+                $faqFaqCategory->faq_category_id = $faqCategory;
+                $faqFaqCategory->save();
+            }
+        }
 
         return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
     }

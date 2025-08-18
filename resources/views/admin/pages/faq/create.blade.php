@@ -42,6 +42,17 @@
                             @foreach($locales as $locale)
                                 <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="navs-locale-{{ $locale->locale }}" role="tabpanel">
                                     <div class="row">
+                                        @if($loop->first)
+                                            <div class="col-md-12">
+                                                @include('inputs.select',[
+                                                    'options' => [''=>'Lütfen Seçiniz'] + $faqCategories->pluck('name','id')->toArray(),
+                                                    'title' => __('Kategoriler'),
+                                                    'multiple' => true,
+                                                    'name' => 'faq_categories[]',
+                                                    'loopIndex' => $loop->index
+                                                ])
+                                            </div>
+                                        @endif
                                         <div class="col-md-12">
                                             @include('inputs.input',[
                                                 'title'=>__('Soru') . " ({$locale->language})",

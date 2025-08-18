@@ -1,5 +1,5 @@
 @extends('admin.pages.build')
-@section('title',__('Ekip Listesi'))
+@section('title',__('Hizmetler'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="/panel/assets/vendor/libs/datatables-fixedcolumns-bs5/fixedcolumns.bootstrap5.css" />
@@ -10,23 +10,20 @@
         <div class="card">
             <h5 class="card-header pb-0 d-flex justify-content-between">
                 @if(isset($_GET['trashed']))
-                    <a href="{{ route('admin.teams.index') }}" class="btn btn-info"><i class="menu-icon icon-base ti tabler-arrow-left"></i>{{ __('Ekip Listesi') }}</a>
+                    <a href="{{ route('admin.services.index') }}" class="btn btn-info"><i class="menu-icon icon-base ti tabler-arrow-left"></i>{{ __('Hizmetler') }}</a>
                 @else
-                    <a href="{{ route('admin.teams.index', ['trashed'=>true]) }}" class="btn btn-danger"><i class="menu-icon icon-base ti tabler-recycle"></i>{{ __('Geri Dönüşüm') }} </a>
+                    <a href="{{ route('admin.services.index', ['trashed'=>true]) }}" class="btn btn-danger"><i class="menu-icon icon-base ti tabler-recycle"></i>{{ __('Geri Dönüşüm') }} </a>
                 @endif
-                <a href="{{ route('admin.teams.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+                <a href="{{ route('admin.services.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
             </h5>
             <div class="card-datatable text-nowrap">
                 <table class="datatables-ajax table table-bordered">
                     <thead>
                     <tr>
                         <th>{{ __('ID') }}</th>
-                        <th>{{ __('Adı') }}</th>
-                        <th>{{ __('Meslek') }}</th>
-                        <th>{{ __('E-Posta') }}</th>
-                        <th>{{ __('Telefon') }}</th>
-                        <th>{{ __('Resim') }}</th>
-                        <th>{{ __('Eğitim') }}</th>
+                        <th>{{ __('Görsel') }}</th>
+                        <th>{{ __('Kategori') }}</th>
+                        <th>{{ __('Hizmet Adı') }}</th>
                         <th>{{ __('Gösterim Sırası') }}</th>
                         <th>{{ __('İşlemler') }}</th>
                     </tr>
@@ -43,27 +40,24 @@
             processing: true,
             serverSide: true,
             ajax: {
-                url: '{{ route('admin.ajax.teams') }}',
+                url: '{{ route('admin.ajax.services') }}',
                 type: 'POST', // 🔸 POST olarak ayarlandı
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // 🔸 CSRF token ekleniyor
-                },
                 @if(isset($_GET['trashed']))
                     data: {
                         trashed:{{ $_GET['trashed'] }}
                     },
                 @endif
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // 🔸 CSRF token ekleniyor
+                },
                 dataSrc: 'data'
             },
             columns: [
                 { data: 'id', orderable: true, searchable: true },
-                { data: 'name', orderable: false, searchable: false },
-                { data: 'job', orderable: true, searchable: true },
-                { data: 'email', orderable: true, searchable: true },
-                { data: 'telephone', orderable: true, searchable: true },
-                { data: 'image', orderable: true, searchable: true },
-                { data: 'education', orderable: true, searchable: true },
-                { data: 'rank', orderable: true, searchable: true },
+                { data: 'image', orderable: false, searchable: false },
+                { data: 'category_name', orderable: false, searchable: true },
+                { data: 'name', orderable: true, searchable: true },
+                { data: 'rank', orderable: true, searchable: false },
                 { data: 'actions', orderable: false, searchable: false },
             ],
             layout: {
@@ -109,7 +103,6 @@
                     sortDescending: ": {{ __('azalan sütun sıralamasını aktifleştir') }}"
                 }
             },
-            scrollY: 300,
             scrollX: true,
             scrollCollapse: true,
             fixedColumns: {

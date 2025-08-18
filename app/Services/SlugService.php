@@ -10,6 +10,8 @@ class SlugService
     public function create($table,$request,$locale,$exceptId = null)
     {
         $baseSlug = Str::slug($request->name[$locale]);
+        if (empty($baseSlug))
+            $baseSlug = Str::slug(Str::random(10));
         $slug = $baseSlug;
         $counter = 1;
 

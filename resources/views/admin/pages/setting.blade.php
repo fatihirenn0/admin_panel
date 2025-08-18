@@ -14,8 +14,7 @@
             <div class="row g-6">
                 <!-- Default Wizard -->
                 <div class="col-7 mb-6">
-                    <small class="fw-medium">Ayarlar</small>
-                    <div class="bs-stepper wizard-numbered mt-2">
+                    <div class="bs-stepper wizard-numbered">
                         <div class="bs-stepper-header">
                             <div class="step" data-target="#account-details">
                                 <button type="button" class="step-trigger">
@@ -52,27 +51,74 @@
                             <form onSubmit="return false">
                                 <!-- Account Details -->
                                 <div id="account-details" class="content">
-                                    <div class="row g-6">
-                                        <div class="col-sm-12">
-                                            @include('inputs.input',[
-                                                'title'=>__('Site Başlığı'),
-                                                'name'=>"title[{}]",
-                                                'value' => old('title',$settings->firstWhere('key','title')?->value)
-                                            ])
-                                            <label class="form-label" for="name">Site Başlığı</label>
-                                            <input type="text" id="name" class="form-control" value="{{ old('name',$settings->firstWhere('key','name')?->value) }}" />
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label class="form-label" for="google_map_link">Google Map link</label>
-                                            <input type="url" id="google_map_link"  class="form-control" value="{{ old('google_map_link',$settings->firstWhere('key','google_map_link')?->value) }}"/>
-                                        </div>
-                                        <div class="col-sm-12">
-                                            <label class="form-label" for="google_anayltics">Google Analytics</label>
-                                            <div class="input-group input-group-merge">
-                                                <input type="url" id="google_anayltics" class="form-control" value="{{ old('google_analytics',$settings->firstWhere('key','google_analytics')?->value) }}"/>
-                                                <span class="input-group-text cursor-pointer" id="google_anayltics">
-                                                </span>
-                                            </div>
+                                    <div class="nav-align-top nav-tabs-shadow">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            @foreach($locales as $locale)
+                                                <li class="nav-item">
+                                                    <button
+                                                        type="button"
+                                                        class="nav-link {{ $loop->first ? 'active' : '' }}"
+                                                        role="tab"
+                                                        data-bs-toggle="tab"
+                                                        data-bs-target="#navs-locale-{{ $locale->locale }}"
+                                                        aria-controls="navs-locale-{{ $locale->locale }}"
+                                                        aria-selected="{{ $loop->first ? 'true' : 'false' }}">
+                                                        {{ $locale->language }}
+                                                    </button>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                        <div class="tab-content">
+                                            @if ($errors->any())
+                                                <div class="alert alert-danger">
+                                                    <ul>
+                                                        @foreach ($errors->all() as $error)
+                                                            <li>{{ $error }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            @foreach($locales as $locale)
+                                                <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="navs-locale-{{ $locale->locale }}" role="tabpanel">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            @include('inputs.input',[
+                                                                'title'=>__('Site Başlığı') . " (".$locale->language.")",
+                                                                'name'=>"title_".$locale->locale,
+                                                                'value' => old("title_".$locale->locale,$settings->firstWhere('key',"title_".$locale->locale)?->value)
+                                                            ])
+                                                        </div>
+                                                        @if($loop->first)
+                                                            <div class="col-sm-12 mt-3">
+                                                                @include('inputs.input',[
+                                                                    'title'=>__('Google Map link'),
+                                                                    'name'=>"google_map_link",
+                                                                    'value' => old('google_map_link',$settings->firstWhere('key','google_map_link')?->value)
+                                                                ])
+                                                            </div>
+                                                            <div class="col-sm-12 mt-3">
+                                                                @include('inputs.input',[
+                                                                    'title'=>__('Google Analytics'),
+                                                                    'name'=>"google_analytics",
+                                                                    'value' => old('google_analytics',$settings->firstWhere('key','google_analytics')?->value)
+                                                                ])
+                                                            </div>
+                                                        @endif
+                                                        <div class="col-12 mt-2">
+                                                            @include('inputs.textarea',[
+                                                                'title'=>__('Meta Anahtar Kelimeler') . " (".$locale->language.")",
+                                                                'name'=>"meta_keywords_".$locale->locale,
+                                                            ])
+                                                        </div>
+                                                        <div class="col-12 mt-2">
+                                                            @include('inputs.textarea',[
+                                                                'title'=>__('Meta Açıklamalar') . " (".$locale->language.")",
+                                                                'name'=>"meta_description_".$locale->locale
+                                                            ])
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -80,130 +126,156 @@
                                 <div id="personal-info" class="content">
                                     <div class="row g-6">
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Telefon 1</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "Telefon Numarası 1",
+                                                'name'=>"telephone",
+                                                'value' => old("telephone",$settings->firstWhere('key',"telephone")?->value)
+                                            ])
                                         </div>
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Telefon 2</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "Telefon Numarası 2",
+                                                'name'=>"telephone2",
+                                                'value' => old("telephone2",$settings->firstWhere('key',"telephone2")?->value)
+                                            ])
                                         </div>
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Telefon 2</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "Telefon Numarası 3",
+                                                'name'=>"telephone3",
+                                                'value' => old("telephone3",$settings->firstWhere('key',"telephone3")?->value)
+                                            ])
                                         </div>
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Mail 1</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "E-posta Adresi 1",
+                                                'name'=>"email",
+                                                'type' => 'email',
+                                                'value' => old("email",$settings->firstWhere('key',"email")?->value)
+                                            ])
                                         </div>
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Mail 2</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "E-posta Adresi 2",
+                                                'name'=>"email2",
+                                                'type' => 'email',
+                                                'value' => old("email2",$settings->firstWhere('key',"email2")?->value)
+                                            ])
                                         </div>
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Whatsapp</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "E-posta Adresi 3",
+                                                'name'=>"email3",
+                                                'type' => 'email',
+                                                'value' => old("email3",$settings->firstWhere('key',"email3")?->value)
+                                            ])
                                         </div>
                                         <div class="col-sm-12">
-                                            <label class="form-label" for="first-name">Adres</label>
-                                            <input type="text" id="first-name" class="form-control" placeholder="John" />
+                                            @include('inputs.input',[
+                                                'title'=> "Whatsapp",
+                                                'name'=>"whatsapp",
+                                                'value' => old("whatsapp",$settings->firstWhere('key',"whatsapp")?->value)
+                                            ])
+                                        </div>
+                                        <div class="col-sm-12">
+                                            @include('inputs.textarea',[
+                                                'title'=> "Adres",
+                                                'name'=>"address",
+                                                'value' => old("address",$settings->firstWhere('key',"address")?->value)
+                                            ])
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Social Links -->
                                 <div id="social-links" class="content">
                                     <div class="row g-6">
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="twitter">Twitter</label>
-                                            <input
-                                                type="text"
-                                                id="twitter"
-                                                class="form-control"
-                                                placeholder="https://twitter.com/abc" />
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Facebook",
+                                                'name'=>"facebook",
+                                                'value' => old("facebook",$settings->firstWhere('key',"facebook")?->value)
+                                            ])
                                         </div>
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="facebook">Facebook</label>
-                                            <input
-                                                type="text"
-                                                id="facebook"
-                                                class="form-control"
-                                                placeholder="https://facebook.com/abc" />
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Twitter/X",
+                                                'name'=>"twitter",
+                                                'value' => old("twitter",$settings->firstWhere('key',"twitter")?->value)
+                                            ])
                                         </div>
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="google">İnstagram</label>
-                                            <input
-                                                type="text"
-                                                id="google"
-                                                class="form-control"
-                                                placeholder="https://plus.google.com/abc" />
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Youtube",
+                                                'name'=>"youtube",
+                                                'value' => old("youtube",$settings->firstWhere('key',"youtube")?->value)
+                                            ])
                                         </div>
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="linkedin">LinkedIn</label>
-                                            <input
-                                                type="text"
-                                                id="linkedin"
-                                                class="form-control"
-                                                placeholder="https://linkedin.com/abc" />
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Instagram",
+                                                'name'=>"instagram",
+                                                'value' => old("instagram",$settings->firstWhere('key',"instagram")?->value)
+                                            ])
                                         </div>
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="facebook">Youtube</label>
-                                            <input
-                                                type="text"
-                                                id="facebook"
-                                                class="form-control"
-                                                placeholder="https://facebook.com/abc" />
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Linkedin",
+                                                'name'=>"linkedin",
+                                                'value' => old("linkedin",$settings->firstWhere('key',"linkedin")?->value)
+                                            ])
                                         </div>
-                                        <div class="col-sm-6">
-                                            <label class="form-label" for="google">Tiktok</label>
-                                            <input
-                                                type="text"
-                                                id="google"
-                                                class="form-control"
-                                                placeholder="https://plus.google.com/abc" />
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Tiktok",
+                                                'name'=>"tiktok",
+                                                'value' => old("tiktok",$settings->firstWhere('key',"tiktok")?->value)
+                                            ])
                                         </div>
-                                        <div class="col-12 d-flex justify-content-between">
+                                        <div class="col-sm-12">
+                                            @include('inputs.input',[
+                                                'title'=> "Google İşletme",
+                                                'name'=>"google_business",
+                                                'value' => old("google_business",$settings->firstWhere('key',"google_business")?->value)
+                                            ])
                                         </div>
                                     </div>
                                 </div>
 
-                                <button class="btn btn-success btn-submit mt-2">Kaydet</button>
+                                <button class="btn btn-primary btn-submit mt-2">Kaydet</button>
                             </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-5 mb-6">
-                    <div class="bs-stepper wizard-numbered mt-2">
-                    <div class="row">
-                        <div class="col-md-6">
-                            @include('inputs.file',[
-                                'title'=>__('Kapak Resmi'),
-                                'name'=>"image[{}]",
-                                'cropWidth' => 1200,
-                                'cropHeight' => 800,
-                                'loopIndex' => 0
-                            ])
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    @include('inputs.file',[
+                                        'title'=>__('Logo'),
+                                        'name'=>"logo",
+                                        'loopIndex' => 0,
+                                        'value' => '/storage/'.$settings->firstWhere('key','logo')?->value
+                                    ])
+                                </div>
+                                <div class="col-md-12">
+                                    @include('inputs.file',[
+                                        'title'=>__('Footer Logo'),
+                                        'name'=>"footer_logo",
+                                        'loopIndex' => 0,
+                                        'value' => '/storage/'.$settings->firstWhere('key','footer_logo')?->value
+                                    ])
+                                </div>
+                                <div class="col-md-12">
+                                    @include('inputs.file',[
+                                        'title'=>__('Favicon'),
+                                        'name'=>"favicon",
+                                        'loopIndex' => 0,
+                                        'value' => '/storage/'.$settings->firstWhere('key','favicon')?->value
+                                    ])
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            @include('inputs.file',[
-                                'title'=>__('Favicon'),
-                                'name'=>"image[{}]",
-                                'cropWidth' => 1200,
-                                'cropHeight' => 800,
-                                'loopIndex' => 0
-                            ])
-                        </div>
-                        <div class="col-12 mt-2">
-                            @include('inputs.textarea',[
-                                'title'=>__('Meta Anahtar Kelimeler'),
-                                'name'=>"meta_keywords[{}]",
-                            ])
-                        </div>
-                        <div class="col-12 mt-2">
-                            @include('inputs.textarea',[
-                                'title'=>__('Meta Açıklamalar'),
-                                'name'=>"meta_description[{}]"
-                            ])
-                        </div>
-                    </div>
                     </div>
                 </div>
                 <!-- /Default Wizard -->

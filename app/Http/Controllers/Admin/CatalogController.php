@@ -143,7 +143,6 @@ class CatalogController extends Controller
         $validated['cover'] = $covers;
         $validated['file']      = $files;
         $validated['url']  = $fileUrls;
-        $validated['catalog_category_id'] = (int) $request->input('catalog_category_id');
         Catalog::create($validated);
 
         return redirect()->back()->with('success', __('Başarıyla Eklendi'));
@@ -211,7 +210,6 @@ class CatalogController extends Controller
         $validated['cover'] = $covers;
         $validated['file']      = $files;
         $validated['url']  = $fileUrls;
-        $validated['catalog_category_id'] = (int) $request->input('catalog_category_id');
 
         $catalog->update($validated);
 

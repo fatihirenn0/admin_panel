@@ -376,6 +376,24 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-briefcase"></i>
+                <div data-i18n="{{ __('Hizmet') }}">{{ __('Hizmet') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.services.index') }}" class="menu-link">
+                        <div data-i18n="{{ __('Hizmet Listesi') }}">{{ __('Hizmet Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.services.create') }}" class="menu-link">
+                        <div data-i18n="{{ __('Hizmet Ekle') }}">{{ __('Hizmet Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon icon-base ti tabler-users"></i>
                 <div data-i18n="Academy">{{ __('Ekip Kategori') }}</div>
             </a>
@@ -496,6 +514,24 @@
                 <li class="menu-item">
                     <a href="{{ route('admin.references.create') }}" class="menu-link">
                         <div data-i18n="My Course">{{ __('Referans Ekle') }}</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon icon-base ti tabler-photo"></i>
+                <div data-i18n="Academy">{{ __('Slider Yönetimi') }}</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="{{ route('admin.sliders.index') }}" class="menu-link">
+                        <div data-i18n="Dashboard">{{ __('Slider Listesi') }}</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="{{ route('admin.sliders.create') }}" class="menu-link">
+                        <div data-i18n="My Course">{{ __('Slider Ekle') }}</div>
                     </a>
                 </li>
             </ul>

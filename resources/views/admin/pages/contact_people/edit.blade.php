@@ -1,6 +1,6 @@
 @extends('admin.pages.build')
 @section('parent_menu', __('İletişim Kişileri'))
-@section('parent_menu_link', route('admin.contact-peoples.index'))
+@section('parent_menu_link', route('admin.contact-people.index'))
 @section('title',__('İletişim Kişileri Görüntüle'))
 @push('css')
     <link rel="stylesheet" href="/panel/assets/css/dropify.min.css" />

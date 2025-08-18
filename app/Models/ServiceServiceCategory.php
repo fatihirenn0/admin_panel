@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServiceServiceCategory extends Model
 {
-    //
+    public $timestamps = false;
 }

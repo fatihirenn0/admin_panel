@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('sliders', function (Blueprint $table) {
             $table->id();
             $table->text('file_url');
-            $table->enum('type',['image','video'])->default('image');
             $table->text('title')->nullable();
             $table->text('text')->nullable();
             $table->text('sub_text')->nullable();
@@ -22,6 +21,7 @@ return new class extends Migration
             $table->text('link_text')->nullable();
             $table->unsignedInteger('rank')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

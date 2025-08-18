@@ -20,10 +20,8 @@ class FaqUpdateRequest extends FormRequest
 
         foreach ($locales as $index => $locale) {
             $first = array_key_first((array)$locales) == $index;
-            $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
-            $rules["meta_keywords.$locale->locale"] = ['nullable', 'string'];
-            $rules["meta_description.$locale->locale"] = ['nullable', 'string'];
-            $rules["image.$locale->locale"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'];
+            $rules["question.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
+            $rules["answer.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
         }
 
         $rules['rank'] = ['nullable', 'integer', 'min:0'];
@@ -40,10 +38,8 @@ class FaqUpdateRequest extends FormRequest
             $code = $locale->locale;
             $lang = $locale->language;
 
-            $attributes["name.$code"] = "Katalog Kategori Adı ($lang)";
-            $attributes["meta_keywords.$code"] = "Meta Anahtar Kelimeler ($lang)";
-            $attributes["meta_description.$code"] = "Meta Açıklama ($lang)";
-            $attributes["image.$code"] = "Kapak Resmi ($lang)";
+            $attributes["question.$code"] = "Soru ($lang)";
+            $attributes["answer.$code"] = "Cevap ($lang)";
         }
 
         $attributes['rank'] = 'Gösterim Sırası';
