@@ -58,14 +58,11 @@
                                         @if($loop->first)
                                             <div class="col-md-12 mt-2">
                                                 @include('inputs.input',[
-                                                    'title'   => __('Olay Tarihi'),
-                                                    'type'    => 'date',
-                                                    'name'    => 'date',
-                                                    'required'=> true
+                                                    'title'=>__('Olay Tarihi'),
+                                                    'type'=>'date',
+                                                    'name'=>'date'
                                                 ])
                                             </div>
-                                        @endif()
-                                        @if($loop->first)
                                             <div class="col-md-12 mt-2">
                                                 @include('inputs.input',[
                                                     'title'=>__('Gösterim Sırası'),

@@ -47,6 +47,7 @@
                                                     'options' =>['' => 'Kategori Seçilmedi'] + $photoCategories->pluck('name', 'id')->toArray(),
                                                     'title' => __('Kategoriler'),
                                                     'name' => 'photo_category_id',
+                                                    'multiple' => true,
                                                     'loopIndex' => $loop->index,
                                                     'selected'=> old('photo_category_id', $photo->photo_category_id ?? null),
                                                 ])

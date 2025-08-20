@@ -10,7 +10,7 @@ class Milestone extends Model
 {
     use HasTranslations, SoftDeletes;
 
-    public array $translatable = ['name','slug','image','description','date'];
+    public array $translatable = ['name','slug','image','description'];
 
     protected $fillable = [
         'name',
@@ -25,7 +25,6 @@ class Milestone extends Model
         'name' => 'array',
         'slug' => 'array',
         'description' => 'array',
-        'date' => 'array',
         'image' => 'array',
     ];
 }

@@ -28,7 +28,8 @@
                                     @include('inputs.select',[
                                         'options' =>['' => 'Kategori Seçilmedi'] + $videoCategories->pluck('name', 'id')->toArray() ,
                                         'title' => __('Kategoriler'),
-                                        'name' => 'video_category_id',
+                                        'name' => 'video_categories[]',
+                                        'multiple' => true,
                                         'loopIndex' => 0
                                     ])
                                 </div>

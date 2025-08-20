@@ -64,7 +64,7 @@
                                                     'title'    => __('Olay Tarihi'),
                                                     'type'     => 'date',
                                                     'name'     => 'date',
-                                                    'value'    => $milestone->date ? \Carbon\Carbon::parse($milestone->date)->format('Y-m-d') : null,
+                                                    'value'    => $milestone->date,
                                                     'required' => true
                                                 ])
                                             </div>

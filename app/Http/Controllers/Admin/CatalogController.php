@@ -143,6 +143,7 @@ class CatalogController extends Controller
         $validated['cover'] = $covers;
         $validated['file']      = $files;
         $validated['url']  = $fileUrls;
+
         Catalog::create($validated);
 
         return redirect()->back()->with('success', __('Başarıyla Eklendi'));

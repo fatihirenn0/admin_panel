@@ -340,7 +340,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-components"></i>
+                <i class="menu-icon icon-base ti tabler-checklist"></i>
                 <div data-i18n="Academy">{{ __('Proje') }}</div>
             </a>
             <ul class="menu-sub">
@@ -376,7 +376,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-briefcase"></i>
+                <i class="menu-icon icon-base ti tabler-briefcase-2"></i>
                 <div data-i18n="{{ __('Hizmet') }}">{{ __('Hizmet') }}</div>
             </a>
             <ul class="menu-sub">
@@ -520,7 +520,7 @@
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon icon-base ti tabler-photo"></i>
+                <i class="menu-icon icon-base ti tabler-slideshow"></i>
                 <div data-i18n="Academy">{{ __('Slider Yönetimi') }}</div>
             </a>
             <ul class="menu-sub">
@@ -568,7 +568,7 @@
         </li>
         <li class="menu-item">
             <a href="{{ route('admin.role-groups.index') }}" class="menu-link">
-                <i class="menu-icon icon-base ti tabler-shield"></i>
+                <i class="menu-icon icon-base ti tabler-brand-auth0"></i>
                 <div data-i18n="Academy">{{ __('Yetkilendirme') }}</div>
             </a>
         </li>

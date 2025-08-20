@@ -46,7 +46,7 @@ class AnnouncementStoreRequest extends FormRequest
             $code = $locale->locale;
             $lang = $locale->language;
 
-            $attributes["name.$code"] = "İçerik ($lang)";
+            $attributes["text.$code"] = "İçerik ($lang)";
         }
 
         $attributes['rank'] = 'Gösterim Sırası';

@@ -49,7 +49,9 @@ class FileController extends Controller
             return [
                 'id' => $item->id,
                 'name' => $item->name,
-                'file_url' => !empty($item->file_url) ? '<img src="/storage/' . $item->file_url . '" height="60"/>' : __('Eklenmedi'),
+                'file_url' => !empty($item->file_url)
+                    ? '<embed src="'.asset('storage/' . $item->file_url).'" type="application/pdf" width="100" height="100">'
+                    : __('Eklenmedi'),
                 'actions' => '
             <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
                 <i class="icon-base ti tabler-pencil"></i>

@@ -92,6 +92,17 @@ class VideoController extends Controller
 
         $video = Video::create($validated);
 
+        if($request->video_categories){
+            foreach ($request->video_categories as $videoCategory){
+                $videoVideoCategory = new VideoVideoCategory();
+                $videoVideoCategory->video_id = $video->id;
+                $videoVideoCategory->video_category_id = $videoCategory;
+                $videoVideoCategory->save();
+
+            }
+
+        }
+
         return redirect()->back()->with('success', __('Başarıyla Eklendi'));
     }
 

@@ -86,7 +86,7 @@ class AnnouncementController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(AnnouncementStoreRequest $request)
+    public function store(AnnouncementStoreRequest $request): \Illuminate\Http\RedirectResponse
     {
         $validated = $request->validated();
 
@@ -114,7 +114,7 @@ class AnnouncementController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(AnnouncementUpdateRequest $request, Announcement $announcement)
+    public function update(\App\Http\Requests\Announcement\AnnouncementUpdateRequest $request, Announcement $announcement)
     {
         $validated = $request->validated();
 

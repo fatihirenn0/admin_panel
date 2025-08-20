@@ -17,7 +17,7 @@
                     <tr>
                         <th>{{ __('ID') }}</th>
                         <th>{{ __('Dosya İsmi') }}</th>
-                        <th>{{ __('Resim') }}</th>
+                        <th>{{ __('Dosya') }}</th>
                         <th>{{ __('İşlemler') }}</th>
                     </tr>
                     </thead>

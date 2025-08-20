@@ -47,6 +47,7 @@
                                                     'options' =>['' => 'Kategori Seçilmedi'] + $catalogCategories->pluck('name', 'id')->toArray() ,
                                                     'title' => __('Kategoriler'),
                                                     'name' => 'catalog_category_id',
+                                                    'multiple' => true,
                                                     'loopIndex' => $loop->index
                                                 ])
                                             </div>

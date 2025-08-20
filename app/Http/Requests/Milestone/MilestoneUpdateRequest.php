@@ -22,10 +22,9 @@ class MilestoneUpdateRequest extends FormRequest
             $first = array_key_first((array)$locales) == $index;
             $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
             $rules["description.$locale->locale"] = ['nullable', 'string'];
-            $rules["date.$locale->locale"] = ['nullable', 'date'];
             $rules["image.$locale->locale"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'];
         }
-
+        $rules['date'] = ['nullable', 'date'];
         $rules['rank'] = ['nullable', 'integer', 'min:0'];
 
         return $rules;
@@ -42,10 +41,10 @@ class MilestoneUpdateRequest extends FormRequest
 
             $attributes["name.$code"] = "Tarihçe Adı ($lang)";
             $attributes["description.$code"] = "Tarihçe Açıklaması ($lang)";
-            $attributes["date.$code"] = "Olay Tarihi($lang)";
             $attributes["image.$code"] = "Resmi ($lang)";
         }
 
+        $attributes['date'] = __('Olay Tarihi');
         $attributes['rank'] = 'Gösterim Sırası';
 
         return $attributes;
