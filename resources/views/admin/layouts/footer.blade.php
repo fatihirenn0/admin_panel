@@ -8,15 +8,7 @@
                 <script>
                     document.write(new Date().getFullYear());
                 </script>
-                , made with ❤️ by <a href="https://pixinvent.com" target="_blank" class="footer-link">Pixinvent</a>
-            </div>
-            <div class="d-none d-lg-inline-block">
-                <a
-                    href="https://demos.pixinvent.com/vuexy-html-admin-template/documentation/"
-                    target="_blank"
-                    class="footer-link me-4"
-                >Documentation</a
-                >
+                <a href="https://www.irensoft.com" target="_blank" class="footer-link">IRENSOFT</a>
             </div>
         </div>
     </div>

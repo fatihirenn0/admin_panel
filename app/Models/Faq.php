@@ -22,4 +22,16 @@ class Faq extends Model
         'question' => 'array',
         'answer' => 'array',
     ];
+
+    public function categories()
+    {
+        return $this->hasManyThrough(
+            FaqCategory::class,      // hedef model
+            FaqFaqCategory::class,  // ara model (pivot gibi davranır)
+            'faq_id',            // ara modeldeki foreign key
+            'id',                 // hedef modeldeki primary key
+            'id',                 // faq tablosundaki local key
+            'faq_category_id'         // ara modeldeki hedef model foreign key
+        );
+    }
 }

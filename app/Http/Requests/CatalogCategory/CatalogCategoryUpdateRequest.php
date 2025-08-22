@@ -21,12 +21,14 @@ class CatalogCategoryUpdateRequest extends FormRequest
         foreach ($locales as $index => $locale) {
             $first = array_key_first((array)$locales) == $index;
             $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
+            $rules["description.$locale->locale"] = ['nullable', 'string'];
             $rules["meta_keywords.$locale->locale"] = ['nullable', 'string'];
             $rules["meta_description.$locale->locale"] = ['nullable', 'string'];
             $rules["image.$locale->locale"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'];
         }
 
         $rules['rank'] = ['nullable', 'integer', 'min:0'];
+        $rules['url'] = ['nullable','max:255'];
 
         return $rules;
     }
@@ -42,12 +44,14 @@ class CatalogCategoryUpdateRequest extends FormRequest
             $lang = $locale->language;
 
             $attributes["name.$code"] = "Katalog Kategori Adı ($lang)";
+            $attributes["description.$code"] = "Katalog Açıklaması ($lang)";
             $attributes["meta_keywords.$code"] = "Meta Anahtar Kelimeler ($lang)";
             $attributes["meta_description.$code"] = "Meta Açıklama ($lang)";
             $attributes["image.$code"] = "Kapak Resmi ($lang)";
         }
 
         $attributes['rank'] = 'Gösterim Sırası';
+        $attributes['url'] = 'Dış Bağlantı Link';
 
         return $attributes;
     }

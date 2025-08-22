@@ -28,4 +28,16 @@ class ProjectCategory extends Model
         'meta_description' => 'array',
         'image' => 'array',
     ];
+
+    public function projects()
+    {
+        return $this->hasManyThrough(
+            Project::class,             // hedef model
+            ProjectProjectCategory::class, // ara model
+            'project_category_id',      // ara modeldeki foreign key (ProjectCategory ilişkisi)
+            'id',                    // hedef modeldeki primary key
+            'id',                    // ProjectCategory tablosundaki local key
+            'project_id'                // ara modeldeki hedef model foreign key
+        );
+    }
 }

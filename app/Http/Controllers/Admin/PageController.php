@@ -33,7 +33,7 @@ class PageController extends Controller
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
-            $query->where('name->'.session('locale') ?? 'tr', 'like', '%' . $search . '%');
+            $query->where('name->'.app()->getLocale(), 'like', '%' . $search . '%');
         }
 
         // 🔢 Sıralama
@@ -206,16 +206,19 @@ class PageController extends Controller
 
 
         $pageImages = PageImage::where('page_id',$page->id)->get();
+        $deletePageImageIds = [];
         if (isset($request->deleted_images)){
             foreach ($pageImages as $pageImage){
                 if (in_array($pageImage->image_url,$request->deleted_images)){
                     if (Storage::disk('public2')->exists($pageImage->image_url)){
                         Storage::disk('public2')->delete($pageImage->image_url);
                     }
-                    PageImage::where('id',$pageImage->id)->delete();
+                    $deletePageImageIds[] = $pageImage->id;
                 }
             }
         }
+
+
 
         if (isset($request->images)){
             $newPageImages = [];
@@ -227,7 +230,7 @@ class PageController extends Controller
                             $pageImage = $pageImages->where('id',$request->old_image_ids[$localeId][$index])->first();
                             if (Storage::disk('public2')->exists($pageImage->image_url))
                                 Storage::disk('public2')->delete($pageImage->image_url);
-                            $pageImage->delete();
+                            $deletePageImageIds[] = $pageImage->id;
                         }
                         $newPageImages[] = [
                             'page_id' => $page->id,
@@ -244,12 +247,18 @@ class PageController extends Controller
                 PageImage::insert($newPageImages);
         }
 
+        if (count($deletePageImageIds)) {
+            PageImage::whereIn('id', $deletePageImageIds)->delete();
+        }
+
         if (isset($request->old_image_ids)){
             foreach ($request->old_image_ids as $localeId => $oldImageIds){
                 foreach ($oldImageIds as $index => $oldImageId){
                     $pageImage = $pageImages->where('id',$oldImageId)->first();
-                    $pageImage->rank = $request->image_ranks[$localeId][$index];
-                    $pageImage->save();
+                    if ($pageImage){
+                        $pageImage->rank = $request->image_ranks[$localeId][$index];
+                        $pageImage->save();
+                    }
                 }
             }
         }

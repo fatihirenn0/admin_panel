@@ -35,7 +35,7 @@ class ProjectController extends Controller
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
-            $query->where('name->'.session('locale') ?? 'tr', 'like', '%' . $search . '%');
+            $query->where('name->'.app()->getLocale(), 'like', '%' . $search . '%');
         }
 
         // 🔢 Sıralama
@@ -247,13 +247,14 @@ class ProjectController extends Controller
         }
 
         $projectImages = ProjectImage::where('project_id',$project->id)->get();
+        $deleteProjectImageIds = [];
         if (isset($request->deleted_images)){
             foreach ($projectImages as $projectImage){
                 if (in_array($projectImage->image_url,$request->deleted_images)){
                     if (Storage::disk('public2')->exists($projectImage->image_url)){
                         Storage::disk('public2')->delete($projectImage->image_url);
                     }
-                    ProjectImage::where('id',$projectImage->id)->delete();
+                    $deleteProjectImageIds[] = $projectImage->id;
                 }
             }
         }
@@ -268,7 +269,7 @@ class ProjectController extends Controller
                             $projectImage = $projectImages->where('id',$request->old_image_ids[$localeId][$index])->first();
                             if (Storage::disk('public2')->exists($projectImage->image_url))
                                 Storage::disk('public2')->delete($projectImage->image_url);
-                            $projectImage->delete();
+                            $deleteProjectImageIds[] = $projectImage->id;
                         }
                         $newProjectImages[] = [
                             'project_id' => $project->id,
@@ -285,12 +286,18 @@ class ProjectController extends Controller
                 ProjectImage::insert($newProjectImages);
         }
 
+        if (count($deleteProjectImageIds)) {
+            ProjectImage::whereIn('id', $deleteProjectImageIds)->delete();
+        }
+
         if (isset($request->old_image_ids)){
             foreach ($request->old_image_ids as $localeId => $oldImageIds){
                 foreach ($oldImageIds as $index => $oldImageId){
                     $projectImage = $projectImages->where('id',$oldImageId)->first();
-                    $projectImage->rank = $request->image_ranks[$localeId][$index];
-                    $projectImage->save();
+                    if($projectImage){
+                        $projectImage->rank = $request->image_ranks[$localeId][$index];
+                        $projectImage->save();
+                    }
                 }
             }
         }

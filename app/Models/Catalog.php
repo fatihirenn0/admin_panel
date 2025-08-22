@@ -20,6 +20,7 @@ class Catalog extends Model
         'file',
         'description',
         'rank',
+        'url',
         'meta_description',
         'meta_keywords',
         'created_at',

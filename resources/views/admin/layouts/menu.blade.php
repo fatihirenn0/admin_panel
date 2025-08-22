@@ -2,7 +2,7 @@
 
 <aside id="layout-menu" class="layout-menu menu-vertical menu">
     <div class="app-brand demo">
-        <a href="index.html" class="app-brand-link">
+        <a href="{{ route('admin.index') }}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <span class="text-primary">
                   <svg width="32" height="22" viewBox="0 0 32 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -31,7 +31,7 @@
                   </svg>
                 </span>
               </span>
-            <span class="app-brand-text demo menu-text fw-bold ms-3">Vuexy</span>
+            <span class="app-brand-text demo menu-text fw-bold ms-3">Admin</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -49,6 +49,9 @@
                 <i class="menu-icon icon-base ti tabler-smart-home"></i>
                 <div data-i18n="{{ __('Ana Sayfa') }}">{{ __('Ana Sayfa') }}</div>
             </a>
+        </li>
+        <li>
+            <input type="text" id="menuSearch" placeholder="Menüde ara..." class="form-control mb-2" style="margin: .89rem" >
         </li>
         <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -570,6 +573,12 @@
             <a href="{{ route('admin.role-groups.index') }}" class="menu-link">
                 <i class="menu-icon icon-base ti tabler-brand-auth0"></i>
                 <div data-i18n="Academy">{{ __('Yetkilendirme') }}</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('admin.static-files.index') }}" class="menu-link">
+                <i class="menu-icon icon-base ti tabler-brand-auth0"></i>
+                <div data-i18n="Academy">{{ __('Statik Dosyalar') }}</div>
             </a>
         </li>
     </ul>

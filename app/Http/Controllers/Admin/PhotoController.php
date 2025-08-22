@@ -27,7 +27,7 @@ class PhotoController extends Controller
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
-            $query->where('name->'.session('locale') ?? 'tr', 'like', '%' . $search . '%');
+            $query->where('name->'.app()->getLocale(), 'like', '%' . $search . '%');
         }
 
         // 🔢 Sıralama
@@ -158,13 +158,6 @@ class PhotoController extends Controller
 
         $validated['image'] = $images;
         $photo->update($validated);
-
-        $categoryId = (int) $request->input('photo_category_id');
-
-            DB::table('photos as photo')
-            ->leftJoin('photo_categories as photo_category', 'photo_categories.id', '=', 'photo.photo_category_id')
-            ->where('photo.id', $photo->id);
-            $photo->update(['photo_category_id' => $categoryId]);
 
         return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
     }

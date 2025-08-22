@@ -18,6 +18,7 @@ class PhotoCategoryUpdateRequest extends FormRequest
 
         $locales = Locale::all();
 
+        $rules['photo_category_id'] = ['nullable','exists:photo_categories,id'];
         foreach ($locales as $index => $locale) {
             $first = array_key_first((array)$locales) == $index;
             $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
@@ -46,6 +47,7 @@ class PhotoCategoryUpdateRequest extends FormRequest
             $attributes["image.$code"] = "Kapak Resmi ($lang)";
         }
 
+        $attributes['photo_category_id'] = 'Fotoğraf Kategori';
         $attributes['rank'] = 'Gösterim Sırası';
 
         return $attributes;

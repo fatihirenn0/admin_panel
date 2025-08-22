@@ -46,8 +46,7 @@
                                                 @include('inputs.select',[
                                                     'options' =>['' => 'Kategori Seçilmedi'] + $photoCategories->pluck('name', 'id')->toArray() ,
                                                     'title' => __('Kategoriler'),
-                                                    'name' => 'photoCategories[]',
-                                                    'multiple' => true,
+                                                    'name' => 'photo_category_id',
                                                     'loopIndex' => $loop->index
                                                 ])
                                             </div>

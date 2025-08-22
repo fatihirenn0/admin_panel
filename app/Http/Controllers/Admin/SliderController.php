@@ -32,7 +32,7 @@ class SliderController extends Controller
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
-            $query->where('name->'.session('locale') ?? 'tr', 'like', '%' . $search . '%');
+            $query->where('name->'.app()->getLocale(), 'like', '%' . $search . '%');
         }
 
         // 🔢 Sıralama

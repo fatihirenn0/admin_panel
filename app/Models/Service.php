@@ -35,4 +35,26 @@ class Service extends Model
         'meta_description' => 'array',
         'meta_keywords'=>'array'
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->tr';
+    }
+
+    public function categories()
+    {
+        return $this->hasManyThrough(
+            ServiceCategory::class,      // hedef model
+            ServiceServiceCategory::class,  // ara model (pivot gibi davranır)
+            'service_id',            // ara modeldeki foreign key
+            'id',                 // hedef modeldeki primary key
+            'id',                 // service tablosundaki local key
+            'service_category_id'         // ara modeldeki hedef model foreign key
+        );
+    }
 }

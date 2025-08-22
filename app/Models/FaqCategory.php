@@ -26,4 +26,16 @@ class FaqCategory extends Model
         'meta_keywords' => 'array',
         'meta_description' => 'array',
     ];
+
+    public function faqs()
+    {
+        return $this->hasManyThrough(
+            Faq::class,             // hedef model
+            FaqFaqCategory::class, // ara model
+            'faq_category_id',      // ara modeldeki foreign key (BlogCategory ilişkisi)
+            'id',                    // hedef modeldeki primary key
+            'id',                    // BlogCategory tablosundaki local key
+            'faq_id'                // ara modeldeki hedef model foreign key
+        );
+    }
 }

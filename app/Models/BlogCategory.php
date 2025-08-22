@@ -28,4 +28,26 @@ class BlogCategory extends Model
         'meta_description' => 'array',
         'image' => 'array',
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->tr';
+    }
+
+    public function blogs()
+    {
+        return $this->hasManyThrough(
+            Blog::class,             // hedef model
+            BlogBlogCategory::class, // ara model
+            'blog_category_id',      // ara modeldeki foreign key (BlogCategory ilişkisi)
+            'id',                    // hedef modeldeki primary key
+            'id',                    // BlogCategory tablosundaki local key
+            'blog_id'                // ara modeldeki hedef model foreign key
+        );
+    }
 }

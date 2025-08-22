@@ -252,10 +252,18 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     @include('inputs.file',[
-                                        'title'=>__('Logo'),
+                                        'title'=>__('Renkli Logo'),
                                         'name'=>"logo",
                                         'loopIndex' => 0,
                                         'value' => '/storage/'.$settings->firstWhere('key','logo')?->value
+                                    ])
+                                </div>
+                                <div class="col-md-12">
+                                    @include('inputs.file',[
+                                        'title'=>__('Beyaz Logo'),
+                                        'name'=>"logo_white",
+                                        'loopIndex' => 0,
+                                        'value' => '/storage/'.$settings->firstWhere('key','logo_white')?->value
                                     ])
                                 </div>
                                 <div class="col-md-12">

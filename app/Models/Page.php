@@ -26,4 +26,14 @@ class Page extends Model
     ];
 
     protected $casts = ['name','slug','description','image','meta_description','meta_keywords'];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->tr';
+    }
 }

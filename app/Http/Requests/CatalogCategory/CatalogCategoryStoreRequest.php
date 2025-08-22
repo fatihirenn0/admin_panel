@@ -33,10 +33,12 @@ class CatalogCategoryStoreRequest extends FormRequest
             $rules["name.$locale->locale"] = [$first ? 'required' : 'nullable', 'string', 'max:255'];
             $rules["meta_keywords.$locale->locale"] = ['nullable', 'string'];
             $rules["meta_description.$locale->locale"] = ['nullable', 'string'];
+            $rules["description.$locale->locale"] = ['nullable', 'string'];
             $rules["image.$locale->locale"] = ['nullable', 'image', 'mimes:jpg,jpeg,png,webp,svg', 'max:2048'];
         }
 
         $rules['rank'] = ['nullable', 'integer', 'min:0'];
+        $rules['url'] = ['nullable','max:255'];
 
         return $rules;
     }
@@ -53,10 +55,12 @@ class CatalogCategoryStoreRequest extends FormRequest
 
             $attributes["name.$code"] = "Katalog Kategori Adı ($lang)";
             $attributes["meta_keywords.$code"] = "Meta Anahtar Kelimeler ($lang)";
+            $attributes["description.$code"] = "Katalog Açıklama ($lang)";
             $attributes["meta_description.$code"] = "Meta Açıklama ($lang)";
             $attributes["image.$code"] = "Kapak Resmi ($lang)";
         }
 
+        $attributes['url'] = 'Dış Bağlantı Link';
         $attributes['rank'] = 'Gösterim Sırası';
 
         return $attributes;

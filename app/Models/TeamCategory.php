@@ -26,4 +26,26 @@ class TeamCategory extends Model
         'meta_keywords' => 'array',
         'meta_description' => 'array',
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->tr';
+    }
+
+    public function teams()
+    {
+        return $this->hasManyThrough(
+            Team::class,             // hedef model
+            TeamTeamCategory::class, // ara model
+            'team_category_id',      // ara modeldeki foreign key (BlogCategory ilişkisi)
+            'id',                    // hedef modeldeki primary key
+            'id',                    // BlogCategory tablosundaki local key
+            'team_id'                // ara modeldeki hedef model foreign key
+        );
+    }
 }

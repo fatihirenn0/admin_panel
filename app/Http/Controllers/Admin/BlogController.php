@@ -36,7 +36,7 @@ class BlogController extends Controller
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
-            $query->where('name->'.session('locale') ?? 'tr', 'like', '%' . $search . '%');
+            $query->where('name->'.app()->getLocale(), 'like', '%' . $search . '%');
         }
 
         // 🔢 Sıralama
@@ -62,8 +62,8 @@ class BlogController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($blogCategories,$request){
-            $editUrl = route('admin.blogs.edit', $item->id);
-            $deleteUrl = route('admin.blogs.destroy', $item->id);
+            $editUrl = route('admin.blogs.edit', $item);
+            $deleteUrl = route('admin.blogs.destroy', $item);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
             $categoryName = '';
             foreach ($blogCategories->where('blog_id',$item->id) as $index => $blogCategory) {
@@ -248,13 +248,14 @@ class BlogController extends Controller
         }
 
         $blogImages = BlogImage::where('blog_id',$blog->id)->get();
+        $deleteBlogImageIds = [];
         if (isset($request->deleted_images)){
             foreach ($blogImages as $blogImage){
                 if (in_array($blogImage->image_url,$request->deleted_images)){
                     if (Storage::disk('public2')->exists($blogImage->image_url)){
                         Storage::disk('public2')->delete($blogImage->image_url);
                     }
-                    BlogImage::where('id',$blogImage->id)->delete();
+                    $deleteBlogImageIds[] = $blogImage->id;
                 }
             }
         }
@@ -269,7 +270,7 @@ class BlogController extends Controller
                             $blogImage = $blogImages->where('id',$request->old_image_ids[$localeId][$index])->first();
                             if (Storage::disk('public2')->exists($blogImage->image_url))
                                 Storage::disk('public2')->delete($blogImage->image_url);
-                            $blogImage->delete();
+                            $deleteBlogImageIds[] = $blogImage->id;
                         }
                         $newBlogImages[] = [
                             'blog_id' => $blog->id,
@@ -286,35 +287,41 @@ class BlogController extends Controller
                 BlogImage::insert($newBlogImages);
         }
 
+        if (count($deleteBlogImageIds)) {
+            BlogImage::whereIn('id', $deleteBlogImageIds)->delete();
+        }
         if (isset($request->old_image_ids)){
             foreach ($request->old_image_ids as $localeId => $oldImageIds){
                 foreach ($oldImageIds as $index => $oldImageId){
                     $blogImage = $blogImages->where('id',$oldImageId)->first();
-                    $blogImage->rank = $request->image_ranks[$localeId][$index];
-                    $blogImage->save();
+                    if ($blogImage){
+                        $blogImage->rank = $request->image_ranks[$localeId][$index];
+                        $blogImage->save();
+                    }
                 }
             }
         }
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.blogs.edit',$blog)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Request $request,$id)
+    public function destroy(Request $request,$slug)
     {
         if (isset($request->type)){
             if ($request->type == "recycle"){//Geri Al
-                Blog::where('id',$id)
+                Blog::where('slug->'.app()->getLocale(),$slug)
                     ->withTrashed()
                     ->restore();
 
                 return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
             }else{//Tamamen sil
-                BlogBlogCategory::where('blog_id',$id)->delete(); //Kategori ilişkilerini sil
+                $blog = Blog::where('slug->'.app()->getLocale(),$slug)->withTrashed()->first();
+                BlogBlogCategory::where('blog_id',$blog->id)->delete(); //Kategori ilişkilerini sil
                 $locales = Locale::all();
-                $blog = Blog::where('id',$id)->withTrashed()->first();
+
                 foreach ($locales as $locale) {
                     $imagePath = $blog->getTranslation('image', $locale->locale);
 
@@ -334,7 +341,7 @@ class BlogController extends Controller
                 return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
             }
         }else{
-            Blog::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+            Blog::where('slug->'.app()->getLocale(),$slug)->withTrashed()->delete(); //modeli soft delete sil
 
             return redirect()->back()->with('success', __('Başarıyla Silindi'));
         }

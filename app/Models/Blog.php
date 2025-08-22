@@ -27,4 +27,26 @@ class Blog extends Model
     ];
 
     protected $casts = ['name','slug','description','image','tags','meta_description','meta_keywords'];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->tr';
+    }
+
+    public function categories()
+    {
+        return $this->hasManyThrough(
+            BlogCategory::class,      // hedef model
+            BlogBlogCategory::class,  // ara model (pivot gibi davranır)
+            'blog_id',            // ara modeldeki foreign key
+            'id',                 // hedef modeldeki primary key
+            'id',                 // blog tablosundaki local key
+            'blog_category_id'         // ara modeldeki hedef model foreign key
+        );
+    }
 }

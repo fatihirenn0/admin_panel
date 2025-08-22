@@ -28,7 +28,7 @@ class CatalogController extends Controller
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
-            $query->where('name->'.session('locale') ?? 'tr', 'like', '%' . $search . '%');
+            $query->where('name->'.app()->getLocale(), 'like', '%' . $search . '%');
         }
 
         // 🔢 Sıralama
@@ -109,7 +109,6 @@ class CatalogController extends Controller
         $slugs = [];
         $covers = [];
         $files = [];
-        $fileUrls =[];
 
         foreach ($locales as $locale) {
             $code = $locale->locale;
@@ -134,7 +133,6 @@ class CatalogController extends Controller
             if ($request->hasFile("file.$code")) {
                 $path = $request->file("file.$code")->store('catalog/files', 'public2'); // disk: public2
                 $files[$code] = $path;                                  // storage yolu
-                $fileUrls[$code] = Storage::disk('public2')->url($path); // herkese açık URL
             }
         }
 
@@ -142,7 +140,6 @@ class CatalogController extends Controller
         $validated['slug'] = $slugs;
         $validated['cover'] = $covers;
         $validated['file']      = $files;
-        $validated['url']  = $fileUrls;
 
         Catalog::create($validated);
 
@@ -172,12 +169,10 @@ class CatalogController extends Controller
     public function update(CatalogCategoryUpdateRequest $request, Catalog $catalog)
     {
         $validated = $request->validated();
-
         $locales = Locale::all();
         $slugs = [];
         $covers = [];
         $files = [];
-        $fileUrls =[];
 
         foreach ($locales as $locale) {
             $code = $locale->locale;
@@ -202,7 +197,6 @@ class CatalogController extends Controller
             if ($request->hasFile("file.$code")) {
                 $path = $request->file("file.$code")->store('catalog/files', 'public2'); // disk: public2
                 $files[$code] = $path;                                  // storage yolu
-                $fileUrls[$code] = Storage::disk('public2')->url($path); // herkese açık URL
             }
         }
 
@@ -210,16 +204,9 @@ class CatalogController extends Controller
         $validated['slug'] = $slugs;
         $validated['cover'] = $covers;
         $validated['file']      = $files;
-        $validated['url']  = $fileUrls;
 
         $catalog->update($validated);
 
-        $categoryId = (int) $request->input('catalog_category_id');
-
-        DB::table('catalogs as catalog')
-            ->leftJoin('catalog_categories as catalog_category', 'catalog_categories.id', '=', 'catalog.catalog_category_id')
-            ->where('catalog.id', $catalog->id);
-        $catalog->update(['catalog_category_id' => $categoryId]);
         return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
     }
 

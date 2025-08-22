@@ -78,6 +78,13 @@
                                                     'value' => $catalog->rank
                                                 ])
                                             </div>
+                                            <div class="col-md-12 mt-2">
+                                                @include('inputs.input',[
+                                                    'title'=>__('Dış Bağlantı Link'),
+                                                    'name'=>'url',
+                                                    'value' => $catalog->url
+                                                ])
+                                            </div>
                                         @endif
                                     </div>
                                 </div>

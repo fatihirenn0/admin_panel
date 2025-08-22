@@ -1,13 +1,31 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('admin.pages.index');
-})->name('admin.index');
+App::setLocale(session('locale','tr'));
 
+Route::as('site.')->middleware(\App\Http\Middleware\Site::class)->group(function () {
+    Route::get('/',[\App\Http\Controllers\Site\HelperController::class,'index'])->name('index');
+    foreach (config('routes')['others'] as $routeKey => $details){
+        foreach ($details['routeName'] as $locale => $routeName){
+            if ($locale == app()->getLocale()){
+                Route::get($routeName,[$details['controller'],$details['method']])->name($details['name']);
+            }
+        }
+    }
+
+    foreach (config('routes')['resources'] as $routeKey => $details){
+        foreach ($details['routeName'] as $locale => $routeName){
+            Route::resource($routeName,$details['controller']);
+        }
+    }
+
+    Route::post('/contact-message',[\App\Http\Controllers\Site\HelperController::class,'contactMessage'])->name('contact.message');
+});
 
 Route::prefix('admin')->as('admin.')->group(function () {
+    Route::get('/',[\App\Http\Controllers\Admin\HelperController::class,'index'])->name('index');
     Route::resources([
         'blog-categories' => \App\Http\Controllers\Admin\BlogCategoryController::class,
         'catalog-categories' => \App\Http\Controllers\Admin\CatalogCategoryController::class,
@@ -42,6 +60,7 @@ Route::prefix('admin')->as('admin.')->group(function () {
         'projects' => \App\Http\Controllers\Admin\ProjectController::class,
         'role-groups' => \App\Http\Controllers\Admin\RoleGroupController::class,
         'sliders' => \App\Http\Controllers\Admin\SliderController::class,
+        'static-files' => \App\Http\Controllers\Admin\StaticFileController::class,
     ]);
 
     Route::prefix('ajax')->as('ajax.')->group(function () {
