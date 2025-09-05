@@ -99,7 +99,7 @@
                                 </ul>
                             </div>
                             <div class="sidebar__single sidebar__tags">
-                                <h3 class="sidebar__title">Tags</h3>
+                                <h3 class="sidebar__title">{{ __('Etiketler') }}</h3>
                                 <div class="sidebar__tags-list">
                                     @foreach(explode(',',$blog->tags) as $tag)
                                         <a href="{{ route(getResourceFullLink('blogs','index')) }}?q={{ $tag }}">{{ $tag }}</a>

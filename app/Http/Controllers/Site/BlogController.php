@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
+use App\Models\BlogCategory;
+use App\Models\BlogImage;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -13,9 +15,9 @@ class BlogController extends Controller
      */
     public function index()
     {
+        $blogCategories = BlogCategory::orderBy('rank')->get();
         $blogs = Blog::orderBy('rank')->get();
-
-        return view($this->activeTheme.'.pages.blogs', compact('blogs'));
+        return view($this->activeTheme.'.pages.blogs', compact('blogs' ,'blogCategories'));
     }
 
     /**
@@ -39,7 +41,8 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return view($this->activeTheme.'.pages.blog', compact('blog'));
+        $blogImages = BlogImage::all();
+        return view($this->activeTheme.'.pages.blog', compact('blog' , 'blogImages'));
     }
 
     /**

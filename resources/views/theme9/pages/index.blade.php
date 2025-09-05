@@ -1,0 +1,13 @@
+@extends('theme9.pages.build')
+@section('content')
+    <main>
+        @include('theme9.pages.blocks.slider')
+        @include('theme9.pages.blocks.about')
+        @include('theme9.pages.blocks.service')
+        @include('theme9.pages.blocks.project')
+        @include('theme9.pages.blocks.team')
+        @include('theme9.pages.blocks.contact')
+        @include('theme9.pages.blocks.customer_comment')
+        @include('theme9.pages.blocks.blog')
+    </main>
+@endsection

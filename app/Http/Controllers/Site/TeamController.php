@@ -40,7 +40,8 @@ class TeamController extends Controller
      */
     public function show(Team $team)
     {
-        return view($this->activeTheme.'.pages.team', compact('team'));
+        $teamCategories = TeamCategory::orderBy('rank')->get();
+        return view($this->activeTheme.'.pages.team', compact('team' ,'teamCategories'));
     }
 
     /**

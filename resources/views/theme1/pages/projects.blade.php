@@ -67,7 +67,6 @@
                         </ul>
                     </div>
                 @endif
-
             </div>
         </div>
     </section>

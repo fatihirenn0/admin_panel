@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\ServiceImage;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -41,7 +42,8 @@ class ServiceController extends Controller
     public function show(Service $service)
     {
         $serviceCategories = ServiceCategory::orderBy('rank')->get();
-        return view($this->activeTheme.'.pages.service', compact('service','serviceCategories'));
+        $serviceImages = ServiceImage::orderBy('rank')->get();
+        return view($this->activeTheme.'.pages.service', compact('service','serviceCategories' ,'serviceImages'));
     }
 
     /**

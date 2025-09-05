@@ -38,13 +38,14 @@ class BlogCategoryController extends Controller
      */
     public function show(BlogCategory $blogCategory)
     {
+        $blogCategories = BlogCategory::orderBy('rank')->get();
         $blogs = Blog::join('blog_blog_categories', 'blogs.id', '=', 'blog_blog_categories.blog_id')
             ->where('blog_blog_categories.blog_category_id',$blogCategory->id)
             ->select('blogs.*')
             ->orderBy('blogs.rank')
             ->get();
 
-        return view($this->activeTheme.'.pages.blogs',compact('blogs','blogCategory'));
+        return view($this->activeTheme.'.pages.blogs',compact('blogs','blogCategory' , 'blogCategories'));
     }
 
     /**

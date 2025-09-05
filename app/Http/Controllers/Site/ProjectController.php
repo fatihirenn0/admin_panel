@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectCategory;
+use App\Models\ProjectImage;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -40,7 +41,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view($this->activeTheme.'.pages.project', compact('project'));
+        $projectCategories = ProjectCategory::all();
+        $projectImages = ProjectImage::all();
+        return view($this->activeTheme.'.pages.project', compact('project' ,'projectCategories' ,'projectImages'));
     }
 
     /**

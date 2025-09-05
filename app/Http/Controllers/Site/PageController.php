@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\PageImage;
+use App\Models\Reference;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -37,7 +39,9 @@ class PageController extends Controller
      */
     public function show(Page $page)
     {
-        return view($this->activeTheme.'.pages.page', compact('page'));
+        $pageImages = PageImage::all();
+        $references = Reference::all();
+        return view($this->activeTheme.'.pages.page', compact('page' ,'pageImages' ,'references'));
     }
 
     /**

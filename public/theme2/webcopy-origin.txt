@@ -1,0 +1,1220 @@
+Uri: https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\css2
+Content Type: text/css
+
+Uri: https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\css2-1
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd58jDOjw.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd58jDOjw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5FTfOjw.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5FTfOjw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5LDfOjw.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5LDfOjw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5rDDOjw.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5rDDOjw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDDOjw.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5wDDOjw.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_hg9GnM.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_hg9GnM.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_iE9GnM.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_qE6GnM.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_qE6GnM.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_s06GnM.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_s06GnM.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/cormorantgaramond/v20/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_v86GnM.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\cormorantgaramond\v20\co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_v86GnM.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk4aE-_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk4aE-_F.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk4jE-_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk4jE-_F.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59E-_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59E-_F.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59FO_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk59FO_F.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk6jFO_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk6jFO_F.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FO_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk79FO_F.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/manrope/v19/xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk7PFO_F.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\s\manrope\v19\xn7_YHE41ni1AdIRqAuZuw1Bx9mbZk7PFO_F.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index.htm
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/about.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\about.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/assets/css/all.min.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\all.min.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/animate.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\animate.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/bootstrap.min.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/color.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\color.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/magnific-popup.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\magnific-popup.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/main.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\main.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/meanmenu.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\meanmenu.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/nice-select.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\nice-select.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/css/swiper-bundle.min.css
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\css\swiper-bundle.min.css
+Content Type: text/css
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/about-image-01.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\about-image-01.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/about-image-02.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\about-image-02.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/about-image-03.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\about-image-03.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/about-image-04.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\about-image-04.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/about-image-05.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\about-image-05.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/about-image-06.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\about-image-06.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/graph-shape-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\graph-shape-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/graph-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\graph-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/order-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\order-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/signture.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\signture.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/text-circle-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\text-circle-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/text-circle-3.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\text-circle-3.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/about/text-circle.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\about\text-circle.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/bar.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\bar.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb-graph-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb-graph-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/about-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\about-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/faq-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\faq-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/news-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\news-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/news-details-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\news-details-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/news-sidebar-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\news-sidebar-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/pricing-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\pricing-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/project-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\project-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/project-details-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\project-details-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/service-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\service-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/service-details-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\service-details-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/team-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\team-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/team-details-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\team-details-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/breadcrumb/testimonial-breadcrumb.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\breadcrumb\testimonial-breadcrumb.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/check.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\check.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/choose-us.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\choose-us.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/client-img.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\client-img.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/faq-bg.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\faq-bg.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/favicon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\favicon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/arrow-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\arrow-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/arrow.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/footer-bg.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\footer-bg.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/gallery-1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\gallery-1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/gallery-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\gallery-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/gallery-3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\gallery-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/gallery-4.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\gallery-4.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/gallery-5.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\gallery-5.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/footer/gallery-6.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\footer\gallery-6.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/has.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\has.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/head-arrow.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\head-arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/header/home-1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\header\home-1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/header/home-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\header\home-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/header/home-3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\header\home-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/circle-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\circle-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/client-image.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\client-image.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/graph-shape-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\graph-shape-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/graph-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\graph-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-bg-3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-bg-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-bg-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-bg-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-image-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-image-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-image-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-image-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-image-3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-image-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-image-4.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-image-4.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-image.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-image.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/hero-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\hero-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/icon-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\icon-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/law-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\law-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/line-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\line-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/lower-text.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\lower-text.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/sign.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\sign.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/hero/text-circle.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\hero\text-circle.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/array-next.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\array-next.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/array-prev.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\array-prev.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-bread-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-bread-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-cata.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-cata.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-next.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-next.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-prev.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-prev.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-right-btg-hero.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-right-btg-hero.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-right-btn.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-right-btn.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/arrow-right-up.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\arrow-right-up.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/big-arrow-bottom.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\big-arrow-bottom.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/big-arrow-right.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\big-arrow-right.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/bread-icon.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\bread-icon.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/calender-icon-2.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\calender-icon-2.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/calender-icon-4.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\calender-icon-4.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/calender.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\calender.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/call-icon-4.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\call-icon-4.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/call-icon-5.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\call-icon-5.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/call-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\call-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/call.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\call.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/category-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\category-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/check-icon-2.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\check-icon-2.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/check-icon-3.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\check-icon-3.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/check-icon-4.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\check-icon-4.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/check-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\check-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/comment-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\comment-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/comment-white.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\comment-white.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/email-arrow.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\email-arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/email-icon-4.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\email-icon-4.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/email-icon-5.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\email-icon-5.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/email-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\email-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/fax-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\fax-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-1.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-1.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-10.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-10.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-11.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-11.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-12.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-12.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-13.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-13.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-14.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-14.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-15.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-15.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-16.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-16.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-17.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-17.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-18.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-18.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-19.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-19.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-2.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-2.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-20.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-20.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-21.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-21.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-22.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-22.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-23.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-23.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-24.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-24.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-25.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-25.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-26.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-26.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-27.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-27.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-28.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-28.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-29.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-29.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-3.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-3.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-30.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-30.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-31.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-31.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-4.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-4.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-5.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-5.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-6.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-6.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-7.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-7.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-8.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-8.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/icon-9.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\icon-9.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/location-5.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\location-5.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/location.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\location.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/man.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\man.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/pencil-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\pencil-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/project-arrow.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\project-arrow.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/quote-icon.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\quote-icon.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/quote-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\quote-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/sub-title-icon-2.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\sub-title-icon-2.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/sub-title-icon-3.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\sub-title-icon-3.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/sub-title-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\sub-title-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/time-5.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\time-5.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/time.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\time.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/user-icon-2.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\user-icon-2.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/user-icon-3.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\user-icon-3.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/user-icon-4.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\user-icon-4.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/user-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\user-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/user-white.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\user-white.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/icon/website-icon.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\icon\website-icon.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/logo/white-logo-2.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\logo\white-logo-2.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/logo/white-logo.svg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\logo\white-logo.svg
+Content Type: image/svg+xml
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/client-1.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\client-1.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/client-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\client-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/client-3.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\client-3.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/comment-1.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\comment-1.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/comment-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\comment-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/comment-3.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\comment-3.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-details-1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-details-1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-details-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-details-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-01.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-01.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-02.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-02.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-03.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-03.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-04.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-04.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-05.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-05.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-06.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-06.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-07.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-07.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-08.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-08.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-09.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-09.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-10.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-10.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-11.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-11.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-12.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-12.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-13.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-13.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-14.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-14.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-15.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-15.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-16.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-16.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-17.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-17.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/news-image-18.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\news-image-18.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/order-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\order-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/pp1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\pp1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/pp3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\pp3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/pp4.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\pp4.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/news/pp5.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\news\pp5.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/pricing-medel-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\pricing-medel-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/pricing-medel.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\pricing-medel.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/01.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\01.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/details-1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\details-1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/details-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\details-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/line-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\line-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-10.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-10.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-11.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-11.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-4.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-4.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-5.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-5.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-6.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-6.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-7.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-7.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-8.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-8.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-9.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-9.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/project-hover.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\project-hover.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/shape-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\shape-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/project/shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\project\shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/details-1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\details-1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/details-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\details-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/line-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\line-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-1.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-1.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-2.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-2.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-3.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-3.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-4.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-4.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-5.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-5.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-6.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-6.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-image-7.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-image-7.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/service/service-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\service\service-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/team/01.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\team\01.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/team/02.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\team\02.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/team/03.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\team\03.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/team/04.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\team\04.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/team/05.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\team\05.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/team/06.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\team\06.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/bg-shape-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\bg-shape-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/bg-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\bg-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/client-1.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\client-1.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/client-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\client-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/client-3.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\client-3.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/graph-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\graph-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/graph-shape-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\graph-shape-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/graph-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\graph-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/line-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\line-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/quote-icon-2.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\quote-icon-2.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/quote-icon.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\quote-icon.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/testimonial-01.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\testimonial-01.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/testimonial-02.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\testimonial-02.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/testimonial/testimonial-03.jpg
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\testimonial\testimonial-03.jpg
+Content Type: image/jpeg
+
+Uri: https://kinixdigital.com/lowter/assets/img/work-process/order-shape.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\work-process\order-shape.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/img/work-process/process-arry.png
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\img\work-process\process-arry.png
+Content Type: image/png
+
+Uri: https://kinixdigital.com/lowter/assets/js/ajax-mail.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\ajax-mail.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/bootstrap.bundle.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\bootstrap.bundle.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/jquery-3.7.1.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\jquery-3.7.1.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/jquery.counterup.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\jquery.counterup.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/jquery.magnific-popup.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\jquery.magnific-popup.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/jquery.meanmenu.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\jquery.meanmenu.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/jquery.nice-select.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\jquery.nice-select.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/jquery.waypoints.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\jquery.waypoints.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/main.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\main.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/swiper-bundle.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\swiper-bundle.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/viewport.jquery.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\viewport.jquery.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/js/wow.min.js
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\js\wow.min.js
+Content Type: text/javascript
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-brands-400.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-brands-400.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-brands-400.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-brands-400.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-duotone-900.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-duotone-900.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-duotone-900.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-duotone-900.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-light-300.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-light-300.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-light-300.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-light-300.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-regular-400.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-regular-400.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-regular-400.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-regular-400.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-solid-900.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-solid-900.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-solid-900.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-solid-900.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-thin-100.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-thin-100.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-thin-100.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-thin-100.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-v4compatibility.ttf
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-v4compatibility.ttf
+Content Type: font/ttf
+
+Uri: https://kinixdigital.com/lowter/assets/webfonts/fa-v4compatibility.woff2
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\assets\webfonts\fa-v4compatibility.woff2
+Content Type: font/woff2
+
+Uri: https://kinixdigital.com/lowter/contact.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\contact.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/faq.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\faq.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/index-2.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index-2.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/index-3.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index-3.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/index-one-page.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index-one-page.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/index-three-page.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index-three-page.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/index-two-page.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index-two-page.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/index.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\index.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/news-details.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\news-details.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/news-sidebar.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\news-sidebar.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/news.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\news.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/pricing.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\pricing.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/project-details.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\project-details.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/project.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\project.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/service-details.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\service-details.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/service.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\service.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/team-details.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\team-details.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/team.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\team.html
+Content Type: text/html
+
+Uri: https://kinixdigital.com/lowter/testimonial.html
+File Name: D:\Downloaded Web Sites\admin_template\hukuk\kinixdigital.com\lowter\testimonial.html
+Content Type: text/html
+

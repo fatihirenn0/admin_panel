@@ -18,7 +18,7 @@
                     <div class="col-md-6 col-xl-4 wow fadeInUp" data-wow-delay="{{ (200 * $loop->index) % 400 }}ms" data-wow-duration="1500ms">
                         <div class="blog__item">
                             <a href="{{ route(getResourceFullLink('blogs','show'),$indexBlog) }}" class="blog__image">
-                                <img src="/storage/{{ $indexBlog->image }}" alt="image">
+                                <img src="/storage/{{ $indexBlog->image }}" alt="{{ $indexBlog->image }}">
                             </a>
                             <div class="blog__content">
                                 <ul>

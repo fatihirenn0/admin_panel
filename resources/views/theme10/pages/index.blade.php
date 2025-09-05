@@ -1,0 +1,12 @@
+@extends('theme10.pages.build')
+@section('content')
+    <main>
+        @include('theme10.pages.blocks.slider')
+        @include('theme10.pages.blocks.about')
+        @include('theme10.pages.blocks.service')
+        @include('theme10.pages.blocks.team')
+        @include('theme10.pages.blocks.project')
+        @include('theme10.pages.blocks.contact')
+        @include('theme10.pages.blocks.blog')
+    </main>
+@endsection

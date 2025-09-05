@@ -1,0 +1,12 @@
+@extends('theme7.pages.build')
+@section('content')
+    <main>
+        @include('theme7.pages.blocks.about')
+        @include('theme7.pages.blocks.service')
+        @include('theme7.pages.blocks.milestone')
+        @include('theme7.pages.blocks.team')
+        @include('theme7.pages.blocks.project')
+        @include('theme7.pages.blocks.customer_comment')
+        @include('theme7.pages.blocks.blog')
+    </main>
+@endsection

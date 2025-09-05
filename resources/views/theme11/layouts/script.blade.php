@@ -1,0 +1,14 @@
+<script src="/theme11/js/jquery.js"></script>
+<script src="/theme11/js/popper.min.js"></script>
+<script src="/theme11/js/bootstrap.min.js"></script>
+<script src="/theme11/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/theme11/js/jquery.fancybox.js"></script>
+<script src="/theme11/js/appear.js"></script>
+<script src="/theme11/js/parallax.min.js"></script>
+<script src="/theme11/js/tilt.jquery.min.js"></script>
+<script src="/theme11/js/jquery.paroller.min.js"></script>
+<script src="/theme11/js/owl.js"></script>
+<script src="/theme11/js/wow.js"></script>
+<script src="/theme11/js/nav-tool.js"></script>
+<script src="/theme11/js/jquery-ui.js"></script>
+<script src="/theme11/js/script.js"></script>

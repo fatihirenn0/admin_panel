@@ -1,0 +1,11 @@
+@extends('theme8.pages.build')
+@section('content')
+    <main>
+        @include('theme8.pages.blocks.slider')
+        @include('theme8.pages.blocks.project')
+        @include('theme8.pages.blocks.service')
+        @include('theme8.pages.blocks.customer_comment')
+        @include('theme8.pages.blocks.blog')
+        @include('theme8.pages.blocks.client')
+    </main>
+@endsection

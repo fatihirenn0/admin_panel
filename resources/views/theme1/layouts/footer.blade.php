@@ -3,7 +3,7 @@
         <img class="animation__arryUpDown static-image" src="/theme1/images/shape/footer-three-shape-left.png" alt="{{__('Ana Sayfa Footer 1. Arka Plan Görseli')}}">
     </div>
     <div class="footer-three__shape-right">
-        <img class="animation__arryUpDown static-image" src="/theme1/images/shape/footer-three-shape-right.png" alt="{{__('Ana Sayfa Blog 2. Arka Plan Görseli')}}">
+        <img class="animation__arryUpDown static-image" src="/theme1/images/shape/footer-three-shape-right.png" alt="{{__('Ana Sayfa Footer 2. Arka Plan Görseli')}}">
     </div>
     <div class="container">
         <div class="footer-three__wrp pt-60 pb-60">

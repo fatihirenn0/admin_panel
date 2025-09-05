@@ -1,0 +1,14 @@
+@extends('theme5.pages.build')
+@section('content')
+    <main>
+        @include('theme5.pages.blocks.slider')
+        @include('theme5.pages.blocks.service')
+        @include('theme5.pages.blocks.about')
+        @include('theme5.pages.blocks.project')
+        @include('theme5.pages.blocks.milestone')
+        @include('theme5.pages.blocks.team')
+        @include('theme5.pages.blocks.customer_comment')
+        @include('theme5.pages.blocks.contact')
+        @include('theme5.pages.blocks.blog')
+    </main>
+@endsection

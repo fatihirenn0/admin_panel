@@ -1,0 +1,29 @@
+<script src="/theme4/vendors/jquery/jquery-3.7.1.min.js"></script>
+<script src="/theme4/vendors/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/theme4/vendors/bootstrap-select/bootstrap-select.min.js"></script>
+<script src="/theme4/vendors/jarallax/jarallax.min.js"></script>
+<script src="/theme4/vendors/jquery-ui/jquery-ui.js"></script>
+<script src="/theme4/vendors/jquery-ajaxchimp/jquery.ajaxchimp.min.js"></script>
+<script src="/theme4/vendors/jquery-appear/jquery.appear.min.js"></script>
+<script src="/theme4/vendors/jquery-circle-progress/jquery.circle-progress.min.js"></script>
+<script src="/theme4/vendors/jquery-magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="/theme4/vendors/jquery-validate/jquery.validate.min.js"></script>
+<script src="/theme4/vendors/nouislider/nouislider.min.js"></script>
+<script src="/theme4/vendors/tiny-slider/tiny-slider.js"></script>
+<script src="/theme4/vendors/wnumb/wNumb.min.js"></script>
+<script src="/theme4/vendors/owl-carousel/js/owl.carousel.min.js"></script>
+<script src="/theme4/vendors/wow/wow.js"></script>
+<script src="/theme4/vendors/imagesloaded/imagesloaded.min.js"></script>
+<script src="/theme4/vendors/isotope/isotope.js"></script>
+<script src="/theme4/vendors/slick/slick.min.js"></script>
+<script src="/theme4/vendors/tilt/tilt.jquery.js"></script>
+<script src="/theme4/vendors/countdown/countdown.min.js"></script>
+<script src="/theme4/vendors/jquery-circleType/jquery.circleType.js"></script>
+<script src="/theme4/vendors/jquery-lettering/jquery.lettering.min.js"></script>
+<!-- gsap js -->
+<script src="/theme4/vendors/gsap/gsap.js"></script>
+<script src="/theme4/vendors/gsap/scrolltrigger.min.js"></script>
+<script src="/theme4/vendors/gsap/splittext.min.js"></script>
+<script src="/theme4/vendors/gsap/procounsel-split.js"></script>
+<!-- template js -->
+<script src="/theme4/js/procounsel.js"></script>

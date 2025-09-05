@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\ContactMessage;
 use App\Models\Page;
 use App\Models\Project;
+use App\Models\Reference;
 use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -16,8 +17,10 @@ class HelperController extends Controller
     public function index()
     {
         $sliders = Slider::orderBy('rank')->get();
+        $references = Reference::orderBy('rank')->get();
         return view($this->activeTheme.'.pages.'.app('themeSettings')->get('active_index'),compact(
-            'sliders'
+            'sliders',
+            'references'
         ));
     }
 

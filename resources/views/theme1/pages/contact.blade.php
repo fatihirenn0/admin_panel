@@ -25,8 +25,16 @@
                             <h2>{{ __('Soru, görüş ve önerileriniz için lütfen bizimle iletişime geçin.') }}</h2>
                         </div>
                         <!-- Contact Form -->
-                        <form name="contact_form" action="{{ route('site.contact.message') }}" method="post">
-                            @csrf
+                        <form name="contact_form" action="{{ route('site.contact.message') }}" method="post">@csrf
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="row mt-3">
                                 <div class="col-sm-6">
                                     <div class="mb-3">

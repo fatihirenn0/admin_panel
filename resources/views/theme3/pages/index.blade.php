@@ -1,0 +1,14 @@
+@extends('theme3.pages.build')
+@section('content')
+    <main>
+        @include('theme3.pages.blocks.slider')
+        @include('theme3.pages.blocks.about')
+        @include('theme3.pages.blocks.client')
+        @include('theme3.pages.blocks.project')
+        @include('theme3.pages.blocks.service')
+        @include('theme3.pages.blocks.faq')
+        @include('theme3.pages.blocks.customer_comment')
+        @include('theme3.pages.blocks.contact')
+        @include('theme3.pages.blocks.blog')
+    </main>
+@endsection
