@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 
 class SliderController extends Controller
 {
+    public string $roleKey = 'slider';
     /**
      * Display a listing of the resource.
      */
@@ -53,7 +54,7 @@ class SliderController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($request){
-            $editUrl = route('admin.sliders.edit', $item->id);
+            $editUrl = route('admin.sliders.edit', $item);
             $deleteUrl = route('admin.sliders.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Video\VideoStoreRequest;
 use App\Http\Requests\Video\VideoUpdateRequest;
+use App\Models\Locale;
 use App\Models\Video;
 use App\Models\VideoCategory;
 use App\Models\VideoVideoCategory;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\Storage;
 
 class VideoController extends Controller
 {
+    public string $roleKey = 'video';
     /**
      * Display a listing of the resource.
      */
@@ -23,6 +25,9 @@ class VideoController extends Controller
     public function ajax(Request $request){
 
         $query = Video::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('title', 'like', '%' . $search . '%');
@@ -44,25 +49,35 @@ class VideoController extends Controller
         $length = $request->input('length' , 10);
         $items = $query->skip($start)->take($length)->get();
 
-        $data = $items->map(function ($item) {
-            $editUrl = route('admin.videos.edit' , $item->id);
+        $data = $items->map(function ($item) use ($request){
+            $editUrl = route('admin.videos.edit' , $item);
             $deleteUrl = route('admin.videos.destroy' , $item->id);
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
             return [
                 'id' => $item->id,
                 'title' => $item->title,
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
         return response()->json([
@@ -166,8 +181,35 @@ class VideoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Video $video)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                Video::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $video = Video::where('id',$id)->withTrashed()->first();
+                VideoVideoCategory::where('video_id',$video->id)->delete(); //Kategori ilişkilerini sil
+                $locales = Locale::all();
+
+                foreach ($locales as $locale) {
+                    $video_urlPath = $video->getTranslation('video_url', $locale->locale);
+
+                    if ($video_urlPath && Storage::disk('public2')->exists($video_urlPath)) {
+                        Storage::disk('public2')->delete($video_urlPath);// kapak resmini sil
+                    }
+                }
+                $video->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Video::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

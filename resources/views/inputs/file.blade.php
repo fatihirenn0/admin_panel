@@ -17,7 +17,7 @@
     />
     @if(!empty($oldKey))
         @error($oldKey)
-        <div class="invalid-feedback">{{ $message }}</div>
+        <div class="invalid-feedback d-block">{{ $message }}</div>
         @enderror
     @endif
 </div>

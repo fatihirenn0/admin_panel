@@ -5,14 +5,18 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TeamCategory\TeamCategoryStoreRequest;
 use App\Http\Requests\TeamCategory\TeamCategoryUpdateRequest;
+use App\Models\Team;
 use App\Models\TeamCategory;
 use App\Models\Locale;
+use App\Models\TeamTeamCategory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class TeamCategoryController extends Controller
 {
+    public string $roleKey = 'team_category';
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +28,9 @@ class TeamCategoryController extends Controller
     public function ajax(Request $request){
 
         $query = TeamCategory::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('name', 'like', '%' . $search . '%');
@@ -46,27 +53,37 @@ class TeamCategoryController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
 
-        $data = $items->map(function ($item) {
-
-
-            $editUrl = route('admin.team-categories.edit' , $item->id);
+        $data = $items->map(function ($item) use ($request){
+            $editUrl = route('admin.team-categories.edit' , $item);
             $deleteUrl = route('admin.team-categories.destroy' , $item->id);
+            $hasMore = TeamTeamCategory::where('team_category_id', $item->id)->exists();
+
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.($hasMore ? 'true' : 'false').')"';
 
             return[
                 'id' => $item->id,
                 'name' => $item->name,
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' =>  $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
 
@@ -173,15 +190,60 @@ class TeamCategoryController extends Controller
 
         $teamCategory->update($validated);
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.team-categories.edit',$teamCategory)->with('success', __('Başarıyla Güncellendi'));
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TeamCategory $teamCategory)
+    public function destroy(Request $request,$id)
     {
-        //
+        $teamCategory = TeamCategory::where('id',$id)->withTrashed()->first();
+
+        $teamIds = TeamTeamCategory::where('team_category_id',$teamCategory->id)->pluck('team_id')->toArray();
+        if (isset($request->type)){
+            if ($request->type == "recycle"){ //geri al
+                Team::whereIn('id',$teamIds)
+                    ->where('deleted_at','>=',$teamCategory->deleted_at->subMinute())
+                    ->where('deleted_at','<=',$teamCategory->deleted_at->addMinute())
+                    ->withTrashed()
+                    ->restore();
+                $teamCategory->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{// tamamen sil
+                $teams = Team::whereIn('id',$teamIds)
+                    ->withTrashed()
+                    ->get();
+                TeamTeamCategory::where('team_category_id',$teamCategory->id)->delete(); //bağlı ilişkileri sil
+                $locales = Locale::all();
+                foreach ($teams as $team) {
+                    foreach ($locales as $locale) {
+                        $imagePath = $team->getTranslation('image', $locale->locale);
+
+                        if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                            Storage::disk('public2')->delete($imagePath);// bağlı elemanların kapak resimlerini sunucudan sil
+                        }
+                    }
+                    $team->forceDelete();// bağlı elemanı veritabanından sil
+                }
+                foreach ($locales as $locale) {
+                    $imagePath = $teamCategory->getTranslation('image', $locale->locale);
+                    if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                        Storage::disk('public2')->delete($imagePath); // kapak resimmini sunucudan sil
+                    }
+                }
+
+                $teamCategory->forceDelete(); // modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Team::whereIn('id',$teamIds)->delete();
+            $teamCategory->delete();
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

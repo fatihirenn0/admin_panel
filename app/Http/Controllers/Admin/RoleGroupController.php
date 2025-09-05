@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use App\Models\RoleGroup;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RoleGroupController extends Controller
 {
+    public string $roleKey = 'role_group';
     /**
      * Display a listing of the resource.
      */
@@ -50,7 +52,7 @@ class RoleGroupController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($request){
-            $editUrl = route('admin.role-groups.edit', $item->id);
+            $editUrl = route('admin.role-groups.edit', $item);
             $deleteUrl = route('admin.role-groups.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
@@ -162,7 +164,10 @@ class RoleGroupController extends Controller
      */
     public function destroy(RoleGroup $roleGroup)
     {
-        dd('bağli kullanıcılar varsa uyarı ver');
+        $user = User::where('role_group_id',$roleGroup->id)->first();
+        if ($user)
+            return redirect()->back()->with('error','Role Bağlı Kullanıcı(lar) var. '.$user->name);
+
         $roleGroup->delete();
 
         return redirect()->back()->with('success', __('Başarıyla Silindi.'));

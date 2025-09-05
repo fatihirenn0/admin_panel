@@ -19,4 +19,14 @@ class ContactPeople extends Model
         'address',
         'rank',
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }

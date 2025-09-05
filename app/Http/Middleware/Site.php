@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Locale;
 use App\Models\CustomerComment;
 use App\Models\Faq;
 use App\Models\Milestone;
@@ -42,6 +43,9 @@ class Site
         $allMilestones = Schema::hasTable('milestones') ? Milestone::orderBy('rank')->get() : collect();
         $allServiceCategories = Schema::hasTable('service_categories') ? ServiceCategory::orderBy('rank')->get() : collect();
 
+        if (!session('locale')){
+            session(['locale' => Locale::where('default',1)->first()?->locale]);
+        }
         App::setLocale(session('locale','tr'));
 
         view()->share('allPages', $allPages);

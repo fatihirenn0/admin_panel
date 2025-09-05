@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
+    public string $roleKey = 'blog';
     /**
      * Display a listing of the resource.
      */
@@ -63,7 +64,7 @@ class BlogController extends Controller
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($blogCategories,$request){
             $editUrl = route('admin.blogs.edit', $item);
-            $deleteUrl = route('admin.blogs.destroy', $item);
+            $deleteUrl = route('admin.blogs.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
             $categoryName = '';
             foreach ($blogCategories->where('blog_id',$item->id) as $index => $blogCategory) {

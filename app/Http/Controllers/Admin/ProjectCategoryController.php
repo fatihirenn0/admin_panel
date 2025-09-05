@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
 
 class ProjectCategoryController extends Controller
 {
+    public string $roleKey = 'project_category';
     /**
      * Display a listing of the resource.
      */
@@ -56,7 +57,7 @@ class ProjectCategoryController extends Controller
         $data = $items->map(function ($item)  use ($request){
 
 
-            $editUrl = route('admin.project-categories.edit' , $item->id);
+            $editUrl = route('admin.project-categories.edit' , $item);
             $deleteUrl = route('admin.project-categories.destroy' , $item->id);
 
             $hasMore = ProjectProjectCategory::where('project_category_id', $item->id)->exists();
@@ -208,7 +209,7 @@ class ProjectCategoryController extends Controller
 
         $projectCategory->update($validated);
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.project-categories.edit',$projectCategory)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**

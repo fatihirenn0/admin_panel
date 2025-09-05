@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 
 class NewsController extends Controller
 {
+    public string $roleKey = 'news';
     /**
      * Display a listing of the resource.
      */
@@ -61,7 +62,7 @@ class NewsController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($newsCategories,$request){
-            $editUrl = route('admin.news.edit', $item->id);
+            $editUrl = route('admin.news.edit', $item);
             $deleteUrl = route('admin.news.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
             $categoryName = '';
@@ -295,7 +296,7 @@ class NewsController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.news.edit',$news)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**

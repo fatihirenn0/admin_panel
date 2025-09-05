@@ -16,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(
+            \Barryvdh\TranslationManager\Manager::class,
+            \App\Overrides\CustomTranslationManager::class
+        );
     }
 
     /**
@@ -24,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $locales = Schema::hasTable('locales') ? Locale::all() : collect();
+        $locales = Schema::hasTable('locales') ? Locale::orderBy('rank')->get() : collect();
         $settings = Schema::hasTable('settings') ? Setting::pluck('value', 'key') : collect();
 
         view()->share('locales', $locales);

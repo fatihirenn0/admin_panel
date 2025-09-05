@@ -40,4 +40,14 @@ class ProjectCategory extends Model
             'project_id'                // ara modeldeki hedef model foreign key
         );
     }
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->'.session('locale','tr');
+    }
 }

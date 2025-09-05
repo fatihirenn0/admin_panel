@@ -32,18 +32,5 @@
 <script>
     window.laravelSuccessMessage = @json(session('success'));
     window.laravelErrorMessage = @json(session('error'));
-    document.getElementById('menuSearch').addEventListener('keyup', function() {
-        let filter = this.value.toLowerCase();
-        let items = document.querySelectorAll('.menu-inner .menu-item:not(:first-child)');
-
-        items.forEach(function(item) {
-            let text = item.innerText.toLowerCase();
-            if (text.includes(filter)) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
 </script>
 @stack('js')

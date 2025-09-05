@@ -6,10 +6,13 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Announcement\AnnouncementStoreRequest;
 use App\Http\Requests\BlogCategory\AnnouncementUpdateRequest;
 use App\Models\Announcement;
+use App\Models\Locale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class AnnouncementController extends Controller
 {
+    public string $roleKey = 'announcement';
     /**
      * Display a listing of the resource.
      */
@@ -21,6 +24,9 @@ class AnnouncementController extends Controller
     public function ajax(Request $request)
     {
         $query = Announcement::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         // 🔍 Arama
         if ($search = $request->input('search.value')) {
@@ -44,25 +50,35 @@ class AnnouncementController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
-        $data = $items->map(function ($item) {
-            $editUrl = route('admin.announcements.edit', $item->id);
+        $data = $items->map(function ($item) use ($request) {
+            $editUrl = route('admin.announcements.edit', $item);
             $deleteUrl = route('admin.announcements.destroy', $item->id);
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
             return [
                 'id' => $item->id,
                 'text' => mb_substr($item->text,0,80,'UTF-8'),
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-        ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
 
@@ -126,8 +142,26 @@ class AnnouncementController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Announcement $announcement)
+    public function destroy(Request $request,$id)
     {
-        dd($announcement);
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                Announcement::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $announcement = Announcement::where('id',$id)->withTrashed()->first();
+
+                $announcement->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Announcement::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

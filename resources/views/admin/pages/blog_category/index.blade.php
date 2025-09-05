@@ -9,13 +9,23 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <h5 class="card-header pb-0 d-flex justify-content-between">
-                @if(isset($_GET['trashed']))
-                    <a href="{{ route('admin.blog-categories.index') }}" class="btn btn-info"><i class="menu-icon icon-base ti tabler-arrow-left"></i>{{ __('Blog Kategorileri') }}</a>
-                @else
-                    <a href="{{ route('admin.blog-categories.index', ['trashed'=>true]) }}" class="btn btn-danger"><i class="menu-icon icon-base ti tabler-recycle"></i>{{ __('Geri Dönüşüm') }} </a>
+                @if(in_array('blog_category_delete', $authUserRoles))
+                    @if(isset($_GET['trashed']))
+                        <a href="{{ route('admin.blog-categories.index') }}" class="btn btn-info">
+                            <i class="menu-icon icon-base ti tabler-arrow-left"></i>{{ __('Blog Kategorileri') }}
+                        </a>
+                    @else
+                        <a href="{{ route('admin.blog-categories.index', ['trashed'=>true]) }}" class="btn btn-danger">
+                            <i class="menu-icon icon-base ti tabler-recycle"></i>{{ __('Geri Dönüşüm') }}
+                        </a>
+                    @endif
                 @endif
-                <a href="{{ route('admin.blog-categories.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+
+                @if(in_array('blog_category_add', $authUserRoles))
+                    <a href="{{ route('admin.blog-categories.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+                @endif
             </h5>
+
             <div class="card-datatable text-nowrap">
                 <table class="datatables-ajax table table-bordered">
                     <thead>

@@ -61,7 +61,31 @@ class ImportThemeImages extends Command
                     $count++;
                 }
             });
+            $crawler->filter('.static-bg-image')->each(function ($node) use (&$count, $file, $theme) {
+                $style = $node->attr('style');
+                $alt = $node->attr('alt');
+                if ($style && preg_match('/url\((["\']?)(.*?)\1\)/', $style, $matches)) {
+                    $src = $matches[2];
 
+                    if ($src) {
+                        $mime = null;
+                        $cleanSrc = trim($src, "/");
+                        $localPath = public_path($cleanSrc);
+                        if (File::exists($localPath)) {
+                            $mime = File::mimeType($localPath);
+                        }
+                        $originalName = str_replace(["{{__('","')}}","{{ __('","') }}"], '', $alt);
+                        $staticFile = new StaticFile();
+                        $staticFile->theme_key = $theme;
+                        $staticFile->file_path = $src;
+                        $staticFile->mime_type = $mime ?? 'unknown';
+                        $staticFile->name = $originalName; // background için alt text yok
+                        $staticFile->alt = ['tr' => $originalName];
+                        $staticFile->save();
+                        $count++;
+                    }
+                }
+            });
         }
 
         $this->info("Toplam {$count} adet static-image bulundu ve kaydedildi.");

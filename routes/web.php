@@ -1,17 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
-App::setLocale(session('locale','tr'));
 
 Route::as('site.')->middleware(\App\Http\Middleware\Site::class)->group(function () {
     Route::get('/',[\App\Http\Controllers\Site\HelperController::class,'index'])->name('index');
+    Route::get('/set-locale/{locale}',[\App\Http\Controllers\Site\HelperController::class,'setLocale'])->name('setLocale');
     foreach (config('routes')['others'] as $routeKey => $details){
         foreach ($details['routeName'] as $locale => $routeName){
-            if ($locale == app()->getLocale()){
-                Route::get($routeName,[$details['controller'],$details['method']])->name($details['name']);
-            }
+            Route::get($routeName,[$details['controller'],$details['method']])->name($details['name'].'.'.$locale);
         }
     }
 
@@ -24,8 +21,16 @@ Route::as('site.')->middleware(\App\Http\Middleware\Site::class)->group(function
     Route::post('/contact-message',[\App\Http\Controllers\Site\HelperController::class,'contactMessage'])->name('contact.message');
 });
 
-Route::prefix('admin')->as('admin.')->group(function () {
+Route::prefix('admin')->as('admin.')->middleware(\App\Http\Middleware\AdminAuth::class)->group(function () {
+    Route::get('/login',[\App\Http\Controllers\Admin\HelperController::class,'login'])
+        ->withoutMiddleware(\App\Http\Middleware\AdminAuth::class)
+        ->name('login');
+    Route::post('/login',[\App\Http\Controllers\Admin\HelperController::class,'loginPost'])
+        ->withoutMiddleware(\App\Http\Middleware\AdminAuth::class)
+        ->name('loginPost');
+
     Route::get('/',[\App\Http\Controllers\Admin\HelperController::class,'index'])->name('index');
+    Route::get('/translations',[\App\Http\Controllers\Admin\HelperController::class,'translations'])->name('translations');
     Route::resources([
         'blog-categories' => \App\Http\Controllers\Admin\BlogCategoryController::class,
         'catalog-categories' => \App\Http\Controllers\Admin\CatalogCategoryController::class,
@@ -60,7 +65,9 @@ Route::prefix('admin')->as('admin.')->group(function () {
         'projects' => \App\Http\Controllers\Admin\ProjectController::class,
         'role-groups' => \App\Http\Controllers\Admin\RoleGroupController::class,
         'sliders' => \App\Http\Controllers\Admin\SliderController::class,
+        'users' => \App\Http\Controllers\Admin\UserController::class,
         'static-files' => \App\Http\Controllers\Admin\StaticFileController::class,
+        'products' => \App\Http\Controllers\Admin\ProductController::class,
     ]);
 
     Route::prefix('ajax')->as('ajax.')->group(function () {
@@ -97,5 +104,9 @@ Route::prefix('admin')->as('admin.')->group(function () {
         Route::post('projects', [\App\Http\Controllers\Admin\ProjectController::class, 'ajax'])->name('projects');
         Route::post('role-groups', [\App\Http\Controllers\Admin\RoleGroupController::class, 'ajax'])->name('role-groups');
         Route::post('sliders', [\App\Http\Controllers\Admin\SliderController::class, 'ajax'])->name('sliders');
+        Route::post('users', [\App\Http\Controllers\Admin\UserController::class, 'ajax'])->name('users');
+        Route::post('products', [\App\Http\Controllers\Admin\ProductController::class, 'ajax'])->name('products');
     });
+
+    Route::post('/logout', [\App\Http\Controllers\Admin\HelperController::class, 'logout'])->name('logout');
 });

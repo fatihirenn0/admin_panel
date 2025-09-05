@@ -11,6 +11,7 @@
         name="{{ $name ?? '' }}"
         placeholder="{{ $placeholder ?? '' }}"
         value="{{ old($oldKey, $value ?? '') }}"
+        {{ isset($disabled) ? 'disabled' : '' }}
         {{ isset($required) && $required === true ? 'required' : '' }}
     >
     <label for="{{ $id ?? '' }}">{{ $title ?? '' }}</label>

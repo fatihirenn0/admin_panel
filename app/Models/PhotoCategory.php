@@ -28,4 +28,14 @@ class PhotoCategory extends Model
         'meta_description' => 'array',
         'image' => 'array',
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->'.session('locale','tr');
+    }
 }

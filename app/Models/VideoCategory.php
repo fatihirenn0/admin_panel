@@ -26,4 +26,26 @@ class VideoCategory extends Model
         'meta_keywords' => 'array',
         'meta_description' => 'array',
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->'.session('locale','tr');
+    }
+
+    public function videos()
+    {
+        return $this->hasManyThrough(
+            Video::class,             // hedef model
+            VideoVideoCategory::class, // ara model
+            'video_category_id',      // ara modeldeki foreign key (VideoCategory ilişkisi)
+            'id',                    // hedef modeldeki primary key
+            'id',                    // VideoCategory tablosundaki local key
+            'video_id'                // ara modeldeki hedef model foreign key
+        );
+    }
 }

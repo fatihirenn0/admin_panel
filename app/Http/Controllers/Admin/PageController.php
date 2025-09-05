@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
+    public string $roleKey = 'page';
     /**
      * Display a listing of the resource.
      */
@@ -54,7 +55,7 @@ class PageController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($request){
-            $editUrl = route('admin.pages.edit', $item->id);
+            $editUrl = route('admin.pages.edit', $item);
             $deleteUrl = route('admin.pages.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
@@ -263,7 +264,7 @@ class PageController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.pages.edit',$page)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**

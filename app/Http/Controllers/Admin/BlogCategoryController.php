@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 
 class BlogCategoryController extends Controller
 {
+    public string $roleKey = 'blog_category';
     /**
      * Display a listing of the resource.
      */
@@ -57,7 +58,7 @@ class BlogCategoryController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($request){
-            $editUrl = route('admin.blog-categories.edit', $item->id);
+            $editUrl = route('admin.blog-categories.edit', $item);
             $deleteUrl = route('admin.blog-categories.destroy', $item->id);
             $hasMore = BlogBlogCategory::where('blog_category_id', $item->id)->exists();
 
@@ -211,7 +212,7 @@ class BlogCategoryController extends Controller
 
         $blogCategory->update($validated);
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.blog-categories.edit',$blogCategory)->with('success', __('Başarıyla Güncellendi'));
     }
 
 

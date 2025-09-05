@@ -27,4 +27,14 @@ class Milestone extends Model
         'description' => 'array',
         'image' => 'array',
     ];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->'.session('locale','tr');
+    }
 }

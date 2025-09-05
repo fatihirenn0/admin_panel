@@ -8,9 +8,24 @@
 @section('content')
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
-            <h5 class="card-header pb-0 text-end">
-                <a href="{{ route('admin.videos.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+            <h5 class="card-header pb-0 d-flex justify-content-between">
+                @if(in_array('video_delete', $authUserRoles))
+                    @if(isset($_GET['trashed']))
+                        <a href="{{ route('admin.videos.index') }}" class="btn btn-info">
+                            <i class="menu-icon icon-base ti tabler-arrow-left"></i>{{ __('Videolar') }}
+                        </a>
+                    @else
+                        <a href="{{ route('admin.videos.index', ['trashed'=>true]) }}" class="btn btn-danger">
+                            <i class="menu-icon icon-base ti tabler-recycle"></i>{{ __('Geri Dönüşüm') }}
+                        </a>
+                    @endif
+                @endif
+
+                @if(in_array('video_add', $authUserRoles))
+                    <a href="{{ route('admin.videos.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+                @endif
             </h5>
+
             <div class="card-datatable text-nowrap">
                 <table class="datatables-ajax table table-bordered">
                     <thead>
@@ -38,6 +53,11 @@
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}' // 🔸 CSRF token ekleniyor
                 },
+                @if(isset($_GET['trashed']))
+                data: {
+                    trashed:{{ $_GET['trashed'] }}
+                },
+                @endif
                 dataSrc: 'data'
             },
             columns: [

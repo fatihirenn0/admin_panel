@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
+    public string $roleKey = 'newsletter';
     /**
      * Display a listing of the resource.
      */
@@ -40,7 +41,7 @@ class NewsletterController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
         $data = $items->map(function ($item) {
-            $editUrl = route('admin.contact-messages.edit' , $item->id);
+            $editUrl = route('admin.contact-messages.edit' , $item);
             $deleteUrl = route('admin.contact-messages.destroy' , $item->id);
 
             return [
@@ -108,6 +109,8 @@ class NewsletterController extends Controller
      */
     public function destroy(Newsletter $newsletter)
     {
-        //
+        $newsletter->delete();
+
+        return redirect()->route('admin.newsletters.index')->with('success' , __('Bülten Aboneliği Silindi'));
     }
 }

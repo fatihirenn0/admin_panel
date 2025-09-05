@@ -7,10 +7,12 @@ use App\Http\Requests\ContactPeople\ContactPeopleStoreRequest;
 use App\Http\Requests\ContactPeople\ContactPeopleUpdateRequest;
 use App\Models\ContactPeople;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ContactPeopleController extends Controller
 {
+    public string $roleKey = 'contact_people';
     /**
      * Display a listing of the resource.
      */
@@ -22,6 +24,9 @@ class ContactPeopleController extends Controller
     public function ajax(Request $request){
 
         $query = ContactPeople::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('name', 'like', '%' . $search . '%');
@@ -43,9 +48,10 @@ class ContactPeopleController extends Controller
         $length = $request->input('length' , 10);
         $items = $query->skip($start)->take($length)->get();
 
-        $data = $items->map(function ($item) {
-            $editUrl = route('admin.contact-people.edit' , $item->id);
+        $data = $items->map(function ($item) use ($request){
+            $editUrl = route('admin.contact-people.edit' , $item);
             $deleteUrl = route('admin.contact-people.destroy' , $item->id);
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
             return [
                 'id' => $item->id,
@@ -54,17 +60,26 @@ class ContactPeopleController extends Controller
                 'telephone' => $item->telephone,
                 'image' => !empty($item->image) ? '<img src="/storage/' . $item->image . '" height="60"/>' : __('Eklenmedi'),
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
         return response()->json([
@@ -113,18 +128,18 @@ class ContactPeopleController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $contactPeople = ContactPeople::where('id', $id)->first();
+        $contactPeople = ContactPeople::where('slug', $slug)->first();
         return view('admin.pages.contact_people.edit', compact('contactPeople'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ContactPeopleUpdateRequest $request, $id)
+    public function update(ContactPeopleUpdateRequest $request, $slug)
     {
-        $contactPeople = ContactPeople::where('id', $id)->first();
+        $contactPeople = ContactPeople::where('slug', $slug)->first();
         $contactPeople->name = $request->name;
         $contactPeople->slug = \Illuminate\Support\Str::slug($contactPeople->name,'-');
         $contactPeople->telephone = $request->telephone;
@@ -137,14 +152,36 @@ class ContactPeopleController extends Controller
 
         $contactPeople->save();
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.contact-people.edit',$contactPeople)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ContactPeople $contactPeople)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                ContactPeople::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $contactPeople = ContactPeople::where('id',$id)->withTrashed()->first();
+                $imagePath = $contactPeople->image;
+
+                if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                    Storage::disk('public2')->delete($imagePath);// kapak resmini sil
+                }
+                $contactPeople->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            ContactPeople::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

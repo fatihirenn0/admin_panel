@@ -42,7 +42,18 @@
                             @foreach($locales as $locale)
                                 <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="navs-locale-{{ $locale->locale }}" role="tabpanel">
                                     <div class="row">
-                                        <div class="col-md-12">
+                                        @if($loop->first)
+                                            <div class="col-md-12">
+                                                <label>Üst Kategori</label>
+                                                <select class="form-control" name="parent_id">
+                                                    <option value="">{{ __('Ana Kategori Olarak Ekle') }}</option>
+                                                    @foreach($parentCategories as $parentCategory)
+                                                        <option @if($productCategory->parent_id == $parentCategory->id) selected @endif value="{{ $parentCategory->id }}">{{ $parentCategory->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        @endif
+                                        <div class="col-md-12 mt-2">
                                             @include('inputs.input',[
                                                 'title'=>__('Ürün Kategori Adı') . " ({$locale->language})",
                                                 'name'=>"name[{$locale->locale}]",

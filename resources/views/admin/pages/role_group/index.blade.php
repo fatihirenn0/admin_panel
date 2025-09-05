@@ -9,7 +9,9 @@
     <div class="container-xxl flex-grow-1 container-p-y">
         <div class="card">
             <h5 class="card-header pb-0 d-flex justify-content-end">
-                <a href="{{ route('admin.role-groups.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+                @if(in_array('product_category_add', $authUserRoles))
+                    <a href="{{ route('admin.role-groups.create') }}" class="btn btn-primary">{{ __('Yeni Kayıt Ekle') }}</a>
+                @endif
             </h5>
             <div class="card-datatable text-nowrap">
                 <table class="datatables-ajax table table-bordered">

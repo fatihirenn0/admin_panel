@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ApplicationController extends Controller
 {
+    public string $roleKey = 'application';
     /**
      * Display a listing of the resource.
      */
@@ -40,7 +41,7 @@ class ApplicationController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
         $data = $items->map(function ($item) {
-            $editUrl = route('admin.applications.edit' , $item->id);
+            $editUrl = route('admin.applications.edit' , $item);
             $deleteUrl = route('admin.applications.destroy' , $item->id);
 
             return [
@@ -118,6 +119,8 @@ class ApplicationController extends Controller
      */
     public function destroy(Application $application)
     {
-        //
+        $application->delete();
+
+        return redirect()->back()->with('success' , __('Başvuru Silindi'));
     }
 }

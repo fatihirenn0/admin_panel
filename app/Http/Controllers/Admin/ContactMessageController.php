@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 class ContactMessageController extends Controller
 {
+    public string $roleKey = 'contact_message';
     /**
      * Display a listing of the resource.
      */
@@ -41,7 +42,7 @@ class ContactMessageController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
         $data = $items->map(function ($item) {
-            $editUrl = route('admin.contact-messages.edit' , $item->id);
+            $editUrl = route('admin.contact-messages.edit' , $item);
             $deleteUrl = route('admin.contact-messages.destroy' , $item->id);
 
             return [
@@ -116,6 +117,8 @@ class ContactMessageController extends Controller
      */
     public function destroy(ContactMessage $contactMessage)
     {
-        //
+        $contactMessage->delete();
+
+        return redirect()->route('admin.contact-messages.index')->with('success',__('İletişim Mesajı Silindi'));
     }
 }

@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function roleGroup()
+    {
+        return $this->hasOne(RoleGroup::class, 'id', 'role_group_id');
+    }
 }

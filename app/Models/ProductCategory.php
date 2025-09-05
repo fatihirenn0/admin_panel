@@ -13,6 +13,7 @@ class ProductCategory extends Model
     public array $translatable = ['name','slug','image','meta_description','meta_keywords'];
 
     protected $fillable = [
+        'parent_id',
         'name',
         'slug',
         'image',
@@ -28,4 +29,9 @@ class ProductCategory extends Model
         'meta_description' => 'array',
         'image' => 'array',
     ];
+
+    public function parentCategory()
+    {
+        return $this->hasOne(ProductCategory::class, 'id', 'parent_id');
+    }
 }

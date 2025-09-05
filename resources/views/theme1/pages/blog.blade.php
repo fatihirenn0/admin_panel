@@ -3,7 +3,7 @@
 @section('meta_keywords',$blog->meta_keywords)
 @section('meta_description',$blog->meta_description)
 @section('content')
-    <section class="page-title" style="background-image: url(/theme1/images/background/page-title-bg.jpg);">
+    <section class="page-title static-bg-image" alt="{{ __('Sayfaların Arkaplan Görseli') }}" style="background-image: url(/theme1/images/background/page-title-bg.jpg);">
         <div class="auto-container">
             <div class="title-outer text-center position-relative">
                 <h1 class="title">{{ $blog->name }}</h1>

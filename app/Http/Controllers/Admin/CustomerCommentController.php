@@ -8,9 +8,11 @@ use App\Http\Requests\CustomerComment\CustomerCommentUpdateRequest;
 use App\Models\CustomerComment;
 use App\Models\Locale;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CustomerCommentController extends Controller
 {
+    public string $roleKey = 'customer_comment';
     /**
      * Display a listing of the resource.
      */
@@ -48,11 +50,9 @@ class CustomerCommentController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($request){
-            $editUrl = route('admin.customer-comments.edit', $item->id);
+            $editUrl = route('admin.customer-comments.edit', $item);
             $deleteUrl = route('admin.customer-comments.destroy', $item->id);
-            $hasMore = CustomerComment::where('id', $item->id)->exists();
-
-            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.($hasMore ? 'true' : 'false').')"';
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', false)"';
 
             return [
                 'id' => $item->id,
@@ -172,8 +172,30 @@ class CustomerCommentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CustomerComment $customerComment)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                CustomerComment::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $file = CustomerComment::where('id',$id)->withTrashed()->first();
+                $imagePath = $file->image;
+
+                if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                    Storage::disk('public2')->delete($imagePath);// kapak resmini sil
+                }
+                $file->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            CustomerComment::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller
 {
+    public string $roleKey = 'setting';
     /**
      * Display a listing of the resource.
      */

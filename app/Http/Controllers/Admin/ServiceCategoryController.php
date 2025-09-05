@@ -6,13 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceCategory\ServiceCategoryStoreRequest;
 use App\Http\Requests\ServiceCategory\ServiceCategoryUpdateRequest;
 use App\Models\Locale;
+use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\ServiceImage;
+use App\Models\ServiceServiceCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ServiceCategoryController extends Controller
 {
+    public string $roleKey = 'service_category';
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +29,9 @@ class ServiceCategoryController extends Controller
     public function ajax(Request $request){
 
         $query = ServiceCategory::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('name', 'like', '%' . $search . '%');
@@ -46,28 +54,38 @@ class ServiceCategoryController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
 
-        $data = $items->map(function ($item) {
-
-
-            $editUrl = route('admin.service-categories.edit' , $item->id);
+        $data = $items->map(function ($item) use ($request) {
+            $editUrl = route('admin.service-categories.edit' , $item);
             $deleteUrl = route('admin.service-categories.destroy' , $item->id);
+            $hasMore = ServiceServiceCategory::where('service_category_id', $item->id)->exists();
+
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.($hasMore ? 'true' : 'false').')"';
 
             return[
                 'id' => $item->id,
                 'image' => !empty($item->image) ? '<img src="/storage/' . $item->image . '" height="60"/>' : __('Eklenmedi'),
                 'name' => $item->name,
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
 
@@ -194,8 +212,71 @@ class ServiceCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ServiceCategory $serviceCategory)
+    public function destroy(Request $request,$id)
     {
-        //
+        $serviceCategory = ServiceCategory::where('id',$id)->withTrashed()->first();
+
+        $serviceIds = ServiceServiceCategory::where('service_category_id',$serviceCategory->id)->pluck('service_id')->toArray();
+        if (isset($request->type)){
+            if ($request->type == "recycle"){ //geri al
+                Service::whereIn('id',$serviceIds)
+                    ->where('deleted_at','>=',$serviceCategory->deleted_at->subMinute())
+                    ->where('deleted_at','<=',$serviceCategory->deleted_at->addMinute())
+                    ->withTrashed()
+                    ->restore();
+                $serviceCategory->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{// tamamen sil
+                $services = Service::whereIn('id',$serviceIds)
+                    ->withTrashed()
+                    ->get();
+                ServiceServiceCategory::where('service_category_id',$serviceCategory->id)->delete(); //bağlı ilişkileri sil
+                $locales = Locale::all();
+                foreach ($services as $service) {
+                    foreach ($locales as $locale) {
+                        $imagePath = $service->getTranslation('image', $locale->locale);
+
+                        if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                            Storage::disk('public2')->delete($imagePath);// bağlı elemanların kapak resimlerini sunucudan sil
+                        }
+
+                        $coverPath = $service->getTranslation('cover', $locale->locale);
+
+                        if ($coverPath && Storage::disk('public2')->exists($coverPath)) {
+                            Storage::disk('public2')->delete($coverPath);// bağlı elemanların kapak resimlerini sunucudan sil
+                        }
+                    }
+                    $serviceImages = ServiceImage::where('service_id',$service->id)->get();
+                    foreach ($serviceImages as $serviceImage) {
+                        if (Storage::disk('public2')->exists($serviceImage->image_url)) {
+                            Storage::disk('public2')->delete($serviceImage->image_url);// bağlı elemanların ek resimlerini sunucudan sil
+                        }
+                        $serviceImage->delete();// bağlı elemanların ek resimlerini veritabanından sil
+                    }
+                    $service->forceDelete();// bağlı elemanı veritabanından sil
+                }
+                foreach ($locales as $locale) {
+                    $imagePath = $serviceCategory->getTranslation('image', $locale->locale);
+                    if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                        Storage::disk('public2')->delete($imagePath); // kapak resimmini sunucudan sil
+                    }
+
+                    $coverPath = $serviceCategory->getTranslation('cover', $locale->locale);
+                    if ($coverPath && Storage::disk('public2')->exists($coverPath)) {
+                        Storage::disk('public2')->delete($coverPath); // kapak resimmini sunucudan sil
+                    }
+                }
+
+                $serviceCategory->forceDelete(); // modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Service::whereIn('id',$serviceIds)->delete();
+            $serviceCategory->delete();
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

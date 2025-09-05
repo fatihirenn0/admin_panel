@@ -84,6 +84,16 @@
                             </ul>
                         </li>
                         <li><a href="{{ route(getOtherFullLink('contact')) }}">{{ __('İletişim') }}</a></li>
+                        @if($locales->where('active',1)->count() > 1)
+                            <li>
+                                <a href="">{{ app()->getLocale() }} <i class="fa-solid fa-globe"></i></a>
+                                <ul class="sub-menu">
+                                    @foreach($locales as $locale)
+                                        <li><a href="{{ route('site.setLocale',$locale->locale) }}">{{ $locale->language }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
                 <div class="menu-btns">

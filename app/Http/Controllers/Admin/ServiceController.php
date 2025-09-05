@@ -19,6 +19,7 @@ use Illuminate\Support\Str;
 
 class ServiceController extends Controller
 {
+    public string $roleKey = 'service';
     /**
      * Display a listing of the resource.
      */
@@ -62,7 +63,7 @@ class ServiceController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($serviceCategories,$request){
-            $editUrl = route('admin.services.edit', $item->id);
+            $editUrl = route('admin.services.edit', $item);
             $deleteUrl = route('admin.services.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
             $categoryName = '';
@@ -301,7 +302,7 @@ class ServiceController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.services.edit',$service)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**

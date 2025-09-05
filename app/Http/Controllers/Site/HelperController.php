@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\ContactMessage;
+use App\Models\Locale;
 use App\Models\Page;
 use App\Models\Project;
 use App\Models\Reference;
 use App\Models\Service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class HelperController extends Controller
 {
@@ -29,6 +31,19 @@ class HelperController extends Controller
         return view(
             $this->activeTheme.'.pages.contact'
         );
+    }
+
+    public function setLocale($locale)
+    {
+        $language = Locale::where('locale',$locale)
+            ->where('active',1)
+            ->first();
+        if (!$language)
+            return redirect()->back()->with('error',__('Geçersiz İstek'));
+
+        session(['locale' => $locale]);
+        App::setLocale($language->locale);
+        return redirect()->route('site.index');
     }
 
     public function search()

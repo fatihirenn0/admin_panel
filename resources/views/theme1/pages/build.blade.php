@@ -2,7 +2,6 @@
 <html lang="{{ app()->getLocale() }}">
 @include('theme1.layouts.head')
 <body>
-
 <!-- Preloader area start -->
 <div id="preloader">
     <div class="animation-preloader">

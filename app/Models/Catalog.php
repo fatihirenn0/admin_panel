@@ -29,4 +29,14 @@ class Catalog extends Model
     ];
 
     protected $casts = ['name','slug','description','cover','file','meta_description','meta_keywords'];
+
+    public function getRouteKey()
+    {
+        return $this->slug;
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug->'.session('locale','tr');
+    }
 }

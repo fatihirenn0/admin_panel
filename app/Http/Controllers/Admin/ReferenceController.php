@@ -8,9 +8,11 @@ use App\Http\Requests\Reference\ReferenceUpdateRequest;
 use App\Models\Locale;
 use App\Models\Reference;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ReferenceController extends Controller
 {
+    public string $roleKey = 'reference';
     /**
      * Display a listing of the resource.
      */
@@ -48,9 +50,9 @@ class ReferenceController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($request){
-            $editUrl = route('admin.references.edit', $item->id);
+            $editUrl = route('admin.references.edit', $item);
             $deleteUrl = route('admin.references.destroy', $item->id);
-            $hasMore = Reference::where('id', $item->id)->exists();
+            $hasMore = false;
 
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.($hasMore ? 'true' : 'false').')"';
 
@@ -171,8 +173,30 @@ class ReferenceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reference $reference)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                Reference::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $image = Reference::where('id',$id)->withTrashed()->first();
+                $imagePath = $image->image;
+
+                if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                    Storage::disk('public2')->delete($imagePath);// kapak resmini sil
+                }
+                $image->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Reference::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

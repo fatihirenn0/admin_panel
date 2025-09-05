@@ -61,15 +61,15 @@
                                                         <label class="form-check-label" for="{{ $key }}_list"> Listele </label>
                                                     </div>
                                                     <div class="form-check mb-0 me-4 me-lg-12">
-                                                        <input class="form-check-input" type="checkbox" id="{{ $key }}_add" name="role[]" value="{{ $key }}_list"/>
+                                                        <input class="form-check-input" type="checkbox" id="{{ $key }}_add" name="role[]" value="{{ $key }}_add"/>
                                                         <label class="form-check-label" for="{{ $key }}_add"> Ekle </label>
                                                     </div>
                                                     <div class="form-check mb-0 me-4 me-lg-12">
-                                                        <input class="form-check-input" type="checkbox" id="{{ $key }}_edit" name="role[]" value="{{ $key }}_list"/>
+                                                        <input class="form-check-input" type="checkbox" id="{{ $key }}_edit" name="role[]" value="{{ $key }}_edit"/>
                                                         <label class="form-check-label" for="{{ $key }}_edit"> Güncelle </label>
                                                     </div>
                                                     <div class="form-check mb-0">
-                                                        <input class="form-check-input" type="checkbox" id="{{ $key }}_delete" name="role[]" value="{{ $key }}_list"/>
+                                                        <input class="form-check-input" type="checkbox" id="{{ $key }}_delete" name="role[]" value="{{ $key }}_delete"/>
                                                         <label class="form-check-label" for="{{ $key }}_delete"> Sil </label>
                                                     </div>
                                                 </div>

@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\File\FileStoreRequest;
 use App\Models\File;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class FileController extends Controller
 {
+    public string $roleKey = 'file';
     /**
      * Display a listing of the resource.
      */
@@ -21,6 +23,9 @@ class FileController extends Controller
     public function ajax(Request $request){
 
         $query = File::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('name', 'like', '%' . $search . '%');
@@ -42,9 +47,10 @@ class FileController extends Controller
         $length = $request->input('length' , 10);
         $items = $query->skip($start)->take($length)->get();
 
-        $data = $items->map(function ($item) {
-            $editUrl = route('admin.files.edit' , $item->id);
+        $data = $items->map(function ($item) use ($request){
+            $editUrl = route('admin.files.edit' , $item);
             $deleteUrl = route('admin.files.destroy' , $item->id);
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
             return [
                 'id' => $item->id,
@@ -52,17 +58,26 @@ class FileController extends Controller
                 'file_url' => !empty($item->file_url)
                     ? '<embed src="'.asset('storage/' . $item->file_url).'" type="application/pdf" width="100" height="100">'
                     : __('Eklenmedi'),
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
         return response()->json([
@@ -145,8 +160,30 @@ class FileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(File $file)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                File::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $file = File::where('id',$id)->withTrashed()->first();
+                $imagePath = $file->file_url;
+
+                if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                    Storage::disk('public2')->delete($imagePath);// kapak resmini sil
+                }
+                $file->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            File::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

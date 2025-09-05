@@ -9,6 +9,7 @@ use Spatie\Translatable\HasTranslations;
 class Application extends Model
 {
     use SoftDeletes;
+
     protected $fillable = [
         'name',
         'job',

@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 
 class TeamController extends Controller
 {
+    public string $roleKey = 'team';
     /**
      * Display a listing of the resource.
      */
@@ -57,7 +58,7 @@ class TeamController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use($request){
-            $editUrl = route('admin.teams.edit', $item->id);
+            $editUrl = route('admin.teams.edit', $item);
             $deleteUrl = route('admin.teams.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
@@ -203,7 +204,7 @@ class TeamController extends Controller
                 $teamTeamCategory->save();
             }
         }
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.teams.edit',$team)->with('success', __('Başarıyla Güncellendi'));
 
 
     }

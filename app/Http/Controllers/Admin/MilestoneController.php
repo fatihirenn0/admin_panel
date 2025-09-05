@@ -9,10 +9,12 @@ use App\Models\Locale;
 use App\Models\Milestone;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class MilestoneController extends Controller
 {
+    public string $roleKey = 'milestone';
     /**
      * Display a listing of the resource.
      */
@@ -23,6 +25,9 @@ class MilestoneController extends Controller
     public function ajax(Request $request){
 
         $query = Milestone::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('name', 'like', '%' . $search . '%');
@@ -45,11 +50,12 @@ class MilestoneController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
 
-        $data = $items->map(function ($item) {
+        $data = $items->map(function ($item) use ($request){
 
 
-            $editUrl = route('admin.milestones.edit' , $item->id);
+            $editUrl = route('admin.milestones.edit' , $item);
             $deleteUrl = route('admin.milestones.destroy' , $item->id);
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
 
             return[
                 'id' => $item->id,
@@ -58,17 +64,26 @@ class MilestoneController extends Controller
                 'date' => $item->date,
                 'description' => $item->description,
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
 
@@ -188,14 +203,36 @@ class MilestoneController extends Controller
 
         $milestone->update($validated);
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.milestones.edit',$milestone)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Milestone $milestone)
+    public function destroy(Request $request,$id)
     {
-        //
+        if (isset($request->type)){
+            if ($request->type == "recycle"){//Geri Al
+                Milestone::where('id',$id)
+                    ->withTrashed()
+                    ->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{//Tamamen sil
+                $image = Milestone::where('id',$id)->withTrashed()->first();
+                $imagePath = $image->image;
+
+                if ($imagePath && Storage::disk('public2')->exists($imagePath)) {
+                    Storage::disk('public2')->delete($imagePath);// kapak resmini sil
+                }
+                $image->forceDelete(); //modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Milestone::where('id',$id)->withTrashed()->delete(); //modeli soft delete sil
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }

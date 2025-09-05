@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (files && files.length > 0) {
                 const file = files[0];
-                if (file.type.startsWith('video/')) return;
+                if (!file.type.startsWith('image/')) return;
 
                 const reader = new FileReader();
                 reader.onload = function (e) {
@@ -181,3 +181,17 @@ function checkBeforeDelete(id,hasMore){
         }
     });
 }
+
+document.getElementById('menuSearch').addEventListener('keyup', function() {
+    let filter = this.value.toLowerCase();
+    let items = document.querySelectorAll('.menu-inner .menu-item:not(:first-child)');
+
+    items.forEach(function(item) {
+        let text = item.innerText.toLowerCase();
+        if (text.includes(filter)) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});

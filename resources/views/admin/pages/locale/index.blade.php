@@ -16,6 +16,8 @@
                         <th>{{ __('Dil Kodu') }}</th>
                         <th>{{ __('Dil') }}</th>
                         <th>{{ __('Resim') }}</th>
+                        <th>{{ __('Varsayılan') }}</th>
+                        <th>{{ __('Site de Aktif mi?') }}</th>
                         <th>{{ __('Gösterim Sırası') }}</th>
                         <th>{{ __('İşlemler') }}</th>
                     </tr>
@@ -44,6 +46,8 @@
                 { data: 'locale', orderable: true, searchable: true },
                 { data: 'language', orderable: true, searchable: true },
                 { data: 'image', orderable: true, searchable: true },
+                { data: 'default', orderable: false, searchable: false },
+                { data: 'active', orderable: false, searchable: false },
                 { data: 'rank', orderable: true, searchable: true },
                 { data: 'actions', orderable: false, searchable: false },
             ],

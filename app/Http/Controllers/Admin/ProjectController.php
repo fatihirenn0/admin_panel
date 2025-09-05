@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
+    public string $roleKey = 'project';
     /**
      * Display a listing of the resource.
      */
@@ -61,7 +62,7 @@ class ProjectController extends Controller
 
         // 🔧 Görsel ve butonları ekleyerek veriyi hazırla
         $data = $items->map(function ($item) use ($projectCategories,$request){
-            $editUrl = route('admin.projects.edit', $item->id);
+            $editUrl = route('admin.projects.edit', $item);
             $deleteUrl = route('admin.projects.destroy', $item->id);
             $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.('false').')"';
             $categoryName = '';
@@ -302,7 +303,7 @@ class ProjectController extends Controller
             }
         }
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.projects.edit',$project)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**

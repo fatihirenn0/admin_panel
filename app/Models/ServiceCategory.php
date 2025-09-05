@@ -36,7 +36,7 @@ class ServiceCategory extends Model
 
     public function getRouteKeyName()
     {
-        return 'slug->tr';
+        return 'slug->'.session('locale','tr');
     }
 
     public function services()

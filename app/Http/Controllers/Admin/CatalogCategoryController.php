@@ -5,14 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CatalogCategory\CatalogCategoryStoreRequest;
 use App\Http\Requests\CatalogCategory\CatalogCategoryUpdateRequest;
+use App\Models\Catalog;
 use App\Models\CatalogCategory;
 use App\Models\Locale;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class CatalogCategoryController extends Controller
 {
+    public string $roleKey = 'catalog_category';
     /**
      * Display a listing of the resource.
      */
@@ -24,6 +27,9 @@ class CatalogCategoryController extends Controller
     public function ajax(Request $request){
 
         $query = CatalogCategory::query();
+
+        if ($request->has('trashed'))
+            $query = $query->onlyTrashed();
 
         if($search = $request->input('search.value')){
             $query->where('name', 'like', '%' . $search . '%');
@@ -46,28 +52,39 @@ class CatalogCategoryController extends Controller
         $items = $query->skip($start)->take($length)->get();
 
 
-        $data = $items->map(function ($item) {
+        $data = $items->map(function ($item) use ($request) {
 
 
-            $editUrl = route('admin.catalog-categories.edit' , $item->id);
+            $editUrl = route('admin.catalog-categories.edit' , $item);
             $deleteUrl = route('admin.catalog-categories.destroy' , $item->id);
+            $hasMore = Catalog::where('catalog_category_id', $item->id)->exists();
 
+            $deleteEvent = 'onclick="checkBeforeDelete('.$item->id.', '.($hasMore ? 'true' : 'false').')"';
             return[
                 'id' => $item->id,
                 'image' => !empty($item->image) ? '<img src="/storage/' . $item->image . '" height="60"/>' : __('Eklenmedi'),
                 'name' => $item->name,
                 'rank' => $item->rank ?? '',
-                'actions' => '
-            <a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
-                <i class="icon-base ti tabler-pencil"></i>
-            </a>
-            <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                'actions' => $request->has('trashed') ?
+                    '<form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
                 ' . csrf_field() . method_field('DELETE') . '
-                <button type="button" class="btn btn-sm btn-danger" onclick="checkBeforeDelete('.$item->id.')">
-                    <i class="icon-base ti tabler-trash"></i>
-                </button>
-            </form>
-            ',
+                        <button name="type" value="recycle" class="btn btn-sm btn-success">
+                            <i class="icon-base ti tabler-recycle"></i> Geri Al
+                        </button>
+                        <button name="type" value="trash" class="btn btn-sm btn-danger">
+                            <i class="icon-base ti tabler-trash-x"></i> Tamamen Sil
+                        </button>
+                    </form>' :
+                    '<a href="' . $editUrl . '" class="btn btn-sm btn-primary me-1" title="Düzenle">
+                        <i class="icon-base ti tabler-pencil"></i>
+                    </a>
+                    <form method="POST" action="'.$deleteUrl.'" class="delete-item-form" style="display:inline-block" data-id="'.$item->id.'">
+                        ' . csrf_field() . method_field('DELETE') . '
+                        <button type="button" class="btn btn-sm btn-danger" '.$deleteEvent.'>
+                            <i class="icon-base ti tabler-trash"></i>
+                        </button>
+                    </form>
+                ',
             ];
         });
 
@@ -189,14 +206,70 @@ class CatalogCategoryController extends Controller
 
         $catalogCategory->update($validated);
 
-        return redirect()->back()->with('success', __('Başarıyla Güncellendi'));
+        return redirect()->route('admin.catalog-categories.edit',$catalogCategory)->with('success', __('Başarıyla Güncellendi'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(CatalogCategory $catalogCategory)
+    public function destroy(Request $request,$id)
     {
-        //
+        $catalogCategory = CatalogCategory::where('id',$id)->withTrashed()->first();
+
+        $catalogIds = Catalog::where('catalog_category_id',$catalogCategory->id)->pluck('id')->toArray();
+
+        if (isset($request->type)){
+            if ($request->type == "recycle"){ //geri al
+                Catalog::where('catalog_category_id',$catalogCategory->id)
+                    ->where('deleted_at','>=',$catalogCategory->deleted_at->subMinute())
+                    ->where('deleted_at','<=',$catalogCategory->deleted_at->addMinute())
+                    ->withTrashed()
+                    ->restore();
+                $catalogCategory->restore();
+
+                return redirect()->back()->with('success', __('Başarıyla Geri Alındı'));
+            }else{// tamamen sil
+                $catalogs = Catalog::whereIn('id',$catalogIds)
+                    ->withTrashed()
+                    ->get();
+                $locales = Locale::all();
+                foreach ($catalogs as $catalog) {
+                    foreach ($locales as $locale) {
+                        $coverPath = $catalog->getTranslation('cover', $locale->locale);
+
+                        if ($coverPath && Storage::disk('public2')->exists($coverPath)) {
+                            Storage::disk('public2')->delete($coverPath);// bağlı elemanların kapak resimlerini sunucudan sil
+                        }
+
+                        $filePath = $catalog->getTranslation('file', $locale->locale);
+
+                        if ($filePath && Storage::disk('public2')->exists($filePath)) {
+                            Storage::disk('public2')->delete($filePath);// bağlı elemanların kapak resimlerini sunucudan sil
+                        }
+                    }
+
+                    $catalog->forceDelete();// bağlı elemanı veritabanından sil
+                }
+                foreach ($locales as $locale) {
+                    $coverPath = $catalogCategory->getTranslation('cover', $locale->locale);
+                    if ($coverPath && Storage::disk('public2')->exists($coverPath)) {
+                        Storage::disk('public2')->delete($coverPath); // kapak resimmini sunucudan sil
+                    }
+                    $filePath = $catalogCategory->getTranslation('file', $locale->locale);
+                    if ($filePath && Storage::disk('public2')->exists($filePath)) {
+                        Storage::disk('public2')->delete($filePath); // kapak resimmini sunucudan sil
+                    }
+                }
+
+                $catalogCategory->forceDelete(); // modeli sil
+
+                return redirect()->back()->with('success', __('Başarıyla Tamamen Silindi'));
+            }
+        }else{
+            Catalog::whereIn('id',$catalogIds)->delete();
+            $catalogCategory->delete();
+
+            return redirect()->back()->with('success', __('Başarıyla Silindi'));
+        }
     }
 }
