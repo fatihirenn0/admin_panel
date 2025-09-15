@@ -87,9 +87,9 @@
                         <div class="blog-widget-item">
                             <div class="search-area">
                                 <div class="blog-widget-body">
-                                    <form>
+                                    <form method="post" action="{{ route(getResourceFullLink('blogs','index')) }}">
                                         <div class="search-with-btn">
-                                            <input type="text" placeholder="Search Here" />
+                                            <input type="text" placeholder="{{__('Bloglarda Ara')}}" />
                                             <button><i class="bi bi-search"></i></button>
                                         </div>
                                     </form>

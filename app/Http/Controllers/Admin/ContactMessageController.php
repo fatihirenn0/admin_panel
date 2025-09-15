@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ContactMessageController extends Controller
 {
-    public string $roleKey = 'contact_message';
+    public string $roleKey = 'contact_messages';
     /**
      * Display a listing of the resource.
      */

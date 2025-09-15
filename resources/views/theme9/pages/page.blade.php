@@ -1,4 +1,8 @@
-@extends('theme9.pages.build') @section('title',$page->name) @section('meta_keywords',$page->meta_keywords) @section('meta_description',$page->meta_description) @section('content')
+@extends('theme9.pages.build')
+@section('title',$page->name)
+@section('meta_keywords',$page->meta_keywords)
+@section('meta_description',$page->meta_description)
+@section('content')
     <!-- ========== breadcrumb start============= -->
 
     <div class="breadcrumb-section">

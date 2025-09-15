@@ -163,7 +163,7 @@
             <div class="lower-box">
                 <!-- Social Icons -->
                 <ul class="social-icons">
-                    <li class="follow">Follow us:</li>
+                    <li class="follow">{{ __('Sosyal Medya') }}:</li>
                     @if($settings->get('twitter'))
                         <li class="twitter">
                             <a href="{{ $settings->get('twitter') }}"><i class="fa fa-twitter"></i></a>

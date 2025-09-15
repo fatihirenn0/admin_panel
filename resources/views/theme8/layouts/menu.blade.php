@@ -16,7 +16,7 @@
             <li><a href='{{ route(getResourceFullLink('projects')) }}'><i class="fa fa-star"></i> {{ __('Projeler') }}</a></li>
             <li><a href='{{ route(getResourceFullLink('faqs')) }}'><i class="fa fa-star"></i> {{ __('S.S.S') }}</a></li>
             <li><a href='{{ route(getResourceFullLink('blogs')) }}'><i class="fa fa-star"></i> {{ __('Bloglar') }}</a></li>
-            <li><a href='{{ route('site.contact') }}'><i class="fa fa-star"></i> {{ __('İletişim') }}</a></li>
+            <li><a href='{{ route(getOtherFullLink('contact')) }}'><i class="fa fa-star"></i> {{ __('İletişim') }}</a></li>
         </ul>
     </nav>
     <!-- Info -->

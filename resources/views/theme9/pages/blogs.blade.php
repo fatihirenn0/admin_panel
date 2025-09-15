@@ -95,7 +95,7 @@
                                                         <img src="/storage/{{ $otherBlog->image }}" alt="{{ $otherBlog->name }}" />
                                                     </div>
                                                     <div class="recent-post-content">
-                                                        <span>30th May, 2022</span>
+                                                        <span>{{ \Carbon\Carbon::parse($otherBlog->created_at)->translatedFormat('d F Y') }}</span>
                                                         <h6><a href="{{ route(getResourceFullLink('blogs','show'),$otherBlog) }}">{{ $otherBlog->name }}</a></h6>
                                                     </div>
                                                 </div>

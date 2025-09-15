@@ -55,8 +55,7 @@
                                                 </div>
                                             @endforeach
                                         </div>
-                                    @endforeach @else
-                                        @foreach($faqs as $faq)
+                                    @endforeach @else @foreach($faqs as $faq)
                                         <div class="col-md-6">
                                             <div class="card">
                                                 <div class="card-header" role="tab" id="heading-{{ $faq->id }}">

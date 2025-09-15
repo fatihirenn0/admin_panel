@@ -19,7 +19,7 @@
                         <div class="swiper-slide">
                             <div class="testi3-single sibling2">
                                 <div class="image">
-                                    <img src="/storage/{{ $indexComment->image }}" alt="{{ $indexComment->image }}" />
+                                    <img src="/storage/{{ $indexComment->image }}" alt="{{ $indexComment->name }}" />
                                     <div class="img-content">
                                         <h3>{{ $indexComment->name }}</h3>
                                         <span>{{ $indexComment->job }}</span>

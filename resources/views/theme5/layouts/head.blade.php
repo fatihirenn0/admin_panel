@@ -6,7 +6,7 @@
 
     <!-- Title & Favicon -->
     <title>@yield('title',$settings->get('title_'.app()->getLocale()))</title>
-    <link rel="shortcut icon" href="/theme5/img/core-img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/storage/{{ $settings->get('favicon') }}" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

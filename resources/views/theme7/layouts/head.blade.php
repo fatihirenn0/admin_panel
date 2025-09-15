@@ -6,7 +6,7 @@
     <meta name="description" content="@yield('meta_description',$settings->get('meta_description_'.app()->getLocale()))">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="/theme7/images/fevicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/storage/{{ $settings->get('favicon') }}">
     <!-- CSS
        ============================================ -->
     <!-- Bootstrap CSS -->

@@ -15,8 +15,8 @@
     <link href="/theme10/css/jquery.fancybox.min.css" rel="stylesheet">
     <link href="/theme10/css/jquery.mCustomScrollbar.min.css" rel="stylesheet">
     <link href="/theme10/css/responsive.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/theme10/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="/theme10/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/storage/{{ $settings->get('favicon') }}" type="image/x-icon">
+    <link rel="icon" href="/storage/{{ $settings->get('favicon') }}" type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->

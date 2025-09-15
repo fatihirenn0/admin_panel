@@ -1,5 +1,12 @@
-@extends('theme10.pages.build') @if(isset($projectCategory)) @section('title',$projectCategory->name) @section('meta_keywords',$projectCategory->meta_keywords) @section('meta_description',$projectCategory->meta_description) @else
-    @section('title',__('Projeler')) @endif @section('content')
+@extends('theme10.pages.build')
+@if(isset($projectCategory))
+    @section('title',$projectCategory->name)
+    @section('meta_keywords',$projectCategory->meta_keywords)
+    @section('meta_description',$projectCategory->meta_description)
+@else
+    @section('title',__('Projeler'))
+@endif
+@section('content')
     <!--Page Title-->
     <section class="page-title static-image" style="background-image: url(/theme10/images/background/4.jpg);" alt="{{ __('Projeler Sayfası Görseli') }}">
         <div class="container">

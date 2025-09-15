@@ -43,7 +43,7 @@
 
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/png" href="/theme6/img/favicon.ico">
+    <link rel="shortcut icon" type="image/png" href="/storage/{{ $settings->get('favicon') }}">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

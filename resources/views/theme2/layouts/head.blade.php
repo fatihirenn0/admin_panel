@@ -8,7 +8,7 @@
     <!-- ======== Page title ============ -->
     <title>@yield('title',$settings->get('title_'.app()->getLocale()))</title>
     <!--<< Favcion >>-->
-    <link rel="shortcut icon" href="/theme2/img/favicon.svg">
+    <link rel="shortcut icon" href="/storage/{{ $settings->get('favicon') }}">
     <!--<< Bootstrap min.css >>-->
     <link rel="stylesheet" href="/theme2/css/bootstrap.min.css">
     <!--<< All Min Css >>-->

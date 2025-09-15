@@ -11,10 +11,10 @@
     <section class="page-title" style="background-image:url(/theme10/images/background/4.jpg)">
         <div class="container">
             <div class="content">
-                <h1>About Us</h1>
+                <h1>{{ isset($teamCategory) ? $teamCategory->name : __('Ekibimiz') }}</h1>
                 <ul class="page-breadcrumb">
-                    <li><a href="index.html">Home</a></li>
-                    <li>About us</li>
+                    <li><a href="{{ route('site.index') }}">{{ __('Anasayfa') }}</a></li>
+                    <li>{{ isset($teamCategory) ? $teamCategory->name : __('Ekibimiz') }}</li>
                 </ul>
             </div>
         </div>
@@ -29,11 +29,11 @@
             <div class="section-title light">
                 <div class="clearfix">
                     <div class="pull-left">
-                        <div class="title">Our Team</div>
-                        <h3>We feel very proud for our <br> great <span>achievement</span></h3>
+                        <div class="title">{{ __('Her Alanda Uzman Avukat Kadromuz') }}</div>
+                        <h3>{{ __('Güven, şeffaflık ve titizlik: Ekibimizin ortak çalışma prensibi. Dosyanızın her aşamasını öngörülebilir, planlı ve ölçülebilir şekilde yönetiyoruz.”') }}</h3>
                     </div>
                     <div class="pull-right">
-                        <div class="text">Aenean tincidunt id mauris idology auctor. Donec at ligula lacus. Nulla dig nissimmi quis neque interdum. An Ohio man allegedly punched his lawyer in the face in court Tuesday upon finding out he was sentenced.</div>
+                        <div class="text">{{ __('Her biri kendi alanında deneyimli avukatlarımız; dava stratejisi, danışmanlık ve müzakere süreçlerinde şeffaf, çözüm odaklı ve etik bir yaklaşım benimser. Müvekkillerimizin ihtiyaçlarına özel çözümler üreterek sürecin her adımında yanlarında oluruz.') }}</div>
                     </div>
                 </div>
             </div>

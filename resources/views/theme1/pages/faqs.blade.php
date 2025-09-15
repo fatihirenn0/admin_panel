@@ -35,7 +35,7 @@
                                                 </div>
                                                 <div class="acc-content {{ $loop->first ? 'current' : '' }}">
                                                     <div class="content">
-                                                        <div class="text">{!! $faq->answer !!}</div>
+                                                        <div class="text">{{ $faq->answer }}</div>
                                                     </div>
                                                 </div>
                                             </li>
@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="acc-content {{ $loop->first ? 'current' : '' }}">
                                                 <div class="content">
-                                                    <div class="text">{!! $faq->answer !!}</div>
+                                                    <div class="text">{{ $faq->answer }}</div>
                                                 </div>
                                             </div>
                                         </li>

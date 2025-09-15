@@ -3,10 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title',$settings->get('title_'.app()->getLocale()))</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/theme4/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/theme4/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/theme4/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/theme4/images/favicons/site.webmanifest">
+    <link rel="shortcut icon" href="/storage/{{ $settings->get('favicon') }}" type="image/x-icon">
     <meta name="keywords" content="@yield('meta_keywords',$settings->get('meta_keywords_'.app()->getLocale()))">
     <meta name="description" content="@yield('meta_description',$settings->get('meta_description_'.app()->getLocale()))">
 

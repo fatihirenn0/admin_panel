@@ -34,7 +34,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="section-title2 text-center">
-                    <h2>Completed Cases</h2>
+                    <h2>{{ __('Başarıyla Tamamlanan Çalışmalarımız') }}</h2>
                 </div>
             </div>
             <div class="row justify-content-center">

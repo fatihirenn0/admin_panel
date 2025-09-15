@@ -15,8 +15,16 @@
                 <h4 class="wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">{{ __('İletişim Formu') }}</h4>
                 <h2 class="wow splt-txt" data-splitting>{{ __('Bizimle İletişime Geçin') }}</h2>
             </div>
-            <form name="contact_form" action="{{ route('site.contact.message') }}" method="post">
-                @csrf
+            <form name="contact_form" action="{{ route('site.contact.message') }}" method="post">@csrf
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <div class="row g-3">
                     <div class="col-sm-6">
                         <input name="name" class="form-control @error('name') is-invalid @enderror"

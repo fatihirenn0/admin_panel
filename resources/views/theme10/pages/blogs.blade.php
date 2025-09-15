@@ -1,5 +1,12 @@
-@extends('theme10.pages.build') @if(isset($blogCategory)) @section('title',$blogCategory->name) @section('meta_keywords',$blogCategory->meta_keywords) @section('meta_description',$blogCategory->meta_description) @else
-    @section('title',__('Bloglar')) @endif @section('content')
+@extends('theme10.pages.build')
+@if(isset($blogCategory))
+    @section('title',$blogCategory->name)
+    @section('meta_keywords',$blogCategory->meta_keywords)
+    @section('meta_description',$blogCategory->meta_description)
+@else
+    @section('title',__('Bloglar'))
+@endif
+@section('content')
     <!--Page Title-->
     <section class="page-title static-image" style="background-image: url(/theme10/images/background/4.jpg);" alt="{{ __('Blog Sayfası Görseli') }}">
         <div class="container">

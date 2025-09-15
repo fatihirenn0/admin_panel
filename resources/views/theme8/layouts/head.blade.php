@@ -5,7 +5,7 @@
     <meta name="keywords" content="@yield('meta_keywords',$settings->get('meta_keywords_'.app()->getLocale()))">
     <meta name="description" content="@yield('meta_description',$settings->get('meta_description_'.app()->getLocale()))">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="/theme8/images/favicon.png" />
+    <link rel="icon" type="image/png" href="/storage/{{ $settings->get('favicon') }}" />
     <link rel="stylesheet" href="/theme8/css/animate.css">
     <link rel="stylesheet" href="/theme8/css/flaticon.css">
     <link rel="stylesheet" href="/theme8/css/font-awesome.min.css">

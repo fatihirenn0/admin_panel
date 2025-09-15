@@ -8,8 +8,8 @@
     <link href="/theme3/plugins/revolution/css/navigation.css" rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
     <link href="/theme3/css/style.css" rel="stylesheet">
 
-    <link rel="shortcut icon" href="/theme3/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="/theme3/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="/storage/{{ $settings->get('favicon') }}" type="image/x-icon">
+    <link rel="icon" href="/storage/{{ $settings->get('favicon') }}" type="image/x-icon">
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
