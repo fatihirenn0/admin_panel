@@ -1,0 +1,14 @@
+@extends('theme17.pages.build')
+@section('content')
+    <main>
+        @include('theme17.pages.blocks.slider')
+        @include('theme17.pages.blocks.about')
+        @include('theme17.pages.blocks.project')
+        @include('theme17.pages.blocks.service')
+        @include('theme17.pages.blocks.client')
+        @include('theme17.pages.blocks.customer_comment')
+        @include('theme17.pages.blocks.team')
+        @include('theme17.pages.blocks.faq')
+        @include('theme17.pages.blocks.blog')
+    </main>
+@endsection

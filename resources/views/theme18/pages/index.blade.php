@@ -1,0 +1,13 @@
+@extends('theme18.pages.build')
+@section('content')
+    <main>
+        @include('theme18.pages.blocks.slider')
+        @include('theme18.pages.blocks.about')
+        @include('theme18.pages.blocks.service')
+        @include('theme18.pages.blocks.why_us')
+        @include('theme18.pages.blocks.project')
+        @include('theme18.pages.blocks.team')
+        @include('theme18.pages.blocks.contact')
+        @include('theme18.pages.blocks.blog')
+    </main>
+@endsection

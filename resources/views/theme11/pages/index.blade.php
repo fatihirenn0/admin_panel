@@ -1,0 +1,13 @@
+@extends('theme11.pages.build')
+@section('content')
+    <main>
+        @include('theme11.pages.blocks.slider')
+        @include('theme11.pages.blocks.service')
+        @include('theme11.pages.blocks.about')
+        @include('theme11.pages.blocks.project')
+        @include('theme11.pages.blocks.contact')
+        @include('theme11.pages.blocks.team')
+        @include('theme11.pages.blocks.customer_comment')
+        @include('theme11.pages.blocks.client')
+    </main>
+@endsection

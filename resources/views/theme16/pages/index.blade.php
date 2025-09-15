@@ -1,0 +1,12 @@
+@extends('theme16.pages.build')
+@section('content')
+    <main>
+        @include('theme16.pages.blocks.slider')
+        @include('theme16.pages.blocks.service')
+        @include('theme16.pages.blocks.about')
+        @include('theme16.pages.blocks.project')
+        @include('theme16.pages.blocks.customer_comment')
+        @include('theme16.pages.blocks.blog')
+        @include('theme16.pages.blocks.client')
+    </main>
+@endsection

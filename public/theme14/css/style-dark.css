@@ -1,0 +1,317 @@
+:root {
+  --dark-color1: #121c27;
+  --dark-color2: #0A1119;
+  --dark-color3: #2b242b;
+}
+
+body,
+.contact-two__form form .input input,
+.contact-two__form form .textarea textarea,
+.feature-four-area,
+.choose__item,
+.portfolio-eight-area,
+.header-nine-area.menu-fixed,
+.bg-sub4,
+.sidebar__socials ul li,
+.sidebar__btns a {
+  background-color: var(--dark-color1) !important;
+}
+
+.offcanvas {
+  border-color: var(--dark-color1) !important;
+}
+
+.header-top-area,
+.header-two-area.menu-fixed,
+.hzAccordion-area,
+.contact__form,
+.nice-select,
+.footer-area,
+.pricing__item.popular .price span,
+.pricing__item.popular,
+.testimonial__item .icon,
+.funfact-area,
+.banner-three__form,
+.header-area.menu-fixed.header-blur::after,
+.choose-four-area,
+.feature-five__item::after,
+.pricing-five__item.popular,
+.popular.pricing-seven__item,
+.header-eight-area.menu-fixed,
+.skill__item .progress-area .progress .progress-bar,
+.skill__item .progress-area .progress .progress-bar::after,
+.service-seven__tab ul.nav.nav-tabs li.nav-item button.nav-link.active,
+.dark-area.marquee-seven-area,
+.professional-seven-area,
+.professional-seven__content .text,
+.service-eight__item .icon,
+.pricing-nine__item.popular,
+.testimonial-five__image .image-content,
+.work-ten__item .image .number,
+.marquee-ten-area,
+.marquee-ten-area-wrp::before,
+.service-eleven__item::after,
+.work-eleven__item .image .number,
+.header-dark-area,
+.header-dark-area.menu-fixed,
+.service-twelve-area,
+.pricing__item .price span,
+.testimonial-thirteen-area,
+.team-two__item .socials,
+.team-two__item .socials ul li a,
+.sidebar-area {
+  background-color: var(--dark-color2);
+}
+
+.testimonial-ten-right::before {
+  background: var(--dark-color2);
+}
+
+.training-block-two .info-box .read-more,
+.offcanvas .btn-close {
+  background-color: var(--dark-color3);
+}
+
+.banner-three__form form input::-webkit-input-placeholder, .banner-three__form form textarea::-webkit-input-placeholder {
+  color: #fff !important;
+}
+
+.banner-three__form form input::-moz-placeholder, .banner-three__form form textarea::-moz-placeholder {
+  color: #fff !important;
+}
+
+.banner-three__form form input:-ms-input-placeholder, .banner-three__form form textarea:-ms-input-placeholder {
+  color: #fff !important;
+}
+
+.banner-three__form form input::-ms-input-placeholder, .banner-three__form form textarea::-ms-input-placeholder {
+  color: #fff !important;
+}
+
+.header-top__links li,
+.header-top__links li a,
+.header__main .main-menu ul li,
+.header__main .main-menu-light ul li:hover i,
+.header__main .main-menu-light ul li:hover a,
+.header__main .main-menu-light ul li a,
+.header__main .main-menu ul li .sub-menu li .sub-sub-menu.new-badge::after,
+.header__main .menu-btns.light .search-trigger,
+.search-wrap .search-close,
+.title a,
+.sec-title h2,
+.banner__content .title,
+.btn-more-2,
+.btn-more-2:hover,
+.hzAccordion__item .head .head-title .title,
+.about__testimonial p,
+.about__testimonial h4,
+.about__funfact p,
+.about__funfact ul li h3,
+.footer__item .title,
+.footer__item-last .title,
+.banner-two__content .title,
+.banner-two__content .customer-rating .rating span,
+.banner-two__contact-info ul li span,
+.btn-view,
+.project__item .content h4,
+.project__item .content p,
+.pricing__item.popular .price span,
+.pricing__item.popular .price h2,
+.btn-discover-light,
+.pricing__item.popular ul li i,
+.funfact__item h2,
+.footer__copyright p a,
+.banner-three__content .rating span,
+.banner-three__content .title,
+.banner-three__form .title,
+.banner-three__form .nice-select span,
+.banner-three__form form input::placeholder,
+.banner-three__form form textarea::placeholder,
+.about-four__item .icon svg path,
+.choose-four-right .progress-area .progress__title h4,
+.choose-four-right .text,
+.portfolio__item .content .number,
+.btn-show-all,
+.feature-four__item .title,
+.feature-four__item .text,
+.contact-four__image .content .text,
+.btn-video a,
+.banner-five__content .title,
+.banner-five__content .btns-box h4,
+.feature-five__item.active .readMore-btn,
+.pricing-five__item.popular ul li,
+.popular.pricing-seven__item ul li,
+.pricing-five__item ul li i,
+.pricing-five__item.popular .pricing-btn,
+.popular.pricing-seven__item .pricing-btn,
+.team-five__item:hover .content .sub-title,
+.team-five__item .content .socials,
+.footer__copyright .policy,
+.header-eight__btns .call h5,
+.banner-six__content .title,
+.btn-one-light,
+.skill__item .progress-area .progress__title h5,
+.skill__item .progress-area .progress__title span,
+.choose__item .arrow-btn,
+.banner-five-area-2 .banner-five__content h4,
+.service-seven__tab ul.nav.nav-tabs li.nav-item button.nav-link.active,
+.professional-seven__content .arry-group button,
+.team-two__item .content .sub-title,
+.funfact-eight__item .cout-text,
+.funfact-eight__item .cout-text span,
+.funfact-eight__item .title,
+.banner-nine__content .title,
+.banner-nine__content .btns-box h4,
+.video-nine__item .progress-area .progress__title h4,
+.video-nine__item .progress-area .progress__title span,
+.progress__title span,
+.pricing-nine__item.popular ul li,
+.pricing-nine__item.popular .btn-more,
+.testimonial-five__image .image-content .title,
+.title,
+.banner-ten__content .btns .play-btn h5,
+.banner-ten__content .btns .play-btn .video-popup,
+.work-ten__item .image .number,
+.service-eleven__item.active h4,
+.work-eleven__item .image .number,
+.service__item .serial,
+.pricing__item.popular .title h6,
+.choose-four-right .progress-area .progress__title span,
+.contact-four__brand-text,
+.service-fourteen__item .content-box .icon,
+.sidebar__contact-info ul li i,
+.sidebar__btns a,
+.offcanvas .btn-close {
+  color: #fff !important;
+}
+
+.banner-four__item span,
+.service-seven__tab ul.nav.nav-tabs li.nav-item button.nav-link.active {
+  border-bottom-color: #fff;
+}
+
+.search-wrap .main-search-input {
+  border-bottom: 1px solid #fff;
+}
+
+.btn-discover-light,
+.btn-show-all,
+.swiper__dots .swiper-pagination-bullet,
+.btn-one-light,
+.feature-six__item,
+.banner-ten__content .btns .play-btn .video-popup,
+.testimonial-thirteen-right .testimonial__dot .swiper-pagination-bullet {
+  border-color: #fff;
+}
+
+.about__testimonial h4::after,
+.header__main .menubars-light span {
+  background-color: #fff;
+}
+
+.banner__content .text,
+.consult__service ul li,
+.consult__experience .check-list-box ul li,
+.hzAccordion__item .content .text,
+.about__content ul li,
+.pricing__item.popular p,
+.pricing__item.popular ul li,
+.funfact__item ul li,
+.banner-three__content .text,
+.choose-three__content ul li,
+.banner-five__content .text,
+.banner-five__content .btns-box span,
+.banner-five__content .rating span,
+.feature-five__item.active .text,
+.solution__header ul li,
+.solution__item .content .sub-title,
+.header-eight__btns .call span,
+.banner-six__content .text,
+.feature-six__item .content span,
+.choose__item .text,
+.contact-six__image .circle-btn span,
+.professional-seven__content .text,
+.funfact-eight__item .text,
+.banner-nine__content .sub-title,
+.banner-nine__content .btns-box span,
+.banner-nine__content .rating span,
+.video-nine__item .text,
+.banner-ten__content .text,
+.banner-ten__contact-info ul li span,
+.service-twelve__item-dark .list ul li a,
+.service-fourteen__item .content-box .title-box p,
+.sidebar__text,
+.sidebar__contact-info ul li a {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.service-two__item .icon svg path,
+.feature-five__item .icon svg path,
+.feature-five__item.active .icon svg path,
+.testimonial-five__item .title svg path,
+.choose__item .icon svg,
+.professional__item .icon svg path,
+.professional__item-last .icon svg path,
+.choose-seven__wrp .testimonial-three__item .quote .icon svg path,
+.choose-seven__wrp .item svg path,
+.service-nine__item .item-head .icon svg path,
+.service-six__item .item-head .icon svg path,
+.service-eleven__item.active svg path,
+.service-eleven__item svg path,
+.about-four__item .icon svg path,
+.service-twelve__item .list ul li svg path,
+.testimonial-thirteen__item .title svg path {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.hzAccordion__item .head .head-title span.number,
+.funfact__item h2,
+.marquee__item .stroke-text,
+.project__item:hover .content span,
+.banner-four__item span,
+.portfolio-ten__item span {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5) !important;
+}
+
+.opacity-3 {
+  opacity: 0.3;
+}
+
+.choose-three__wrp .shape-image {
+  display: none;
+}
+
+.header-style-two {
+  background-color: unset;
+}
+
+.services-section-two .outer-box:before {
+  background: unset;
+}
+
+.bg-img-unset {
+  background-image: unset !important;
+}
+
+.banner-section-four .slide-item .bg-image:after {
+  opacity: 0.6;
+}
+
+.opacity-1 {
+  opacity: 0.1;
+}
+
+.opacity-9 {
+  opacity: 0.9;
+}
+
+.brand__item img,
+.brand-two__item img,
+.contact-two__map .location img,
+.about-six__item .info img,
+.choose__item.light .icon svg,
+.testimonial-ten__item .info .review-img,
+.testimonial-twelve__item .ratting img {
+  -webkit-filter: invert(1);
+          filter: invert(1);
+}
